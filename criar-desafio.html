@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
+<title>Missão IA · Criador de desafios</title>
+<link rel="stylesheet" href="assets/css/base.css?v=1">
+<style>
+  body { font-size: 17px; line-height: 1.55; background: var(--gelo); }
+  .wrap { width: min(1180px, 100% - 32px); margin: 0 auto; }
+  header { background: var(--azul); color: #fff; padding: 34px 0 30px; }
+  header a.back { color: var(--claro); font-weight: 700; text-decoration: none; font-size: 15px; }
+  header h1 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: clamp(38px, 6vw, 64px); line-height: 1.05; margin: 10px 0 8px; }
+  header p { margin: 0; max-width: 760px; color: #fff; }
+  .layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; padding: 32px 0 60px; align-items: start; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+  form, .preview { background: #fff; padding: clamp(20px, 4vw, 34px); display: flex; flex-direction: column; gap: 22px; }
+  .preview { position: sticky; top: 16px; border-top: 10px solid var(--azul); }
+  fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  legend, label.l { font-weight: 800; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--cinza); padding: 0; }
+  .tipos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  @media (max-width: 560px) { .tipos { grid-template-columns: 1fr; } }
+  .tipos label { display: flex; flex-direction: column; gap: 4px; padding: 14px; border: 3px solid var(--claro); cursor: pointer; }
+  .tipos label b { font-size: 16px; }
+  .tipos label span { font-size: 14px; color: var(--cinza); line-height: 1.35; }
+  .tipos input { position: absolute; opacity: 0; }
+  .tipos label:has(input:checked) { border-color: var(--azul); background: var(--gelo); }
+  .tipos label:has(input:focus-visible) { outline: 4px solid var(--amarelo); outline-offset: 2px; }
+  .f { display: flex; flex-direction: column; gap: 6px; }
+  .f .n { color: var(--azul); }
+  .f small { color: var(--suave); font-size: 14px; }
+  textarea, input[type=text] { width: 100%; padding: 12px 14px; font: 500 16px/1.5 var(--texto); color: var(--marinho); border: 2px solid var(--claro); background: #fff; resize: vertical; }
+  textarea:focus, input[type=text]:focus { outline: none; border-color: var(--azul); }
+  [aria-invalid="true"] { border-color: var(--vermelho) !important; }
+  .err { color: var(--vermelho); font-weight: 700; font-size: 14px; min-height: 0; }
+  .err:empty { display: none; }
+  .summary { padding: 14px 16px; background: var(--vermelho-claro); color: var(--vermelho); font-weight: 700; }
+  .summary:empty { display: none; }
+  .ok { padding: 14px 16px; background: var(--verde-claro); color: var(--verde); font-weight: 700; }
+  .ok:empty { display: none; }
+  .checks label { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; }
+  .checks input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--azul); }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .saved { font-size: 13px; color: var(--suave); }
+  .preview .tag { align-self: flex-start; font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 5px 10px; background: var(--azul); color: #fff; }
+  .preview h2 { margin: 0; font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: 34px; line-height: 1.08; color: var(--azul); }
+  .preview h3 { margin: 0; font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--cinza); }
+  .preview p { margin: 0; white-space: pre-wrap; }
+  .preview .empty { color: var(--suave); font-style: italic; }
+  .preview .sol { padding: 14px 16px; background: var(--gelo); }
+  .note { font-size: 14px; color: var(--cinza); }
+  @media print {
+    header, form, .no-print { display: none !important; }
+    body { background: #fff; }
+    .layout { display: block; padding: 0; }
+    .preview { position: static; box-shadow: none; border-top: 6px solid #000; }
+    @page { size: A4; margin: 18mm; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="back" href="index.html">← Hub Missão IA</a>
+    <h1>Criador de desafios</h1>
+    <p>Em dupla, criem uma situação para outra turma investigar. O que vocês escrevem fica salvo só neste aparelho — nada é publicado automaticamente.</p>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <form id="form" novalidate>
+    <div class="summary" id="summary" role="alert"></div>
+
+    <fieldset>
+      <legend>Tipo de desafio</legend>
+      <div class="tipos">
+        <label><input type="radio" name="tipo" value="falsa" checked><b>Informação falsa</b><span>Erro escondido ou fonte que não existe</span></label>
+        <label><input type="radio" name="tipo" value="dependencia"><b>Resposta pronta</b><span>Dependência: a IA faz, o estudante não aprende</span></label>
+        <label><input type="radio" name="tipo" value="etica"><b>Ética e dados</b><span>Autoria, privacidade ou uso indevido</span></label>
+      </div>
+    </fieldset>
+
+    <div class="f">
+      <label class="l" for="titulo">Título do desafio</label>
+      <input type="text" id="titulo" name="titulo" maxlength="80">
+      <div class="err" id="err-titulo"></div>
+    </div>
+
+    <div class="f">
+      <label class="l" for="situacao"><span class="n">1 ·</span> Situação</label>
+      <small id="h-situacao">Quem pede o quê para a IA, e em que contexto? Use personagens inventados.</small>
+      <textarea id="situacao" name="situacao" rows="3" aria-describedby="h-situacao err-situacao"></textarea>
+      <div class="err" id="err-situacao"></div>
+    </div>
+
+    <div class="f">
+      <label class="l" for="resposta"><span class="n">2 ·</span> Resposta da IA ou risco</label>
+      <small id="h-resposta">A resposta simulada (com o erro) ou o risco envolvido.</small>
+      <textarea id="resposta" name="resposta" rows="4" aria-describedby="h-resposta err-resposta"></textarea>
+      <div class="err" id="err-resposta"></div>
+    </div>
+
+    <div class="f">
+      <label class="l" for="tarefa"><span class="n">3 ·</span> Tarefa de investigação</label>
+      <small id="h-tarefa">O que a outra turma precisa fazer? Ex.: “Encontre o erro e diga onde conferir”.</small>
+      <textarea id="tarefa" name="tarefa" rows="3" aria-describedby="h-tarefa err-tarefa"></textarea>
+      <div class="err" id="err-tarefa"></div>
+    </div>
+
+    <div class="f">
+      <label class="l" for="solucao"><span class="n">4 ·</span> Solução comentada e critério de verificação</label>
+      <small id="h-solucao">Qual é o problema, qual é o correto e em que fonte (livro, professor, site confiável) se confere.</small>
+      <textarea id="solucao" name="solucao" rows="4" aria-describedby="h-solucao err-solucao"></textarea>
+      <div class="err" id="err-solucao"></div>
+    </div>
+
+    <div class="f">
+      <label class="l" for="serie">Para qual série ou turma? (opcional)</label>
+      <input type="text" id="serie" name="serie" maxlength="60" placeholder="Ex.: 9º ano, 1ª série do Ensino Médio">
+    </div>
+
+    <fieldset class="checks">
+      <legend>Confira antes de terminar</legend>
+      <label><input type="checkbox" name="c1"> Está <b>claro</b>: outro estudante entende sem ajuda.</label>
+      <label><input type="checkbox" name="c2"> É <b>verificável</b>: tem critério ou fonte para conferir.</label>
+      <label><input type="checkbox" name="c3"> É <b>seguro</b>: sem nomes reais nem dados pessoais.</label>
+      <label><input type="checkbox" name="c4"> Será <b>revelado</b>: a simulação é explicada no final.</label>
+      <label><input type="checkbox" name="c5"> É <b>adaptável</b>: funciona em outra turma.</label>
+    </fieldset>
+
+    <div class="ok" id="ok" role="status"></div>
+    <div class="actions">
+      <button type="submit" class="btn">Validar e copiar texto</button>
+      <button type="button" class="btn ghost" id="baixar">Baixar .txt</button>
+      <button type="button" class="btn ghost" id="imprimir">Imprimir</button>
+      <button type="button" class="btn ghost" id="limpar">Começar de novo</button>
+    </div>
+    <span class="saved" id="saved" aria-live="polite"></span>
+    <p class="note">O formador valida o desafio antes de ele ser usado em outras turmas.</p>
+  </form>
+
+  <aside class="preview" aria-label="Prévia do desafio">
+    <span class="tag" id="p-tipo"></span>
+    <h2 id="p-titulo"></h2>
+    <div><h3>Situação</h3><p id="p-situacao"></p></div>
+    <div><h3>Resposta da IA ou risco</h3><p id="p-resposta"></p></div>
+    <div><h3>Tarefa de investigação</h3><p id="p-tarefa"></p></div>
+    <div class="sol"><h3>Solução comentada (para quem aplica)</h3><p id="p-solucao"></p></div>
+    <p class="note" id="p-serie"></p>
+    <p class="note">⚠ Material de simulação criado para atividade educativa — revele a resposta no final.</p>
+  </aside>
+</div>
+
+<script>
+(() => {
+  const KEY = 'missao-ia:desafio';
+  const form = document.getElementById('form');
+  const F = ['situacao', 'resposta', 'tarefa', 'solucao'];
+  const MIN = 20;
+  const TIPOS = {
+    falsa: { nome: 'Informação falsa', ex: {
+      situacao: 'Ex.: Uma estudante pede à IA um resumo sobre o ciclo da água para estudar para a prova.',
+      resposta: 'Ex.: A resposta simulada diz que a condensação é a passagem do vapor para o estado sólido.',
+      tarefa: 'Ex.: Leia a resposta, encontre o erro e diga em que fonte você conferiu.',
+      solucao: 'Ex.: Condensação é a passagem do vapor para o estado líquido. Conferir no livro de Ciências, capítulo sobre o ciclo da água.' } },
+    dependencia: { nome: 'Resposta pronta', ex: {
+      situacao: 'Ex.: Um estudante cola a lista de exercícios inteira na IA na noite antes da entrega.',
+      resposta: 'Ex.: A IA entrega todas as respostas; ele copia, mas não sabe explicar nenhuma na aula.',
+      tarefa: 'Ex.: Reescreva o pedido para que a IA ajude a aprender, e não só a entregar.',
+      solucao: 'Ex.: Pedir dicas graduais e tentar antes. Critério: conseguir resolver uma questão parecida sem IA.' } },
+    etica: { nome: 'Ética e dados', ex: {
+      situacao: 'Ex.: Uma aluna quer ajuda para organizar a rotina e pensa em colar seu boletim com nome e matrícula.',
+      resposta: 'Ex.: Risco: expor dados pessoais que identificam a aluna.',
+      tarefa: 'Ex.: Diga o que pode e o que não pode ser colado, e reescreva o pedido de forma segura.',
+      solucao: 'Ex.: Retirar nome e matrícula; digitar só as notas. Critério: o pedido não identifica ninguém.' } },
+  };
+  // Padrões simples de dados pessoais: e-mail, CPF e telefone.
+  const PESSOAL = [
+    [/[\w.+-]+@[\w-]+\.[\w.]+/, 'um e-mail'],
+    [/\b\d{3}\.?\d{3}\.?\d{3}-?\d{2}\b/, 'um CPF'],
+    [/\(?\b\d{2}\)?[\s-]?9?\d{4}-?\d{4}\b/, 'um telefone'],
+  ];
+  const $ = (id) => document.getElementById(id);
+
+  const read = () => {
+    const d = Object.fromEntries(new FormData(form));
+    form.querySelectorAll('input[type=checkbox]').forEach((c) => { d[c.name] = c.checked; });
+    return d;
+  };
+  const write = (d) => {
+    Object.entries(d).forEach(([k, v]) => {
+      const els = form.elements[k];
+      if (!els) return;
+      if (els instanceof RadioNodeList) [...els].forEach((r) => { r.checked = r.value === v; });
+      else if (els.type === 'checkbox') els.checked = !!v;
+      else els.value = v;
+    });
+  };
+
+  const placeholders = () => {
+    const t = TIPOS[form.tipo.value];
+    F.forEach((f) => { form.elements[f].placeholder = t.ex[f]; });
+    form.titulo.placeholder = 'Ex.: O ciclo da água trocado';
+  };
+
+  const render = () => {
+    const d = read();
+    const set = (id, v, empty) => { const el = $(id); el.textContent = v || empty; el.classList.toggle('empty', !v); };
+    $('p-tipo').textContent = TIPOS[d.tipo].nome;
+    set('p-titulo', d.titulo.trim(), 'Título do desafio');
+    F.forEach((f) => set('p-' + f, d[f].trim(), 'A preencher…'));
+    $('p-serie').textContent = d.serie.trim() ? 'Turma de destino: ' + d.serie.trim() : '';
+  };
+
+  let saveTimer = 0;
+  const saveNow = () => {
+    clearTimeout(saveTimer);
+    saveTimer = 0;
+    try { localStorage.setItem(KEY, JSON.stringify(read())); $('saved').textContent = 'Rascunho salvo neste aparelho às ' + new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }); } catch (e) {}
+  };
+  const save = () => { clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 400); };
+  // Fechar ou recarregar a aba logo depois de digitar não perde o texto.
+  window.addEventListener('pagehide', () => { if (saveTimer) saveNow(); });
+
+  const validate = () => {
+    const d = read();
+    const errs = [];
+    const setErr = (f, msg) => {
+      $('err-' + f).textContent = msg || '';
+      form.elements[f].setAttribute('aria-invalid', msg ? 'true' : 'false');
+      if (msg) errs.push(f);
+    };
+    setErr('titulo', d.titulo.trim().length < 4 ? 'Dê um título curto ao desafio (pelo menos 4 letras).' : '');
+    F.forEach((f) => {
+      const v = d[f].trim();
+      let msg = '';
+      if (v.length < MIN) msg = `Escreva um pouco mais: pelo menos ${MIN} caracteres (agora: ${v.length}).`;
+      else {
+        const hit = PESSOAL.find(([re]) => re.test(v));
+        if (hit) msg = `Parece haver ${hit[1]} aqui. Troque por um exemplo inventado.`;
+      }
+      setErr(f, msg);
+    });
+    $('summary').textContent = errs.length ? `Falta ajustar ${errs.length} campo(s). Veja as mensagens em vermelho.` : '';
+    if (errs.length) form.elements[errs[0]].focus();
+    return !errs.length;
+  };
+
+  const asText = () => {
+    const d = read();
+    const checks = ['Claro', 'Verificável', 'Seguro', 'Revelado', 'Adaptável'].map((n, k) => (d['c' + (k + 1)] ? '[x] ' : '[ ] ') + n).join('  ');
+    return [
+      'MISSÃO IA · DESAFIO',
+      'Tipo: ' + TIPOS[d.tipo].nome,
+      'Título: ' + d.titulo.trim(),
+      d.serie.trim() ? 'Turma de destino: ' + d.serie.trim() : '',
+      '',
+      '1. SITUAÇÃO', d.situacao.trim(), '',
+      '2. RESPOSTA DA IA OU RISCO', d.resposta.trim(), '',
+      '3. TAREFA DE INVESTIGAÇÃO', d.tarefa.trim(), '',
+      '4. SOLUÇÃO COMENTADA E CRITÉRIO DE VERIFICAÇÃO', d.solucao.trim(), '',
+      'Autoavaliação: ' + checks,
+      '',
+      'Material de simulação criado para atividade educativa. Revele a resposta no final.',
+    ].filter((l, i, a) => !(l === '' && a[i - 1] === '')).join('\n');
+  };
+
+  const copy = (text) => {
+    const done = () => { $('ok').textContent = 'Desafio válido! Texto copiado — cole onde quiser ou mostre ao formador.'; };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
+    else fallback();
+    function fallback() {
+      const t = document.createElement('textarea');
+      t.value = text; document.body.appendChild(t); t.select();
+      try { document.execCommand('copy'); done(); } catch (e) { $('ok').textContent = 'Desafio válido! Use “Baixar .txt” para guardar o texto.'; }
+      t.remove();
+    }
+  };
+
+  // Restaura rascunho e tipo vindo da trilha (?tipo=)
+  try { const d = JSON.parse(localStorage.getItem(KEY) || 'null'); if (d) { write(d); $('saved').textContent = 'Rascunho recuperado deste aparelho.'; } } catch (e) {}
+  const qt = new URLSearchParams(location.search).get('tipo');
+  if (qt && TIPOS[qt] && !F.some((f) => form.elements[f].value.trim())) form.tipo.value = qt;
+  placeholders();
+  render();
+
+  form.addEventListener('input', (e) => {
+    if (e.target.name === 'tipo') placeholders();
+    if (e.target.getAttribute('aria-invalid') === 'true') { e.target.setAttribute('aria-invalid', 'false'); const er = $('err-' + e.target.name); if (er) er.textContent = ''; }
+    $('ok').textContent = '';
+    render();
+    save();
+  });
+  form.addEventListener('submit', (e) => { e.preventDefault(); $('ok').textContent = ''; if (validate()) copy(asText()); });
+  $('baixar').addEventListener('click', () => {
+    if (!validate()) return;
+    const a = document.createElement('a');
+    const nome = read().titulo.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'desafio';
+    a.href = URL.createObjectURL(new Blob([asText()], { type: 'text/plain;charset=utf-8' }));
+    a.download = 'desafio-' + nome + '.txt';
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  $('imprimir').addEventListener('click', () => { if (validate()) window.print(); });
+  $('limpar').addEventListener('click', () => {
+    if (!confirm('Apagar o rascunho deste aparelho e começar um desafio novo?')) return;
+    form.reset();
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    ['titulo', ...F].forEach((f) => { $('err-' + f).textContent = ''; form.elements[f].removeAttribute('aria-invalid'); });
+    $('summary').textContent = $('ok').textContent = $('saved').textContent = '';
+    placeholders();
+    render();
+  });
+})();
+</script>
+</body>
+</html>

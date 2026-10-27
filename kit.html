@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
+<title>Missão IA · Kit do multiplicador</title>
+<link rel="stylesheet" href="assets/css/base.css?v=1">
+<style>
+  body { font-size: 16px; line-height: 1.55; background: var(--gelo); }
+  .bar { position: sticky; top: 0; z-index: 5; background: var(--marinho); color: #fff; }
+  .bar .in { width: min(900px, 100% - 32px); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; flex-wrap: wrap; }
+  .bar a { color: var(--claro); font-weight: 700; text-decoration: none; font-size: 15px; }
+  .bar .btn { font-size: 14px; padding: .6em 1em; }
+  .page { width: min(900px, 100% - 32px); margin: 24px auto; background: #fff; padding: clamp(22px, 5vw, 56px); display: flex; flex-direction: column; gap: 18px; }
+  h1, h2 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; line-height: 1.05; margin: 0; color: var(--azul); }
+  h1 { font-size: clamp(40px, 7vw, 64px); }
+  h2 { font-size: clamp(30px, 5vw, 40px); }
+  h3 { margin: 6px 0 0; font-size: 19px; }
+  p { margin: 0; }
+  .kicker { font-size: 12px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--cinza); }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--linha); }
+  th { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--cinza); background: var(--gelo); }
+  td:first-child { white-space: nowrap; font-weight: 800; color: var(--azul); }
+  ul, ol { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
+  .toc a { font-weight: 700; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  @media (max-width: 620px) { .cards { grid-template-columns: 1fr; } }
+  .card { border: 2px dashed var(--suave); margin: -1px 0 0 -1px; padding: 18px; display: flex; flex-direction: column; gap: 8px; min-height: 200px; break-inside: avoid; }
+  .card .t { font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--azul); }
+  .card .q { font-size: 16px; font-weight: 700; }
+  .card .ai { padding: 10px 12px; background: var(--gelo); border-left: 5px solid var(--azul); font-size: 15px; }
+  .card.back { background: #FAFBFE; }
+  .card.back .t { color: var(--vermelho); }
+  .sim { align-self: flex-start; font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 3px 8px; background: var(--amarelo); color: var(--marinho); }
+  .decide { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .decide div { border: 2px dashed var(--suave); margin: -1px 0 0 -1px; min-height: 130px; display: grid; place-items: center; text-align: center; font-family: var(--titulo); font-size: 26px; text-transform: uppercase; padding: 12px; }
+  .decide .g { color: var(--verde); } .decide .y { color: #8A6400; } .decide .r { color: var(--vermelho); }
+  .lines { display: grid; gap: 4px; }
+  .lines span { display: block; height: 30px; border-bottom: 1px solid var(--suave); }
+  .box { border: 2px solid var(--claro); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+  .box b { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--cinza); }
+  .note { font-size: 14px; color: var(--cinza); }
+  .tip { padding: 12px 14px; background: var(--amarelo-claro); font-size: 15px; }
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    body { background: #fff; font-size: 12pt; }
+    .bar, .no-print { display: none !important; }
+    .page { width: auto; margin: 0; padding: 0; break-after: page; gap: 12px; }
+    .page:last-child { break-after: auto; }
+    a { color: inherit; text-decoration: none; }
+    .card { min-height: 62mm; }
+    tr, .box, .card { break-inside: avoid; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="bar"><div class="in"><a href="index.html">← Hub Missão IA</a><button class="btn white" onclick="print()">Imprimir kit (A4)</button></div></div>
+
+<!-- ═════════ CAPA ═════════ -->
+<section class="page">
+  <span class="kicker">Missão IA · Kit do multiplicador</span>
+  <h1>Leve a missão para outras turmas</h1>
+  <p>Este kit traz tudo para conduzir uma das três trilhas em 20 a 30 minutos — com computador e internet (<b>versão plugada</b>, usando o hub) ou só com papel (<b>versão desplugada</b>, usando as cartas deste kit).</p>
+  <div class="toc">
+    <h3>Conteúdo</h3>
+    <ol>
+      <li><a href="#formacao">Antes de apresentar: o papel do multiplicador</a></li>
+      <li><a href="#trilha-1">Trilha 1 · Fluente não é verdadeiro — roteiro e cartas</a></li>
+      <li><a href="#trilha-2">Trilha 2 · Tutor, não atalho — roteiro e cartas</a></li>
+      <li><a href="#trilha-3">Trilha 3 · Meus dados, minha autoria — roteiro e cartas</a></li>
+      <li><a href="#autoria">Ficha de autoria do desafio</a></li>
+      <li><a href="#rubrica">Rubrica e ficha de saída</a></li>
+    </ol>
+  </div>
+  <div class="tip"><b>Regra de ouro:</b> toda resposta falsa deste kit é uma <b>simulação</b> criada para a atividade. Ela sempre deve ser revelada no final — nunca use para enganar alguém fora da aula.</div>
+</section>
+
+<!-- ═════════ FORMAÇÃO ═════════ -->
+<section class="page" id="formacao">
+  <span class="kicker">Formação</span>
+  <h2>O papel de quem multiplica</h2>
+  <p>Você não precisa saber tudo sobre IA. Seu papel é conduzir a investigação. Combine com seu grupo quem faz cada parte.</p>
+  <table>
+    <tr><th>Habilidade</th><th>Como fazer</th></tr>
+    <tr><td>Apresentar</td><td>Fale pouco, mostre muito. Uma ideia por slide. Use as notas (tecla N, ou o celular como controle remoto).</td></tr>
+    <tr><td>Perguntar</td><td>Não dê a resposta: “O que te fez pensar isso?”, “Como você checaria?”, “Alguém pensou diferente?”.</td></tr>
+    <tr><td>Pedir fonte</td><td>Sempre que alguém afirmar algo: “Onde a gente confere isso?”.</td></tr>
+    <tr><td>Revelar</td><td>Diga com todas as letras: “Essa resposta foi criada para a atividade. Não é de uma IA real.”</td></tr>
+    <tr><td>Adaptar</td><td>Troque o exemplo por um conteúdo da série da turma (ex.: no 6º ano, use o ciclo da água no lugar da fotossíntese).</td></tr>
+  </table>
+  <h3>Checklist</h3>
+  <table>
+    <tr><th>Quando</th><th>O que conferir</th></tr>
+    <tr><td>Antes</td><td>Escolher a trilha · ensaiar com as notas · testar o link no laboratório · imprimir as cartas (plano B sem internet) · combinar com o professor da turma.</td></tr>
+    <tr><td>Durante</td><td>Mostrar o código da sala · deixar todos votarem antes de revelar · revelar as simulações · cuidar do tempo.</td></tr>
+    <tr><td>Depois</td><td>Recolher fichas de saída (sem nomes, se preferir) · entregar desafios ao formador para validação.</td></tr>
+  </table>
+  <h3>Plano de contingência</h3>
+  <ul>
+    <li><b>Sem internet ou sem IA:</b> use o modo “Estudar sozinho” (simulador local) ou as cartas impressas.</li>
+    <li><b>Pouco tempo:</b> corte os casos reais; preserve o experimento e a criação do desafio.</li>
+    <li><b>Turma grande:</b> trabalhe em duplas com papéis alternados (um lê, outro registra).</li>
+  </ul>
+</section>
+
+<!-- ═════════ TRILHA 1 ═════════ -->
+<section class="page" id="trilha-1">
+  <span class="kicker">Trilha 1 · Verificar · 25 min</span>
+  <h2>Fluente não é verdadeiro</h2>
+  <p><b>Objetivo:</b> a turma percebe que a IA pode errar com segurança e usa três perguntas para verificar.</p>
+  <table>
+    <tr><th>Tempo</th><th>Atividade</th><th>Versão desplugada</th></tr>
+    <tr><td>0–3</td><td>Abertura e votação: “resposta bem escrita é sempre correta?”</td><td>Mãos levantadas.</td></tr>
+    <tr><td>3–8</td><td>Como a IA escreve + laboratório de previsão.</td><td>Leia “Hoje eu comi ___” e peça palpites; depois “No café da manhã, eu comi ___”.</td></tr>
+    <tr><td>8–14</td><td>Resposta suspeita → votação → revelação.</td><td>Cada dupla recebe uma carta-resposta e decide com as fichas Confio / Verificar / Incorreto.</td></tr>
+    <tr><td>14–17</td><td>As 3 perguntas + um caso real.</td><td>Leia o caso em voz alta.</td></tr>
+    <tr><td>17–24</td><td>Missão: criar uma armadilha.</td><td>Ficha de autoria. Duplas trocam fichas e investigam.</td></tr>
+    <tr><td>24–25</td><td>Síntese: “Quem disse? Onde confirmo? Consigo explicar?”</td><td>Turma repete em voz alta.</td></tr>
+  </table>
+  <p class="note">Recorte as cartas abaixo na linha tracejada. Imprima a frente e o verso em folhas separadas e entregue o verso (gabarito) só na revelação.</p>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 1 · Cartas-resposta (frente)</span>
+  <div class="cards">
+    <div class="card"><span class="t">Carta 1</span><span class="q">“Explique como funciona a fotossíntese.”</span><div class="ai">A planta absorve oxigênio (O₂) do ar e água do solo e, com a luz do Sol, produz glicose, liberando gás carbônico (CO₂) para a atmosfera.</div></div>
+    <div class="card"><span class="t">Carta 2</span><span class="q">“Por que a Lua brilha à noite?”</span><div class="ai">A Lua brilha porque tem luz própria, produzida por reações que acontecem em seu interior.</div></div>
+    <div class="card"><span class="t">Carta 3</span><span class="q">“Quando os portugueses chegaram ao Brasil?”</span><div class="ai">A esquadra de Pedro Álvares Cabral chegou ao território que hoje é o Brasil em 1500.</div></div>
+    <div class="card"><span class="t">Carta 4</span><span class="q">“A IA ajuda os estudantes a aprender?”</span><div class="ai">Sim. Segundo o estudo de Almeida e Souza (2021), 87% dos estudantes aprendem mais rápido usando IA.</div></div>
+    <div class="card"><span class="t">Carta 5</span><span class="q">“Quantas cavidades tem o coração humano?”</span><div class="ai">O coração humano tem quatro cavidades: dois átrios e dois ventrículos.</div></div>
+    <div class="card"><span class="t">Carta 6</span><span class="q">“Por que a água do mar é salgada?”</span><div class="ai">A água do mar é salgada porque os peixes liberam sal na água ao longo da vida.</div></div>
+  </div>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 1 · Cartas-resposta (verso: gabarito)</span>
+  <div class="cards">
+    <div class="card back"><span class="t">Carta 1 · Incorreta</span><span class="sim">Simulação</span><p>Está invertido: a planta absorve <b>CO₂</b> e água e libera <b>O₂</b>. Confira no livro de Biologia/Ciências.</p></div>
+    <div class="card back"><span class="t">Carta 2 · Incorreta</span><span class="sim">Simulação</span><p>A Lua não tem luz própria: ela <b>reflete a luz do Sol</b>. Confira no livro de Ciências ou Geografia.</p></div>
+    <div class="card back"><span class="t" style="color:var(--verde)">Carta 3 · Correta</span><span class="sim">Simulação</span><p>Está certa — e mesmo assim vale conferir no livro de História. Nem toda resposta de IA está errada!</p></div>
+    <div class="card back"><span class="t">Carta 4 · Fonte inventada</span><span class="sim">Simulação</span><p>Autores, ano e número foram <b>inventados para esta atividade</b>. Desconfie de número preciso com fonte que você não consegue abrir.</p></div>
+    <div class="card back"><span class="t" style="color:var(--verde)">Carta 5 · Correta</span><span class="sim">Simulação</span><p>Está certa. Confira no livro de Biologia/Ciências (sistema circulatório).</p></div>
+    <div class="card back"><span class="t">Carta 6 · Incorreta</span><span class="sim">Simulação</span><p>O sal vem principalmente de <b>sais minerais de rochas</b>, levados pelos rios ao mar, e de fontes vulcânicas no fundo do oceano. Confira no livro de Geografia ou Ciências.</p></div>
+  </div>
+</section>
+
+<section class="page">
+  <span class="kicker">Fichas de decisão · uma por dupla</span>
+  <div class="decide"><div class="g">✓ Confio</div><div class="y">? Preciso verificar</div><div class="r">✗ Incorreto</div></div>
+  <div class="decide"><div class="g">✓ Confio</div><div class="y">? Preciso verificar</div><div class="r">✗ Incorreto</div></div>
+  <div class="decide"><div class="g">✓ Confio</div><div class="y">? Preciso verificar</div><div class="r">✗ Incorreto</div></div>
+  <div class="decide"><div class="g">✓ Confio</div><div class="y">? Preciso verificar</div><div class="r">✗ Incorreto</div></div>
+  <p class="note">A cor não é a única pista: cada ficha tem símbolo e texto.</p>
+</section>
+
+<!-- ═════════ TRILHA 2 ═════════ -->
+<section class="page" id="trilha-2">
+  <span class="kicker">Trilha 2 · Aprender · 30 min</span>
+  <h2>Tutor, não atalho</h2>
+  <p><b>Objetivo:</b> a turma compara “pedir a resposta pronta” com “pedir uma tutoria” e percebe o que consegue explicar sozinha depois.</p>
+  <table>
+    <tr><th>Tempo</th><th>Atividade</th><th>Versão desplugada</th></tr>
+    <tr><td>0–3</td><td>Abertura e votação: “o que você pede à IA?”</td><td>Mãos levantadas (ou votos em papel, anônimos).</td></tr>
+    <tr><td>3–5</td><td>Apresentar o problema e dividir Grupos A e B.</td><td>Problema no quadro.</td></tr>
+    <tr><td>5–12</td><td>Experimento com IA ou simulador.</td><td>Grupo A recebe a carta “resposta pronta”. Grupo B recebe o envelope de pistas: só abre a próxima pista depois de tentar responder a anterior.</td></tr>
+    <tr><td>12–16</td><td>Questão sem IA, sozinho(a).</td><td>Mesma coisa, no papel.</td></tr>
+    <tr><td>16–21</td><td>Reflexão: o que a IA fez? o que entendi? como verifiquei?</td><td>Folha de reflexão.</td></tr>
+    <tr><td>21–27</td><td>5 estratégias de estudo com IA.</td><td>Leia os comandos em voz alta.</td></tr>
+    <tr><td>27–30</td><td>Síntese: “ajuda a aprender ou só a entregar?”</td><td>Debate rápido.</td></tr>
+  </table>
+  <div class="tip"><b>Não antecipe o resultado.</b> O objetivo é comparar o que cada grupo consegue explicar — não provar que um grupo “ganhou”.</div>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 2 · Cartas do experimento</span>
+  <div class="cards">
+    <div class="card" style="grid-column:1/-1"><span class="t">O problema (todos)</span><p class="q">Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</p></div>
+    <div class="card"><span class="t">Grupo A · resposta pronta</span><span class="sim">Simulação</span><div class="ai">Não. O desconto total foi de 28%. R$ 200 − 20% = R$ 160. R$ 160 − 10% = R$ 144. Desconto total: R$ 56, que é 28% de R$ 200.</div></div>
+    <div class="card"><span class="t">Grupo B · pista 1</span><span class="sim">Simulação</span><div class="ai">O segundo desconto de 10% é calculado sobre qual valor — os R$ 200 originais ou outro?</div></div>
+    <div class="card"><span class="t">Grupo B · pista 2</span><span class="sim">Simulação</span><div class="ai">Releia: “mais 10% sobre o novo preço”. Qual é o novo preço depois dos 20%?</div></div>
+    <div class="card"><span class="t">Grupo B · pista 3</span><span class="sim">Simulação</span><div class="ai">Quanto é 10% do novo preço? Quanto o tênis passa a custar?</div></div>
+    <div class="card"><span class="t">Grupo B · pista 4</span><span class="sim">Simulação</span><div class="ai">De quanto foi o desconto total em reais? Que porcentagem isso é de R$ 200?</div></div>
+    <div class="card"><span class="t">Agora sem IA (todos)</span><p class="q">Um produto de R$ 100 sobe 10% e depois tem 10% de desconto. Volta a custar R$ 100? Explique.</p><p class="note">Gabarito (para quem aplica): não. R$ 100 → R$ 110 → R$ 99.</p></div>
+  </div>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 2 · Folha de reflexão (uma por dupla)</span>
+  <p>Grupo: ( ) A — resposta pronta &nbsp;&nbsp; ( ) B — tutor</p>
+  <div class="box"><b>1. O que a IA (ou as cartas) fez por vocês?</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <div class="box"><b>2. O que vocês realmente entenderam?</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <div class="box"><b>3. Como verificaram a resposta?</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <div class="box"><b>4. Conseguiram resolver a questão sem IA? Expliquem com suas palavras.</b><div class="lines"><span></span><span></span><span></span><span></span></div></div>
+</section>
+
+<!-- ═════════ TRILHA 3 ═════════ -->
+<section class="page" id="trilha-3">
+  <span class="kicker">Trilha 3 · Ética · 25 min</span>
+  <h2>Meus dados, minha autoria</h2>
+  <p><b>Objetivo:</b> a turma reconhece o que não deve compartilhar com uma IA, discute autoria e aprende a declarar o uso.</p>
+  <table>
+    <tr><th>Tempo</th><th>Atividade</th><th>Versão desplugada</th></tr>
+    <tr><td>0–4</td><td>Abertura e votação: “o que você digita numa IA, para onde vai?”</td><td>Mãos levantadas.</td></tr>
+    <tr><td>4–12</td><td>Semáforo: posso colar isto?</td><td>Leia uma carta-situação; todas as duplas levantam a ficha verde, amarela ou vermelha ao mesmo tempo. Ouça quem discordou.</td></tr>
+    <tr><td>12–15</td><td>O que nunca colar.</td><td>Lista no quadro.</td></tr>
+    <tr><td>15–21</td><td>Autoria: três cenários.</td><td>Cartas de cenário: “é meu / em parte / não é meu”.</td></tr>
+    <tr><td>21–23</td><td>Como declarar o uso de IA.</td><td>Modelo de declaração no quadro.</td></tr>
+    <tr><td>23–25</td><td>Compromisso: as 3 perguntas antes de colar ou entregar.</td><td>Turma repete em voz alta.</td></tr>
+  </table>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 3 · Cartas-situação do semáforo</span>
+  <div class="cards">
+    <div class="card"><span class="t">Situação 1</span><p class="q">O enunciado da lista de exercícios de Física.</p><p class="note">Gabarito: 🟢 pode — não tem dado pessoal.</p></div>
+    <div class="card"><span class="t">Situação 2</span><p class="q">Foto do meu boletim com nome e matrícula.</p><p class="note">Gabarito: 🔴 não — identifica você. Digite só as notas.</p></div>
+    <div class="card"><span class="t">Situação 3</span><p class="q">A redação que eu escrevi, para receber comentários.</p><p class="note">Gabarito: 🟡 com cuidado — se a atividade permitir, sem dados pessoais, e declarando o uso.</p></div>
+    <div class="card"><span class="t">Situação 4</span><p class="q">Print da conversa do grupo da turma.</p><p class="note">Gabarito: 🔴 não — dados de outras pessoas sem autorização.</p></div>
+    <div class="card"><span class="t">Situação 5</span><p class="q">A pergunta “como funciona a fotossíntese?”.</p><p class="note">Gabarito: 🟢 pode — e depois confira a resposta!</p></div>
+    <div class="card"><span class="t">Situação 6</span><p class="q">A senha do Wi-Fi da escola, para a IA “testar se é segura”.</p><p class="note">Gabarito: 🔴 não — senhas nunca.</p></div>
+    <div class="card"><span class="t">Situação 7</span><p class="q">A foto de um colega, para a IA “deixar engraçada”.</p><p class="note">Gabarito: 🔴 não — imagem de outra pessoa sem autorização.</p></div>
+    <div class="card"><span class="t">Situação 8</span><p class="q">Um trecho do livro didático, para pedir um resumo.</p><p class="note">Gabarito: 🟡 com cuidado — confira o resumo no livro e cite a obra.</p></div>
+  </div>
+  <p class="note">Corte o gabarito antes de usar as cartas com a turma, ou dobre a carta.</p>
+</section>
+
+<section class="page">
+  <span class="kicker">Trilha 3 · Fichas do semáforo e cenários de autoria</span>
+  <div class="decide"><div class="g">🟢 Pode colar</div><div class="y">🟡 Com cuidado</div><div class="r">🔴 Não cole</div></div>
+  <div class="decide"><div class="g">🟢 Pode colar</div><div class="y">🟡 Com cuidado</div><div class="r">🔴 Não cole</div></div>
+  <div class="cards" style="margin-top:12px">
+    <div class="card"><span class="t">Cenário A</span><p class="q">Pedi para a IA escrever a redação e entreguei como minha.</p><p class="note">Comentário: não é autoria sua; entregar como sua é desonesto.</p></div>
+    <div class="card"><span class="t">Cenário B</span><p class="q">Escrevi a redação e pedi para a IA apontar erros. Eu mesmo corrigi.</p><p class="note">Comentário: autoria sua, com apoio. Declare se a atividade pedir.</p></div>
+    <div class="card"><span class="t">Cenário C</span><p class="q">Pedi ideias de tema à IA, escolhi uma e escrevi o texto.</p><p class="note">Comentário: em parte — depende do combinado com o professor. Conte como usou.</p></div>
+    <div class="card"><span class="t">Modelo de declaração</span><p>“Usei uma ferramenta de IA para [gerar ideias / revisar a ortografia / explicar um conceito]. O texto, as escolhas e os argumentos são meus. Conferi as informações em [fonte].”</p></div>
+  </div>
+</section>
+
+<!-- ═════════ AUTORIA ═════════ -->
+<section class="page" id="autoria">
+  <span class="kicker">Ficha de autoria · uma por dupla</span>
+  <h2>Nosso desafio</h2>
+  <p>Tipo: ( ) Informação falsa / fonte inexistente &nbsp; ( ) Resposta pronta / dependência &nbsp; ( ) Ética, autoria ou privacidade</p>
+  <p class="note">Não use nomes reais, documentos nem dados pessoais. Use personagens inventados.</p>
+  <div class="box"><b>Título</b><div class="lines"><span></span></div></div>
+  <div class="box"><b>1. Situação — quem pede o quê para a IA?</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <div class="box"><b>2. Resposta da IA (simulada) ou risco</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <div class="box"><b>3. Tarefa de investigação para a outra turma</b><div class="lines"><span></span><span></span></div></div>
+  <div class="box"><b>4. Solução comentada e critério de verificação (fonte)</b><div class="lines"><span></span><span></span><span></span></div></div>
+  <p>Conferimos: ( ) claro &nbsp; ( ) verificável &nbsp; ( ) seguro &nbsp; ( ) será revelado &nbsp; ( ) adaptável</p>
+  <p class="note">Validação do formador: ( ) aprovado &nbsp; ( ) ajustar: ____________________________</p>
+</section>
+
+<!-- ═════════ RUBRICA ═════════ -->
+<section class="page" id="rubrica">
+  <span class="kicker">Avaliação formativa</span>
+  <h2>Rubrica simplificada</h2>
+  <p>Pontue 0, 1 ou 2 em cada dimensão. Os votos das enquetes não são avaliação — use as evidências das atividades.</p>
+  <table>
+    <tr><th>Dimensão</th><th>0</th><th>1</th><th>2</th></tr>
+    <tr><td>Verificação</td><td>Não identifica o erro</td><td>Identifica o erro</td><td>Justifica e propõe como checar</td></tr>
+    <tr><td>Autonomia</td><td>Depende da resposta pronta</td><td>Usa o apoio parcialmente</td><td>Consegue explicar sem IA</td></tr>
+    <tr><td>Responsabilidade</td><td>Não percebe riscos</td><td>Reconhece os riscos</td><td>Propõe conduta adequada</td></tr>
+    <tr><td>Autoria</td><td>Desafio incompleto</td><td>Desafio coerente</td><td>Contextualizado e replicável</td></tr>
+  </table>
+  <h2 style="margin-top:18px">Ficha de saída</h2>
+  <div class="box"><b>Uma estratégia de estudo com IA que vou usar</b><div class="lines"><span></span><span></span></div></div>
+  <div class="box"><b>Uma fonte que eu consultaria antes de confiar em uma informação</b><div class="lines"><span></span><span></span></div></div>
+  <div class="box"><b>Uma resposta bem escrita por IA é necessariamente correta? Por quê?</b><div class="lines"><span></span><span></span></div></div>
+</section>
+
+</body>
+</html>

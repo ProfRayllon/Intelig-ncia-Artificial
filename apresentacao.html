@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
+<title>Missão IA · Palestra</title>
+<link rel="stylesheet" href="assets/css/base.css?v=1">
+<link rel="stylesheet" href="assets/css/deck.css?v=1">
+</head>
+<body>
+<main class="deck" data-deck="apresentacao.html" data-root="">
+
+  <!-- ═════════════ ABERTURA ═════════════ -->
+  <section class="slide blue center" data-title="Abertura">
+    <div class="kicker rise">Oficina · Missão IA</div>
+    <h1 class="title xl rise" style="max-width:1600px">Potencialidades e armadilhas <em>da IA</em></h1>
+    <p class="lead rise">no processo de estudo</p>
+    <div class="row rise" style="gap:14px">
+      <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.45)">Investigue</span>
+      <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.45)">Questione</span>
+      <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.45)">Verifique</span>
+      <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.45)">Aprenda</span>
+    </div>
+    <p class="small rise push" style="font-size:24px">Rayllon Soares Pessoa</p>
+    <aside class="notes">Tela de espera. Clique no selo AO VIVO (canto superior direito) para mostrar o QR code e o código da sala. Espere a maioria entrar antes de avançar.</aside>
+  </section>
+
+  <section class="slide" data-title="Apresentador" style="display:grid;grid-template-columns:minmax(0,1fr) 640px;gap:80px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:26px;min-width:0">
+      <div class="kicker rise">Quem conduz</div>
+      <h2 class="title s rise" style="font-size:80px">Rayllon Soares Pessoa</h2>
+      <ul class="list rise">
+        <li>Mestre em Tecnologia da Informação – IFPB</li>
+        <li>Especialista em Tecnologias Educacionais e EaD – IFG</li>
+        <li>Assessor Técnico / Especialista Pedagógico – SEE/PB</li>
+        <li>Professor da Educação Profissional e Tecnológica</li>
+        <li>Desenvolvedor de Software Full Stack</li>
+      </ul>
+      <div class="row rise" style="gap:10px"><span class="chip">Computação na Educação</span><span class="chip">Tecnologia Educacional</span><span class="chip">IA</span></div>
+    </div>
+    <div class="rise hide-portrait" style="position:relative;width:520px;height:520px;justify-self:center">
+      <div style="position:absolute;inset:-26px;border-radius:50%;border:6px solid var(--azul)"></div>
+      <div style="position:absolute;right:-6px;bottom:34px;width:90px;height:90px;border-radius:50%;background:var(--azul)"></div>
+      <img src="assets/img/rayllon.png" alt="Foto de Rayllon Soares Pessoa" style="position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center 18%;background:var(--gelo)">
+    </div>
+    <aside class="notes">Apresentação breve (1 min). Conecte sua trajetória ao tema: uso de IA na educação, com olhar crítico.</aside>
+  </section>
+
+  <section class="slide navy" data-title="Diagnóstico" data-steps="2">
+    <div class="kicker rise">Antes de começar · vote no seu celular</div>
+    <div class="cols mid grow" style="--n:2;gap:90px">
+      <h2 class="big-q rise" style="color:#fff">Uma resposta bem escrita por IA é <span style="color:var(--claro)">necessariamente correta?</span></h2>
+      <div class="poll rise" data-poll="diagnostico" data-show="1">
+        <button>Sim, se está bem escrita, está certa</button>
+        <button>Não, pode estar errada</button>
+        <button>Depende do assunto</button>
+      </div>
+    </div>
+    <p class="small" data-step="1">Guarde sua resposta: vamos voltar a ela no final.</p>
+    <aside class="notes">Diagnóstico inicial (doc. §12). Peça para votarem sem discutir. Avance para revelar o resultado. Não corrija agora — pergunte “por quê?” a uma pessoa de cada opção.</aside>
+  </section>
+
+  <section class="slide" data-title="Mapa da oficina">
+    <div class="kicker rise">O nosso percurso</div>
+    <h2 class="title rise">Hoje você vai <em>investigar a IA</em></h2>
+    <div class="cols stretch grow" style="--n:4;gap:28px">
+      <div class="card rise"><span class="num">01</span><h3>Compreender</h3><p>Como a IA gera texto — e por que ela pode errar com segurança.</p></div>
+      <div class="card rise"><span class="num">02</span><h3>Investigar</h3><p>Uma resposta suspeita e casos reais de erros de IA.</p></div>
+      <div class="card rise"><span class="num">03</span><h3>Experimentar</h3><p>Resposta pronta ou tutor? Teste e compare em duplas.</p></div>
+      <div class="card solid rise"><span class="num">04</span><h3>Criar e multiplicar</h3><p>Você cria um desafio e leva para outras turmas.</p></div>
+    </div>
+    <aside class="notes">Objetivo geral: usar IA de forma crítica, ética e autônoma — e preparar vocês para multiplicar. Reforce: não é “IA é boa ou ruim?”, e sim “quando e como a IA ajuda a aprender?”.</aside>
+  </section>
+
+  <!-- ═════════════ 01 COMPREENDER ═════════════ -->
+  <section class="slide blue divider" data-title="01 · Compreender">
+    <div class="ghost">01</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 01</div>
+      <h2 class="title" data-scramble>Compreender</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">Como a IA escreve?</p>
+    </div>
+    <aside class="notes">08h10–08h25 · 15 min.</aside>
+  </section>
+
+  <section class="slide center" data-title="Pergunta-problema" data-steps="2">
+    <div class="kicker rise">Pergunta-problema</div>
+    <h2 class="big-q rise" style="max-width:1600px">Se a IA escreve com segurança, <span style="color:var(--azul)">por que pode errar?</span></h2>
+    <p class="lead" data-step="1" style="font-size:44px;font-weight:700">Porque ela <mark class="good">prevê continuações prováveis</mark> para o texto. Prever bem não é o mesmo que conferir fatos.</p>
+    <aside class="notes">Deixe a pergunta no ar ~30 s. Ouça 2 ou 3 hipóteses. Avance para a ideia-chave e diga: “vamos ver como isso funciona por dentro”.</aside>
+  </section>
+
+  <section class="slide" data-title="Como a IA gera texto" data-steps="5">
+    <div class="kicker rise">Anatomia da resposta · esquema didático</div>
+    <h2 class="title s rise">Do pedido à resposta, <em>pedaço por pedaço</em></h2>
+    <div class="flow">
+      <div class="node" data-step="0"><span class="n">1</span><b>Pedido</b><span>Você escreve uma pergunta ou instrução.</span></div>
+      <div class="node" data-step="1"><span class="n">2</span><b>Tokens</b><span>O texto é dividido em pedaços.</span><div class="tokens"><i>A</i><i>␣foto</i><i>ss</i><i>íntese</i></div><span style="font-size:18px">divisão ilustrativa</span></div>
+      <div class="node" data-step="2"><span class="n">3</span><b>Contexto</b><span>Pedido + conversa até aqui + instruções do sistema.</span></div>
+      <div class="node" data-step="3"><span class="n">4</span><b>Modelo</b><span>Calcula quais pedaços são prováveis, a partir de padrões aprendidos em muitos textos.</span></div>
+      <div class="node" data-step="4" style="background:var(--azul);color:#fff"><span class="n" style="color:var(--claro)">5</span><b>Geração</b><span style="color:var(--claro)">Escolhe um pedaço, acrescenta ao texto e repete — até formar a resposta.</span></div>
+    </div>
+    <p class="small push" data-step="4">Algumas IAs também consultam ferramentas externas, como buscas. Mesmo assim, <b>fluência não é selo de verdade</b>.</p>
+    <aside class="notes">Avance nó por nó. Evite dizer que a IA “copia” ou “busca palavras”: ela gera texto novo a partir de padrões. Ponto central: em nenhum passo há uma etapa obrigatória de “conferir se é verdade”.</aside>
+  </section>
+
+  <section class="slide" data-title="Laboratório de previsão" data-steps="3">
+    <div class="kicker rise">Laboratório de previsão</div>
+    <div class="cols grow" style="--n:2;gap:90px">
+      <div style="display:flex;flex-direction:column;gap:34px">
+        <div class="swap">
+          <p class="big-q" data-step="0" data-until="2">O céu está <span style="color:var(--azul)">___</span></p>
+          <p class="big-q" data-step="2">Às 23h, sem lua, o céu está <span style="color:var(--azul)">___</span></p>
+        </div>
+        <div class="poll" data-poll="ceu" data-show="1">
+          <p class="q">Qual palavra você acha que vem depois?</p>
+          <button>azul</button><button>nublado</button><button>escuro</button><button>estrelado</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <span class="label-sim" data-step="1">Valores ilustrativos · não medidos em um modelo real</span>
+        <div class="swap">
+          <div class="bars" data-step="1" data-until="2">
+            <div class="bar top"><span>azul</span><div class="track"><i class="fill" data-w="41"></i></div><span class="v">41%</span></div>
+            <div class="bar"><span>nublado</span><div class="track"><i class="fill" data-w="22"></i></div><span class="v">22%</span></div>
+            <div class="bar"><span>escuro</span><div class="track"><i class="fill" data-w="15"></i></div><span class="v">15%</span></div>
+            <div class="bar"><span>estrelado</span><div class="track"><i class="fill" data-w="6"></i></div><span class="v">6%</span></div>
+          </div>
+          <div class="bars" data-step="2">
+            <div class="bar top"><span>estrelado</span><div class="track"><i class="fill" data-w="38"></i></div><span class="v">38%</span></div>
+            <div class="bar"><span>escuro</span><div class="track"><i class="fill" data-w="34"></i></div><span class="v">34%</span></div>
+            <div class="bar"><span>nublado</span><div class="track"><i class="fill" data-w="12"></i></div><span class="v">12%</span></div>
+            <div class="bar"><span>azul</span><div class="track"><i class="fill" data-w="2"></i></div><span class="v">2%</span></div>
+          </div>
+        </div>
+        <p class="lead" data-step="2" style="font-size:32px"><b>Mesmo modelo, outro contexto:</b> a palavra mais provável muda. A IA escolhe o que é <b>provável</b> — não o que é <b>verdadeiro</b>.</p>
+      </div>
+    </div>
+    <aside class="notes">1) Todos votam na palavra. 2) Avance: mostre as “probabilidades” — deixe claro que são valores inventados para ilustrar. 3) Avance: mude o contexto e compare. Pergunte: “e se o texto de treino tivesse um erro repetido muitas vezes?”.</aside>
+  </section>
+
+  <section class="slide" data-title="Fluência não é verdade">
+    <div class="kicker rise">A ideia-chave</div>
+    <h2 class="title l rise">Escrever bem <em>≠</em> estar certo</h2>
+    <div class="cols stretch" style="--n:3">
+      <div class="card rise"><h3>Inventa com confiança</h3><p>Pode criar nomes, datas e fontes que parecem reais, mas não existem.</p></div>
+      <div class="card rise"><h3>Erra no detalhe</h3><p>Um texto quase todo certo pode trocar justamente o ponto mais importante.</p></div>
+      <div class="card rise"><h3>Mistura tudo</h3><p>Piada, opinião e fato podem aparecer com o mesmo tom de autoridade.</p></div>
+    </div>
+    <aside class="notes">Fechamento da parte 1. Pergunte: “qual desses três é mais difícil de perceber?”. Gancho: “vamos testar isso agora”.</aside>
+  </section>
+
+  <!-- ═════════════ 02 INVESTIGAR ═════════════ -->
+  <section class="slide blue divider" data-title="02 · Investigar">
+    <div class="ghost">02</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 02</div>
+      <h2 class="title" data-scramble>Investigar</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">Você confiaria nesta resposta?</p>
+    </div>
+    <aside class="notes">08h25–08h40 · 15 min.</aside>
+  </section>
+
+  <section class="slide" data-title="Resposta suspeita" data-steps="2">
+    <div class="kicker rise">Investigação · leia com atenção</div>
+    <div class="cols grow" style="--n:2;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:70px">
+      <div class="chat rise">
+        <div class="bubble me"><span class="who">Estudante</span>Explique como funciona a fotossíntese.</div>
+        <div class="bubble ai"><span class="who">IA</span><span data-type>A fotossíntese é o processo pelo qual as plantas produzem o próprio alimento usando a energia da luz. A clorofila, presente nas folhas, capta a luz do Sol. A planta absorve oxigênio (O₂) do ar e água do solo e, com isso, produz glicose, liberando gás carbônico (CO₂) para a atmosfera. Por isso, a fotossíntese é essencial para a vida na Terra.</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div class="poll rise" data-poll="fotossintese" data-show="1">
+          <p class="q">Qual é o seu veredito?</p>
+          <button>✓ Confio</button>
+          <button>? Preciso verificar</button>
+          <button>✗ Está incorreta</button>
+        </div>
+        <div class="field rise">
+          <label for="just-foto">Por quê? Como você checaria?</label>
+          <textarea id="just-foto" rows="3" data-save="just-foto" placeholder="Escreva sua justificativa…"></textarea>
+          <span class="hint">Fica só no seu aparelho.</span>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Não diga que é simulação ainda (o rótulo vem na revelação). Peça: decisão + justificativa + como verificariam. Dê 2 min. Avance para mostrar a votação. Ouça quem marcou “confio” e quem marcou “incorreta”.</aside>
+  </section>
+
+  <section class="slide" data-title="Revelação" data-steps="3">
+    <div class="row rise" style="gap:24px">
+      <span class="verdict no">✗ Incorreta</span>
+      <span class="label-sim">Simulação · resposta criada para esta oficina</span>
+    </div>
+    <div class="cols" style="--n:2;gap:60px" data-step="1">
+      <div class="card line" style="border-color:var(--vermelho)"><span class="tag" style="background:var(--vermelho)">O texto dizia</span><p style="font-size:30px">A planta absorve <mark class="bad">oxigênio (O₂)</mark> e libera <mark class="bad">gás carbônico (CO₂)</mark>.</p></div>
+      <div class="card line" style="border-color:var(--verde)"><span class="tag" style="background:var(--verde)">O correto</span><p style="font-size:30px">A planta absorve <mark class="good">gás carbônico (CO₂)</mark> e água, e libera <mark class="good">oxigênio (O₂)</mark>.</p></div>
+    </div>
+    <div class="eq" data-step="1">6 CO₂ + 6 H₂O  —luz→  C₆H₁₂O₆ + 6 O₂</div>
+    <div class="cols" style="--n:2;gap:60px" data-step="2">
+      <div><h3 style="margin:0 0 12px;font-size:32px">Como verificar</h3><ul class="list"><li>Livro didático de Biologia</li><li>Professor(a) da área</li><li>Sites educacionais de instituições confiáveis</li></ul></div>
+      <div class="card"><h3>Por que a troca convence?</h3><p>As plantas também respiram — e na respiração absorvem O₂ e liberam CO₂. O texto misturou dois processos reais, e o resto da resposta estava certo.</p></div>
+    </div>
+    <aside class="notes">Revele de forma clara: esta resposta foi escrita de propósito para a oficina — não é de uma IA real. Mostre a inversão, a equação e onde conferir. Lição: um erro grave pode estar escondido em um texto 90% correto.</aside>
+  </section>
+
+  <section class="slide" data-title="Casos reais" data-steps="3">
+    <div class="kicker rise">Não é só na oficina · casos documentados</div>
+    <h2 class="title s rise">Isso acontece <em>de verdade</em></h2>
+    <div class="casos grow" data-casos data-first-step="0"></div>
+    <aside class="notes">Um caso por clique. Para cada um, pergunte: “qual verificação teria evitado o problema?”. Se faltar tempo, mostre só um caso (plano de contingência do doc.). As fontes estão nos cartões.</aside>
+  </section>
+
+  <section class="slide" data-title="Potencialidades × armadilhas" data-steps="5">
+    <div class="kicker rise">Os dois lados</div>
+    <h2 class="title s rise">O mesmo recurso <em>ajuda ou atrapalha</em></h2>
+    <div class="pairs">
+      <div class="head"><span style="color:var(--verde)">Potencialidade</span><span style="color:var(--vermelho)">Armadilha</span></div>
+      <div class="pair" data-step="0"><div class="pro"><span class="ico">✓</span><span><b>Tutoria</b> — explica de outro jeito, no seu ritmo.</span></div><div class="con"><span class="ico">✗</span><span><b>Resposta pronta</b> — você entrega, mas não aprende.</span></div></div>
+      <div class="pair" data-step="1"><div class="pro"><span class="ico">✓</span><span><b>Explicações</b> — adapta ao seu nível.</span></div><div class="con"><span class="ico">✗</span><span><b>Invenções</b> — erra com o mesmo tom confiante.</span></div></div>
+      <div class="pair" data-step="2"><div class="pro"><span class="ico">✓</span><span><b>Devolutiva</b> — comenta o que você escreveu.</span></div><div class="con"><span class="ico">✗</span><span><b>Autoria</b> — o texto da IA no lugar do seu.</span></div></div>
+      <div class="pair" data-step="3"><div class="pro"><span class="ico">✓</span><span><b>Prática</b> — cria questões para treinar.</span></div><div class="con"><span class="ico">✗</span><span><b>Gabarito errado</b> — treina você no erro.</span></div></div>
+      <div class="pair" data-step="4"><div class="pro"><span class="ico">✓</span><span><b>Planejamento</b> — organiza a rotina de estudo.</span></div><div class="con"><span class="ico">✗</span><span><b>Privacidade</b> — dados pessoais expostos.</span></div></div>
+    </div>
+    <aside class="notes">Um par por clique. A mensagem: a tecnologia não é boa nem ruim — o que muda é como usamos. Pergunte qual armadilha eles já viram acontecer.</aside>
+  </section>
+
+  <!-- ═════════════ 03 EXPERIMENTAR ═════════════ -->
+  <section class="slide blue divider" data-title="03 · Experimentar">
+    <div class="ghost">03</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 03</div>
+      <h2 class="title" data-scramble>Experimentar</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">Resposta pronta ou tutor?</p>
+    </div>
+    <aside class="notes">08h40–09h05 · 25 min.</aside>
+  </section>
+
+  <section class="slide" data-title="Experimento A/B" data-steps="2">
+    <div class="kicker rise">Experimento em duplas · 8 min</div>
+    <div class="card rise" style="background:var(--marinho);color:#fff"><span class="tag" style="background:var(--amarelo);color:var(--marinho)">O problema</span><p style="color:#fff;font-size:34px;font-weight:700">Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</p></div>
+    <div class="cols stretch" style="--n:2" data-step="1">
+      <div class="prompt" style="background:var(--gelo);color:var(--marinho)">
+        <div class="p-head"><b style="color:var(--azul)">Duplas A · resposta pronta</b><button type="button" class="copy">Copiar</button></div>
+        <q>Resolva esta questão e me dê a resposta: Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</q>
+      </div>
+      <div class="prompt">
+        <div class="p-head"><b>Duplas B · tutor</b><button type="button" class="copy">Copiar</button></div>
+        <q>Atue como tutor: faça perguntas, dê pistas graduais e não entregue a resposta antes de eu tentar. Questão: Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</q>
+      </div>
+    </div>
+    <p class="small" data-step="1">Sem acesso a uma IA? Use o simulador do próximo slide. Não cole dados pessoais na conversa.</p>
+    <aside class="notes">Divida: duplas ímpares = A, pares = B. Cada dupla copia o comando do seu grupo (o botão copiar funciona no celular e no computador). Não antecipe qual estratégia “funciona melhor” — o objetivo é comparar.</aside>
+  </section>
+
+  <section class="slide" data-title="Simulador A/B">
+    <div class="kicker rise">Sem IA no laboratório? Simule aqui</div>
+    <div class="cols stretch grow" style="--n:2;min-height:0">
+      <div class="sim rise" data-sim="a" style="height:760px"></div>
+      <div class="sim rise" data-sim="b" style="height:760px"></div>
+    </div>
+    <aside class="notes">Plano B para quando não houver acesso à IA. Cada pessoa clica em “Próxima mensagem” no próprio aparelho. Esquerda = estratégia A; direita = B.</aside>
+  </section>
+
+  <section class="slide" data-title="Agora sem IA" data-steps="3">
+    <div class="kicker rise">Agora sem IA · 3 min</div>
+    <div class="cols grow" style="--n:2;gap:80px">
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <h2 class="big-q rise" style="font-size:76px">Um produto de R$ 100 sobe 10% e depois tem 10% de desconto. <span style="color:var(--azul)">Volta a custar R$ 100?</span></h2>
+        <div class="card solid" data-step="2"><h3>Não: R$ 100 → R$ 110 → R$ 99.</h3><p>O desconto de 10% é calculado sobre R$ 110, não sobre R$ 100.</p></div>
+      </div>
+      <div class="poll" data-poll="sem-ia" data-show="1">
+        <p class="q">Você conseguiu resolver e explicar sozinho(a)?</p>
+        <button>Grupo A · consegui</button>
+        <button>Grupo A · não consegui</button>
+        <button>Grupo B · consegui</button>
+        <button>Grupo B · não consegui</button>
+      </div>
+    </div>
+    <aside class="notes">Questão análoga, sem IA, com explicação em palavras próprias. Depois do tempo, todos votam. Avance para ver o resultado por grupo e compare com cuidado: é uma turma, não uma pesquisa. Avance de novo para a solução.</aside>
+  </section>
+
+  <section class="slide" data-title="Reflexão">
+    <div class="kicker rise">Reflexão em dupla · 3 min</div>
+    <h2 class="title s rise">O que <em>você</em> aprendeu — e o que a IA fez?</h2>
+    <div class="cols stretch grow" style="--n:3">
+      <div class="field rise"><label for="r1">1 · O que a IA fez por você?</label><textarea id="r1" rows="6" data-save="ref-1"></textarea></div>
+      <div class="field rise"><label for="r2">2 · O que você realmente entendeu?</label><textarea id="r2" rows="6" data-save="ref-2"></textarea></div>
+      <div class="field rise"><label for="r3">3 · Como você verificou a resposta?</label><textarea id="r3" rows="6" data-save="ref-3"></textarea></div>
+    </div>
+    <p class="small">O que você escreve fica só neste aparelho.</p>
+    <aside class="notes">Peça para 1 dupla A e 1 dupla B compartilharem oralmente. Puxe a diferença entre “terminar a tarefa” e “conseguir explicar”.</aside>
+  </section>
+
+  <section class="slide" data-title="5 estratégias de estudo" data-steps="5" style="display:grid;grid-template-columns:520px minmax(0,1fr);grid-template-rows:auto 1fr;gap:40px 80px">
+    <div class="kicker rise" style="grid-column:1/-1">5 formas de pedir ajuda à IA para aprender</div>
+    <ol class="steplist rise">
+      <li data-hl="0">1 · Tutor socrático</li>
+      <li data-hl="1">2 · Explicação progressiva</li>
+      <li data-hl="2">3 · Devolutiva</li>
+      <li data-hl="3">4 · Questões de recuperação</li>
+      <li data-hl="4">5 · Verificação</li>
+    </ol>
+    <div class="swap" style="align-items:start">
+      <div data-step="0" data-only style="display:flex;flex-direction:column;gap:26px"><h2 class="title s">Tutor socrático</h2><p class="lead">Para aprender a resolver — não só receber a solução.</p><div class="prompt"><div class="p-head"><b>Comando</b><button type="button" class="copy">Copiar</button></div><q>Atue como meu tutor de [matéria]. Faça uma pergunta de cada vez, dê pistas graduais e não me dê a resposta antes de eu tentar.</q></div></div>
+      <div data-step="1" data-only style="display:flex;flex-direction:column;gap:26px"><h2 class="title s">Explicação progressiva</h2><p class="lead">Quando um conceito não entra de primeira.</p><div class="prompt"><div class="p-head"><b>Comando</b><button type="button" class="copy">Copiar</button></div><q>Explique [conceito] em três níveis: para uma criança de 10 anos, para o ensino médio e com os termos técnicos. Depois me faça uma pergunta para ver se entendi.</q></div></div>
+      <div data-step="2" data-only style="display:flex;flex-direction:column;gap:26px"><h2 class="title s">Devolutiva</h2><p class="lead">Para melhorar o que você mesmo produziu.</p><div class="prompt"><div class="p-head"><b>Comando</b><button type="button" class="copy">Copiar</button></div><q>Leia minha resposta abaixo. Aponte dois pontos fortes e um ponto a melhorar, explicando por quê. Não reescreva o texto por mim.</q></div></div>
+      <div data-step="3" data-only style="display:flex;flex-direction:column;gap:26px"><h2 class="title s">Questões de recuperação</h2><p class="lead">Tentar lembrar sem consultar ajuda a fixar o que você estudou.</p><div class="prompt"><div class="p-head"><b>Comando</b><button type="button" class="copy">Copiar</button></div><q>Crie 5 perguntas sobre [tema] para eu responder sem consultar nada. Só mostre a correção depois que eu responder.</q></div></div>
+      <div data-step="4" data-only style="display:flex;flex-direction:column;gap:26px"><h2 class="title s">Verificação</h2><p class="lead">Para saber o que conferir antes de confiar.</p><div class="prompt"><div class="p-head"><b>Comando</b><button type="button" class="copy">Copiar</button></div><q>Quais afirmações da sua resposta eu deveria conferir em uma fonte confiável? Liste-as e diga que tipo de fonte serve para cada uma.</q></div><p class="small"><b>Atenção:</b> a IA pode indicar fontes que não existem. Abra e confira você mesmo.</p></div>
+    </div>
+    <aside class="notes">Uma estratégia por clique. Todos os comandos têm botão de copiar no celular. Pergunte: “qual dessas você usaria na próxima prova?”.</aside>
+  </section>
+
+  <!-- ═════════════ 04 CRIAR ═════════════ -->
+  <section class="slide blue divider" data-title="04 · Criar">
+    <div class="ghost">04</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 04</div>
+      <h2 class="title" data-scramble>Criar</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">Agora quem cria a armadilha é você</p>
+    </div>
+    <aside class="notes">09h05–09h22 · 17 min.</aside>
+  </section>
+
+  <section class="slide" data-title="Crie um desafio" data-steps="2">
+    <div class="kicker rise">Missão da dupla · 12 min</div>
+    <h2 class="title s rise">Crie um desafio para <em>outra turma</em></h2>
+    <div class="cols stretch" style="--n:3">
+      <div class="card rise"><span class="num">A</span><h3>Informação falsa</h3><p>Uma resposta com erro escondido ou fonte que não existe.</p></div>
+      <div class="card rise"><span class="num">B</span><h3>Resposta pronta</h3><p>Uma situação de dependência: a IA faz, o estudante não aprende.</p></div>
+      <div class="card rise"><span class="num">C</span><h3>Ética e dados</h3><p>Autoria, privacidade ou uso indevido.</p></div>
+    </div>
+    <div class="cols mid" style="--n:2" data-step="1">
+      <ul class="list"><li>Situação</li><li>Resposta da IA ou risco</li><li>Tarefa de investigação</li><li>Solução comentada + critério de verificação</li></ul>
+      <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <a class="btn" style="font-size:28px" href="criar-desafio.html" target="_blank" rel="noopener">Abrir o criador de desafios ↗</a>
+        <p class="small">Ou use a ficha impressa do kit. Não use nomes reais nem dados pessoais.</p>
+      </div>
+    </div>
+    <aside class="notes">Cada dupla escolhe um tipo (A, B ou C) e preenche os 4 campos no criador (celular ou computador) ou na ficha impressa. O formador valida antes de qualquer divulgação em outras turmas.</aside>
+  </section>
+
+  <section class="slide" data-title="Critérios de qualidade">
+    <div class="kicker rise">Um bom desafio é…</div>
+    <div class="cols stretch grow" style="--n:5;gap:22px">
+      <div class="card rise"><span class="num">✓</span><h3>Claro</h3><p>Outro estudante entende sem ajuda.</p></div>
+      <div class="card rise"><span class="num">✓</span><h3>Verificável</h3><p>Tem um critério ou fonte para conferir.</p></div>
+      <div class="card rise"><span class="num">✓</span><h3>Seguro</h3><p>Sem dados pessoais, sem expor ninguém.</p></div>
+      <div class="card rise"><span class="num">✓</span><h3>Revelado</h3><p>A simulação é explicada no final.</p></div>
+      <div class="card solid rise"><span class="num">✓</span><h3>Adaptável</h3><p>Funciona em outra série ou turma.</p></div>
+    </div>
+    <aside class="notes">Peça 2 ou 3 duplas para compartilharem. A turma avalia com estes critérios. Resposta falsa de propósito só vale como simulação revelada — nunca para enganar alguém fora da aula.</aside>
+  </section>
+
+  <!-- ═════════════ 05 MULTIPLICAR ═════════════ -->
+  <section class="slide blue divider" data-title="05 · Multiplicar">
+    <div class="ghost">05</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 05</div>
+      <h2 class="title" data-scramble>Multiplicar</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">Leve a missão para outras turmas</p>
+    </div>
+    <aside class="notes">09h22–09h30 · 8 min.</aside>
+  </section>
+
+  <section class="slide" data-title="As trilhas">
+    <div class="kicker rise">Escolha sua trilha · 20 a 30 min cada</div>
+    <h2 class="title s rise">Qual ideia você quer <em>evidenciar</em>?</h2>
+    <div class="cols stretch grow" style="--n:3">
+      <div class="card rise"><span class="num">1</span><h3>Fluente não é verdadeiro</h3><p>Para mostrar que a IA pode errar com segurança — e como verificar.</p><span class="tag">Verificar</span></div>
+      <div class="card rise"><span class="num">2</span><h3>Tutor, não atalho</h3><p>Para mostrar a diferença entre receber a resposta e aprender com a IA.</p><span class="tag">Aprender</span></div>
+      <div class="card rise"><span class="num">3</span><h3>Meus dados, minha autoria</h3><p>Para discutir privacidade, autoria e uso responsável.</p><span class="tag">Ética</span></div>
+    </div>
+    <p class="lead rise" style="font-size:30px">Cada trilha tem slides com notas, modo ao vivo, versão <b>plugada</b> e <b>desplugada</b> (cartas para imprimir). Tudo no hub: <b data-hub-url></b></p>
+    <aside class="notes">Mostre o hub rapidamente. Explique: quem apresenta a trilha clica em “Apresentar” e ganha um código de sala próprio; a turma entra com o código. As notas de cada slide dizem o que falar e perguntar.</aside>
+  </section>
+
+  <section class="slide navy" data-title="Síntese" data-steps="2">
+    <div class="kicker rise">Síntese · vote de novo</div>
+    <div class="cols mid grow" style="--n:2;gap:90px">
+      <h2 class="big-q rise" style="color:#fff">A IA ajuda a aprender <span style="color:var(--claro)">ou só a entregar?</span></h2>
+      <div class="poll rise" data-poll="sintese" data-show="1">
+        <button>Ajuda a aprender</button>
+        <button>Só ajuda a entregar</button>
+        <button>Depende de como eu uso</button>
+      </div>
+    </div>
+    <div class="cols" style="--n:3;gap:24px" data-step="1">
+      <div class="card navy" style="background:rgba(255,255,255,.08)"><span class="num">1</span><h3>Quem disse?</h3></div>
+      <div class="card navy" style="background:rgba(255,255,255,.08)"><span class="num">2</span><h3>Onde eu confirmo?</h3></div>
+      <div class="card navy" style="background:rgba(255,255,255,.08)"><span class="num">3</span><h3>Consigo explicar sem a IA?</h3></div>
+    </div>
+    <aside class="notes">Compare com o diagnóstico do início. Avance para o compromisso de verificação: as 3 perguntas antes de confiar.</aside>
+  </section>
+
+  <section class="slide" data-title="Saída">
+    <div class="kicker rise">Antes de sair · 2 min</div>
+    <h2 class="title s rise">Seu <em>compromisso</em></h2>
+    <div class="cols stretch grow" style="--n:2">
+      <div class="field rise"><label for="s1">Uma estratégia de estudo com IA que vou usar</label><textarea id="s1" rows="5" data-save="saida-1"></textarea></div>
+      <div class="field rise"><label for="s2">Uma fonte que eu consultaria antes de confiar em uma informação</label><textarea id="s2" rows="5" data-save="saida-2"></textarea></div>
+    </div>
+    <aside class="notes">Resposta de saída (doc. §12). Se quiser recolher, peça para mostrarem ou usem a ficha impressa. Nada é enviado automaticamente.</aside>
+  </section>
+
+  <section class="slide blue center" data-title="Encerramento">
+    <div class="kicker rise">Missão IA</div>
+    <h2 class="title xl rise">Obrigado!</h2>
+    <div class="rule rise" style="width:760px;height:2px;background:var(--claro)"></div>
+    <p class="lead rise">Investigue, questione, verifique, aprenda — <b>e ensine</b>.</p>
+    <p class="small rise" style="font-size:26px">Rayllon Soares Pessoa · materiais em <b data-hub-url></b></p>
+    <aside class="notes">Agradeça e reforce o papel de multiplicador.</aside>
+  </section>
+
+</main>
+<script>
+  document.querySelectorAll('[data-hub-url]').forEach((b) => {
+    b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
+  });
+</script>
+<script src="assets/data/casos.js?v=1"></script>
+<script src="assets/js/simulador.js?v=1"></script>
+<script src="assets/js/deck.js?v=1"></script>
+<script src="assets/js/ao-vivo.js?v=1"></script>
+</body>
+</html>

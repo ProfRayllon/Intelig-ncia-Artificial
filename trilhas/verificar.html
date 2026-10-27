@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
+<title>Trilha 1 · Fluente não é verdadeiro</title>
+<link rel="stylesheet" href="../assets/css/base.css?v=1">
+<link rel="stylesheet" href="../assets/css/deck.css?v=1">
+</head>
+<body>
+<main class="deck" data-deck="trilhas/verificar.html" data-root="../">
+
+  <section class="slide blue divider" data-title="Capa">
+    <div class="ghost">1</div>
+    <div class="inner">
+      <div class="kicker rise">Trilha 1 · Verificar</div>
+      <h1 class="title" data-scramble>Fluente não é</h1>
+      <h1 class="title rise" style="color:var(--claro);margin-top:-30px">verdadeiro</h1>
+      <div class="rule rise"></div>
+      <p class="sub rise">A IA pode errar com segurança. Hoje você vai aprender a desconfiar do jeito certo.</p>
+    </div>
+    <aside class="notes"><b>Antes de começar:</b> clique no selo AO VIVO e mostre o QR code ou o código da sala. Espere a turma entrar.<br><b>Diga:</b> “Hoje a gente vai investigar respostas de IA como detetives.”<br><b>Tempo total:</b> 20 a 30 min.</aside>
+  </section>
+
+  <section class="slide navy" data-title="Pergunta inicial" data-steps="2">
+    <div class="kicker rise">Vote no seu celular</div>
+    <div class="cols mid grow" style="--n:2;gap:90px">
+      <h2 class="big-q rise" style="color:#fff">Uma resposta bem escrita por IA é <span style="color:var(--claro)">sempre correta?</span></h2>
+      <div class="poll rise" data-poll="t1-inicio" data-show="1">
+        <button>Sim</button><button>Não</button><button>Depende</button>
+      </div>
+    </div>
+    <aside class="notes"><b>Diga:</b> “Votem sem conversar.” Espere votar e avance para mostrar o resultado.<br><b>Pergunte:</b> “Quem votou ‘sim’ pode dizer por quê?” Não corrija ainda — vamos descobrir juntos.</aside>
+  </section>
+
+  <section class="slide" data-title="Como a IA escreve" data-steps="3">
+    <div class="kicker rise">Como a IA escreve</div>
+    <h2 class="title s rise">Ela prevê a <em>próxima palavra</em></h2>
+    <div class="flow">
+      <div class="node" data-step="0"><span class="n">1</span><b>Lê o contexto</b><span>Sua pergunta e a conversa até ali.</span></div>
+      <div class="node" data-step="1"><span class="n">2</span><b>Prevê</b><span>Calcula quais palavras são mais prováveis de vir depois.</span></div>
+      <div class="node" data-step="2" style="background:var(--azul);color:#fff"><span class="n" style="color:var(--claro)">3</span><b>Repete</b><span style="color:var(--claro)">Acrescenta uma palavra e prevê de novo, até formar a resposta.</span></div>
+    </div>
+    <p class="lead push" data-step="2" style="font-weight:700">Em nenhum passo existe uma etapa obrigatória de <mark class="good">conferir se é verdade</mark>.</p>
+    <aside class="notes"><b>Diga:</b> “A IA não copia de um lugar: ela aprendeu padrões em muitos textos e gera o texto pedaço por pedaço.” Avance um quadro por vez.<br><b>Dica:</b> se alguém perguntar, algumas IAs também fazem buscas na internet — mas mesmo assim podem errar.</aside>
+  </section>
+
+  <section class="slide" data-title="Laboratório de previsão" data-steps="3">
+    <div class="kicker rise">Laboratório de previsão</div>
+    <div class="cols grow" style="--n:2;gap:90px">
+      <div style="display:flex;flex-direction:column;gap:34px">
+        <div class="swap">
+          <p class="big-q" data-step="0" data-until="2">Hoje eu comi <span style="color:var(--azul)">___</span></p>
+          <p class="big-q" data-step="2">No café da manhã, eu comi <span style="color:var(--azul)">___</span></p>
+        </div>
+        <div class="poll" data-poll="t1-comi" data-show="1">
+          <p class="q">Qual palavra vem depois?</p>
+          <button>arroz</button><button>pão</button><button>pizza</button><button>tapioca</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <span class="label-sim" data-step="1">Valores ilustrativos · não medidos em um modelo real</span>
+        <div class="swap">
+          <div class="bars" data-step="1" data-until="2">
+            <div class="bar top"><span>arroz</span><div class="track"><i class="fill" data-w="34"></i></div><span class="v">34%</span></div>
+            <div class="bar"><span>pizza</span><div class="track"><i class="fill" data-w="21"></i></div><span class="v">21%</span></div>
+            <div class="bar"><span>pão</span><div class="track"><i class="fill" data-w="17"></i></div><span class="v">17%</span></div>
+            <div class="bar"><span>tapioca</span><div class="track"><i class="fill" data-w="5"></i></div><span class="v">5%</span></div>
+          </div>
+          <div class="bars" data-step="2">
+            <div class="bar top"><span>pão</span><div class="track"><i class="fill" data-w="47"></i></div><span class="v">47%</span></div>
+            <div class="bar"><span>tapioca</span><div class="track"><i class="fill" data-w="19"></i></div><span class="v">19%</span></div>
+            <div class="bar"><span>pizza</span><div class="track"><i class="fill" data-w="4"></i></div><span class="v">4%</span></div>
+            <div class="bar"><span>arroz</span><div class="track"><i class="fill" data-w="2"></i></div><span class="v">2%</span></div>
+          </div>
+        </div>
+        <p class="lead" data-step="2" style="font-size:32px">Mudou o contexto, mudou a previsão. A IA escolhe o <b>provável</b>, não o <b>verdadeiro</b>.</p>
+      </div>
+    </div>
+    <aside class="notes"><b>1.</b> Todos votam. <b>2.</b> Avance: mostre as “probabilidades” e diga que são <u>inventadas para ilustrar</u>. <b>3.</b> Avance: com mais contexto, a previsão muda.<br><b>Pergunte:</b> “E se muita gente na internet escrevesse uma informação errada? O que a IA aprenderia?”</aside>
+  </section>
+
+  <section class="slide" data-title="Resposta suspeita" data-steps="2">
+    <div class="kicker rise">Investigação · leia com atenção</div>
+    <div class="cols grow" style="--n:2;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:70px">
+      <div class="chat rise">
+        <div class="bubble me"><span class="who">Estudante</span>Explique como funciona a fotossíntese.</div>
+        <div class="bubble ai"><span class="who">IA</span><span data-type>A fotossíntese é o processo pelo qual as plantas produzem o próprio alimento usando a energia da luz. A clorofila, presente nas folhas, capta a luz do Sol. A planta absorve oxigênio (O₂) do ar e água do solo e, com isso, produz glicose, liberando gás carbônico (CO₂) para a atmosfera. Por isso, a fotossíntese é essencial para a vida na Terra.</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div class="poll rise" data-poll="t1-foto" data-show="1">
+          <p class="q">Qual é o seu veredito?</p>
+          <button>✓ Confio</button><button>? Preciso verificar</button><button>✗ Está incorreta</button>
+        </div>
+        <div class="field rise">
+          <label for="j1">Por quê? Como você checaria?</label>
+          <textarea id="j1" rows="3" data-save="just"></textarea>
+        </div>
+      </div>
+    </div>
+    <aside class="notes"><b>Importante:</b> ainda NÃO diga que é uma simulação.<br><b>Diga:</b> “Leiam com calma, votem e escrevam como vocês checariam.” Dê 2 min e avance.<br><b>Pergunte:</b> “Quem votou ‘incorreta’ achou o erro onde?”</aside>
+  </section>
+
+  <section class="slide" data-title="Revelação" data-steps="2">
+    <div class="row rise" style="gap:24px">
+      <span class="verdict no">✗ Incorreta</span>
+      <span class="label-sim">Simulação · resposta criada para esta atividade</span>
+    </div>
+    <div class="cols" style="--n:2;gap:60px" data-step="0">
+      <div class="card line" style="border-color:var(--vermelho)"><span class="tag" style="background:var(--vermelho)">O texto dizia</span><p style="font-size:30px">Absorve <mark class="bad">oxigênio (O₂)</mark> e libera <mark class="bad">gás carbônico (CO₂)</mark>.</p></div>
+      <div class="card line" style="border-color:var(--verde)"><span class="tag" style="background:var(--verde)">O correto</span><p style="font-size:30px">Absorve <mark class="good">gás carbônico (CO₂)</mark> e água, e libera <mark class="good">oxigênio (O₂)</mark>.</p></div>
+    </div>
+    <div class="card" data-step="1"><h3>Por que convence?</h3><p>As plantas também respiram — e na respiração absorvem O₂ e liberam CO₂. O texto trocou dois processos reais, e o resto estava certo. Confira sempre no livro de Biologia ou com seu professor.</p></div>
+    <aside class="notes"><b>Diga com clareza:</b> “Essa resposta foi escrita de propósito para a atividade. Não veio de uma IA de verdade.”<br><b>Lição:</b> um erro grave pode estar escondido num texto quase todo certo.</aside>
+  </section>
+
+  <section class="slide" data-title="3 perguntas" data-steps="3">
+    <div class="kicker rise">Antes de confiar, pergunte</div>
+    <div class="cols stretch grow" style="--n:3">
+      <div class="card solid" data-step="0"><span class="num">1</span><h3>Quem disse?</h3><p>A IA não é a fonte. De onde veio essa informação?</p></div>
+      <div class="card solid" data-step="1"><span class="num">2</span><h3>Onde eu confirmo?</h3><p>Livro didático, professor, site de instituição confiável. Abra a fonte!</p></div>
+      <div class="card solid" data-step="2"><span class="num">3</span><h3>Consigo explicar?</h3><p>Se não consigo explicar com minhas palavras, ainda não aprendi.</p></div>
+    </div>
+    <aside class="notes">Uma pergunta por clique. <b>Peça:</b> “Repitam comigo as 3 perguntas.” Elas são o compromisso final da trilha.</aside>
+  </section>
+
+  <section class="slide" data-title="Casos reais" data-steps="2">
+    <div class="kicker rise">Isso acontece de verdade</div>
+    <div class="casos grow" style="grid-template-columns:repeat(2,minmax(0,1fr))" data-casos="avianca,pizza" data-first-step="0"></div>
+    <aside class="notes">Um caso por clique. Leia o título e a lição em voz alta.<br><b>Pergunte:</b> “Qual das 3 perguntas teria evitado esse problema?”</aside>
+  </section>
+
+  <section class="slide" data-title="Fonte inventada?" data-steps="2" style="gap:36px">
+    <h2 class="title s rise">Desafio: qual tem uma <em>fonte inventada</em>?</h2>
+    <div class="cols" style="--n:3">
+      <div class="card line rise"><span class="num">1</span><p>A água ferve a 100 °C ao nível do mar.</p></div>
+      <div class="card line rise"><span class="num">2</span><p>O Brasil tem 27 unidades federativas: 26 estados e o Distrito Federal.</p></div>
+      <div class="card line rise" style="transition:border-color .4s"><span class="num">3</span><p>Segundo o estudo de Almeida e Souza (2021), 87% dos estudantes aprendem mais rápido usando IA.</p><span class="label-sim" data-step="1">Inventada para esta atividade</span></div>
+    </div>
+    <div class="cols mid" style="--n:2;gap:60px">
+      <div class="poll" data-poll="t1-fonte" data-show="1"><button>Afirmação 1</button><button>Afirmação 2</button><button>Afirmação 3</button></div>
+      <p class="lead" data-step="1" style="font-size:30px"><b>Desconfie</b> de número preciso + autor que você não consegue encontrar. A IA pode criar referências com cara de reais.</p>
+    </div>
+    <aside class="notes"><b>Diga:</b> “Imaginem que as três frases vieram de uma IA.” Votação e depois revele.<br><b>Explique:</b> as frases 1 e 2 são verdadeiras. A 3 foi inventada por nós — autores, ano e número. Tentem procurar e não vão achar.</aside>
+  </section>
+
+  <section class="slide" data-title="Sua missão">
+    <div class="kicker rise">Sua missão · em dupla</div>
+    <h2 class="title s rise">Crie uma <em>armadilha</em> para a turma investigar</h2>
+    <div class="cols stretch" style="--n:2">
+      <div class="card rise"><span class="tag">Plugada</span><h3>No criador de desafios</h3><p>Escreva a situação, a resposta com erro, a tarefa de investigação e a solução com a fonte de verificação.</p><a class="btn" href="../criar-desafio.html?tipo=falsa" target="_blank" rel="noopener" style="align-self:flex-start">Abrir criador ↗</a></div>
+      <div class="card rise"><span class="tag">Desplugada</span><h3>Na ficha impressa</h3><p>Use a ficha de autoria do kit. Depois troque com outra dupla: quem acha o erro primeiro?</p></div>
+    </div>
+    <p class="small rise">Regra: a armadilha só vale com revelação no final. Nada de nomes reais ou dados pessoais.</p>
+    <aside class="notes">Dê 8 a 10 min. Circule entre as duplas. Peça para 1 ou 2 duplas apresentarem sua armadilha — a turma tenta achar o erro.</aside>
+  </section>
+
+  <section class="slide navy" data-title="Síntese" data-steps="2">
+    <div class="kicker rise">Para fechar</div>
+    <div class="cols mid grow" style="--n:2;gap:90px">
+      <h2 class="big-q rise" style="color:#fff">Quando a IA responder algo, <span style="color:var(--claro)">você vai…</span></h2>
+      <div class="poll rise" data-poll="t1-fim" data-show="1">
+        <button>Confiar se estiver bem escrito</button>
+        <button>Conferir em outra fonte</button>
+        <button>Nunca mais usar IA</button>
+      </div>
+    </div>
+    <p class="lead" data-step="1" style="color:#fff">Nem confiar cegamente, nem fugir da IA: <b>usar e verificar</b>.</p>
+    <aside class="notes">Compare com a votação do começo. Se alguém escolher “nunca mais usar”, explique que a ideia não é ter medo, é usar com critério.</aside>
+  </section>
+
+  <section class="slide blue center" data-title="Encerramento">
+    <div class="kicker rise">Missão cumprida</div>
+    <h2 class="title l rise">Quem disse? Onde confirmo? Consigo explicar?</h2>
+    <p class="small rise" style="font-size:26px">Trilha 1 · Missão IA</p>
+    <aside class="notes">Agradeça a turma. Se der tempo, mostre o hub para quem quiser continuar.</aside>
+  </section>
+
+</main>
+<script src="../assets/data/casos.js?v=1"></script>
+<script src="../assets/js/deck.js?v=1"></script>
+<script src="../assets/js/ao-vivo.js?v=1"></script>
+</body>
+</html>

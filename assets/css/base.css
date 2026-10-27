@@ -1,0 +1,55 @@
+/*
+ * base.css — identidade visual do Missão IA (cores, tipografia, botões).
+ * Herdada da apresentação anterior: azul #0B4FD6, marinho #08172E,
+ * Anton para títulos e Manrope para texto.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --azul: #0B4FD6;
+  --azul-esc: #072C7A;
+  --marinho: #08172E;
+  --tinta: #22344F;
+  --cinza: #40526E;
+  --suave: #8A97AB;
+  --gelo: #E8EFFC;
+  --claro: #C7DAFB;
+  --linha: #DCE3EE;
+  --branco: #fff;
+  --vermelho: #E5484D;
+  --vermelho-claro: #FDECEC;
+  --verde: #12A150;
+  --verde-claro: #E3F6EA;
+  --amarelo: #F5B700;
+  --amarelo-claro: #FFF5D6;
+  --titulo: Anton, Impact, sans-serif;
+  --texto: Manrope, system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--texto); color: var(--marinho); background: var(--branco); }
+a { color: var(--azul); }
+img { max-width: 100%; }
+:focus-visible { outline: 4px solid var(--amarelo); outline-offset: 3px; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  padding: .8em 1.3em; border: 2px solid var(--azul); border-radius: 0;
+  font: 800 1rem/1.1 var(--texto); letter-spacing: .04em; text-decoration: none;
+  color: var(--branco); background: var(--azul); cursor: pointer;
+  transition: background .2s, color .2s, transform .2s;
+}
+.btn:hover { background: var(--azul-esc); border-color: var(--azul-esc); color: var(--branco); }
+.btn.ghost { background: transparent; color: var(--azul); }
+.btn.ghost:hover { background: var(--gelo); color: var(--azul-esc); }
+.btn.white { background: var(--branco); color: var(--azul); border-color: var(--branco); }
+.btn.white:hover { background: var(--gelo); }
+.btn.outline-white { background: transparent; color: var(--branco); border-color: var(--branco); }
+.btn.outline-white:hover { background: rgba(255,255,255,.12); }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; }
+}
