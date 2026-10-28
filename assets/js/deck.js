@@ -348,7 +348,8 @@
 
   // ── Pop-ups: [data-pop] abre o .pop-body do card numa camada do slide.
   // O estado (pop-up aberto e cards já vistos) vai junto na sincronização.
-  let extra = { pop: null, seen: [] };
+  // Também guarda o nível escolhido em cada slide com [data-nivel].
+  let extra = { pop: null, seen: [], lvl: {} };
   slides.forEach((el) => {
     if (!el.querySelector('[data-pop]')) return;
     const layer = document.createElement('div');
@@ -364,14 +365,24 @@
       layer.dataset.kind = card ? (card.dataset.kind || '') : '';
       if (card) layer.querySelector('.pop-content').innerHTML = card.querySelector('.pop-body').innerHTML;
     });
+    deck.querySelectorAll('.slide[data-nivel]').forEach((el) => {
+      const n = String(extra.lvl[el.dataset.nivel] || 0);
+      el.dataset.lv = n;
+      el.querySelectorAll('.lv-switch button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lv === n ? 'true' : 'false'));
+    });
   };
   const setExtra = (x, quiet) => {
-    extra = { pop: x && x.pop || null, seen: (x && x.seen) || [] };
+    extra = { pop: x && x.pop || null, seen: (x && x.seen) || [], lvl: (x && x.lvl) || {} };
     renderExtra();
     if (!quiet) listeners.forEach((fn) => fn({ i: cur, s: step }));
   };
   deck.addEventListener('click', (e) => {
     if (locked) return;
+    const lv = e.target.closest('.lv-switch button');
+    if (lv) {
+      const key = lv.closest('.slide').dataset.nivel;
+      return setExtra({ ...extra, lvl: { ...extra.lvl, [key]: +lv.dataset.lv } });
+    }
     const card = e.target.closest('[data-pop]');
     if (card) {
       const id = card.dataset.pop;
@@ -379,6 +390,7 @@
     }
     if (e.target.closest('[data-pop-close]') || e.target.classList.contains('pop-layer')) setExtra({ ...extra, pop: null });
   });
+  renderExtra();
 
   const go = (i, s = 0) => {
     i = clamp(i | 0, 0, slides.length - 1);

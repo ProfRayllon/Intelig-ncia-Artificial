@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Palestra</title>
-<link rel="stylesheet" href="assets/css/base.css?v=14">
-<link rel="stylesheet" href="assets/css/deck.css?v=14">
+<link rel="stylesheet" href="assets/css/base.css?v=15">
+<link rel="stylesheet" href="assets/css/deck.css?v=15">
 </head>
 <body>
 <main class="deck" data-deck="apresentacao.html" data-root="">
@@ -415,80 +415,216 @@
     <aside class="notes">Explique a regra em três cliques. Quem não tiver IA no celular pode trabalhar com a dupla: o importante é entender antes de montar a frase. Não cole dados pessoais na conversa.</aside>
   </section>
 
-  <section class="slide" data-title="Desafio 1 · Matemática" data-steps="2" style="gap:28px">
-    <div class="kicker rise">Desafio 1 de 4 · Matemática</div>
-    <div class="fr-top">
-      <h2 class="title s rise">Por que não dá para dividir por zero?</h2>
-      <div class="prompt fr-prompt rise"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que não dá para dividir um número por zero. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
-    </div>
-    <div class="fr-grid grow">
-      <figure class="fr-fig rise">
-        <img src="assets/img/desafio-divisao-zero.jpg" alt="Quadro com 6 ÷ 0 = ? e uma calculadora com um ponto de interrogação">
-        <p class="fr-why" data-step="1"><b>Por quê?</b> Dividir é procurar o número que, multiplicado pelo divisor, volta ao 6. Com o 0 não existe esse número: tudo vezes 0 dá 0.</p>
-      </figure>
-      <div class="frase rise" data-poll="fr-mat" data-show="1">
-        <p class="fr-q">Monte a sua frase</p>
-        <p class="fr-text">Dividir 6 por 0 é impossível, porque <span class="gap" data-opts="só o número 6|qualquer número" data-ok="1"></span> multiplicado por 0 dá <span class="gap" data-opts="6|0" data-ok="1"></span>.</p>
+  <section class="slide" data-title="Desafio 1 · Matemática" data-steps="2" data-nivel="mat" style="gap:28px">
+    <div class="fr-head rise"><div class="kicker">Desafio 1 de 4 · Matemática</div><div class="lv-switch" role="group" aria-label="Nível"><button type="button" data-lv="0">Fácil</button><button type="button" data-lv="1">Médio</button><button type="button" data-lv="2">Difícil</button></div></div>
+    <div class="fr-lv" data-lv="0">
+      <div class="fr-top">
+        <h2 class="title s">Por que não dá para dividir por zero?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que não dá para dividir um número por zero. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-divisao-zero.jpg" alt="Quadro com 6 ÷ 0 = ? e uma calculadora com um ponto de interrogação">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Dividir é procurar o número que, multiplicado pelo divisor, volta ao 6. Com o 0 não existe esse número: tudo vezes 0 dá 0.</p>
+        </figure>
+        <div class="frase" data-poll="fr-mat" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Dividir 6 por 0 é impossível, porque <span class="gap" data-opts="só o número 6|qualquer número" data-ok="1"></span> multiplicado por 0 dá <span class="gap" data-opts="6|0" data-ok="1"></span>.</p>
+        </div>
       </div>
     </div>
-    <aside class="notes">Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê. Pergunte a alguém que acertou: “que exemplo a IA deu que te ajudou?”.</aside>
+    <div class="fr-lv" data-lv="1">
+      <div class="fr-top">
+        <h2 class="title s">Por que todo número elevado a zero dá 1?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com a sequência 2³, 2², 2¹, por que todo número (diferente de zero) elevado a zero dá 1. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-divisao-zero.jpg" alt="Quadro com 6 ÷ 0 = ? e uma calculadora com um ponto de interrogação">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> 2³ = 8, 2² = 4, 2¹ = 2: a cada passo, divide por 2. O próximo passo é 2 ÷ 2 = 1. O padrão continua, e por isso 2⁰ = 1.</p>
+        </figure>
+        <div class="frase" data-poll="fr-mat-2" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Cada vez que o expoente diminui 1, o resultado é <span class="gap" data-opts="multiplicado|dividido|somado" data-ok="1"></span> pela base; por isso 2⁰ = 2¹ ÷ 2 = <span class="gap" data-opts="0|2|1" data-ok="2"></span>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fr-lv" data-lv="2">
+      <div class="fr-top">
+        <h2 class="title s">0,999… é igual a 1?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique por que 0,999… (com infinitos noves) é igual a 1, usando a ideia de “número entre dois números” e a fração 1/3. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-divisao-zero.jpg" alt="Quadro com 6 ÷ 0 = ? e uma calculadora com um ponto de interrogação">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Se fossem diferentes, caberia outro número entre eles; não cabe nenhum. E 1/3 = 0,333…, então 3 × 1/3 = 1 = 0,999…</p>
+        </figure>
+        <div class="frase" data-poll="fr-mat-3" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Sim, são iguais: <span class="gap" data-opts="existe um número minúsculo|não existe nenhum número" data-ok="1"></span> entre os dois, e 3 × 0,333… (que é 1/3) dá <span class="gap" data-opts="quase 1|1" data-ok="1"></span>.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Comece no Fácil. Se a turma achar fácil, troque o nível no botão do canto (Médio ou Difícil): a pergunta muda na tela de todos, e cada nível tem a sua própria contagem. Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê.</aside>
   </section>
 
-  <section class="slide" data-title="Desafio 2 · Ciências da Natureza" data-steps="2" style="gap:28px">
-    <div class="kicker rise">Desafio 2 de 4 · Ciências da Natureza</div>
-    <div class="fr-top">
-      <h2 class="title s rise">Por que o corpo vai para a frente quando o ônibus freia?</h2>
-      <div class="prompt fr-prompt rise"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que o nosso corpo vai para a frente quando o ônibus freia. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
-    </div>
-    <div class="fr-grid grow">
-      <figure class="fr-fig rise">
-        <img src="assets/img/desafio-onibus.jpg" alt="Passageiros de ônibus sendo projetados para a frente na freada, indicados por setas">
-        <p class="fr-why" data-step="1"><b>Por quê?</b> Inércia: um corpo tende a manter o movimento que já tinha. O ônibus para; o seu corpo “quer” seguir em frente.</p>
-      </figure>
-      <div class="frase rise" data-poll="fr-nat" data-show="1">
-        <p class="fr-q">Monte a sua frase</p>
-        <p class="fr-text">Quando o ônibus freia, o corpo tende a <span class="gap" data-opts="parar junto|continuar em movimento" data-ok="1"></span> por causa da <span class="gap" data-opts="inércia|gravidade" data-ok="0"></span>.</p>
+  <section class="slide" data-title="Desafio 2 · Ciências da Natureza" data-steps="2" data-nivel="nat" style="gap:28px">
+    <div class="fr-head rise"><div class="kicker">Desafio 2 de 4 · Ciências da Natureza</div><div class="lv-switch" role="group" aria-label="Nível"><button type="button" data-lv="0">Fácil</button><button type="button" data-lv="1">Médio</button><button type="button" data-lv="2">Difícil</button></div></div>
+    <div class="fr-lv" data-lv="0">
+      <div class="fr-top">
+        <h2 class="title s">Por que o corpo vai para a frente quando o ônibus freia?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que o nosso corpo vai para a frente quando o ônibus freia. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-onibus.jpg" alt="Passageiros de ônibus sendo projetados para a frente na freada, indicados por setas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Inércia: um corpo tende a manter o movimento que já tinha. O ônibus para; o seu corpo “quer” seguir em frente.</p>
+        </figure>
+        <div class="frase" data-poll="fr-nat" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Quando o ônibus freia, o corpo tende a <span class="gap" data-opts="parar junto|continuar em movimento" data-ok="1"></span> por causa da <span class="gap" data-opts="inércia|gravidade" data-ok="0"></span>.</p>
+        </div>
       </div>
     </div>
-    <aside class="notes">Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê. Pergunte a alguém que acertou: “que exemplo a IA deu que te ajudou?”.</aside>
+    <div class="fr-lv" data-lv="1">
+      <div class="fr-top">
+        <h2 class="title s">Por que o copo de água gelada “sua” por fora?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, de onde vêm as gotinhas que aparecem do lado de fora de um copo de água gelada. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-onibus.jpg" alt="Passageiros de ônibus sendo projetados para a frente na freada, indicados por setas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> O ar tem vapor de água invisível. Ao encostar no vidro gelado, ele esfria e vira líquido: é condensação, não vazamento.</p>
+        </figure>
+        <div class="frase" data-poll="fr-nat-2" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">As gotas vêm do <span class="gap" data-opts="vapor de água do ar|água que atravessa o vidro" data-ok="0"></span>, que <span class="gap" data-opts="evapora|condensa" data-ok="1"></span> ao tocar o vidro frio.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fr-lv" data-lv="2">
+      <div class="fr-top">
+        <h2 class="title s">No vácuo, por que um martelo e uma pena caem juntos?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique por que, sem a resistência do ar, um martelo e uma pena soltos da mesma altura chegam ao chão ao mesmo tempo, usando as ideias de força peso e inércia. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-onibus.jpg" alt="Passageiros de ônibus sendo projetados para a frente na freada, indicados por setas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Mais massa = mais força peso, mas também mais “resistência a mudar o movimento”. Um compensa o outro. Na Lua, em 1971, o astronauta David Scott fez esse teste na missão Apollo 15.</p>
+        </figure>
+        <div class="frase" data-poll="fr-nat-3" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">A aceleração da queda <span class="gap" data-opts="é maior para o mais pesado|não depende da massa" data-ok="1"></span>: o martelo é puxado com mais força, mas também tem mais <span class="gap" data-opts="inércia|volume|velocidade" data-ok="0"></span>.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Comece no Fácil. Se a turma achar fácil, troque o nível no botão do canto (Médio ou Difícil): a pergunta muda na tela de todos, e cada nível tem a sua própria contagem. Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê.</aside>
   </section>
 
-  <section class="slide" data-title="Desafio 3 · Linguagens" data-steps="2" style="gap:28px">
-    <div class="kicker rise">Desafio 3 de 4 · Linguagens</div>
-    <div class="fr-top">
-      <h2 class="title s rise">“Mas” ou “mais”?</h2>
-      <div class="prompt fr-prompt rise"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com exemplos do dia a dia, a diferença entre “mas” e “mais”. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
-    </div>
-    <div class="fr-grid grow">
-      <figure class="fr-fig rise">
-        <img src="assets/img/desafio-mas-mais.jpg" alt="De um lado, uma estudante em dúvida com o balão “mas”; do outro, o balão “mais” com maçãs sendo somadas">
-        <p class="fr-why" data-step="1"><b>Por quê?</b> “Estudei, mas não entendi” (oposição) · “Quero mais tempo” (quantidade).</p>
-      </figure>
-      <div class="frase rise" data-poll="fr-ling" data-show="1">
-        <p class="fr-q">Monte a sua frase</p>
-        <p class="fr-text">“Mas” indica <span class="gap" data-opts="quantidade|oposição|tempo" data-ok="1"></span>, e “mais” indica <span class="gap" data-opts="oposição|tempo|quantidade" data-ok="2"></span>.</p>
+  <section class="slide" data-title="Desafio 3 · Linguagens" data-steps="2" data-nivel="ling" style="gap:28px">
+    <div class="fr-head rise"><div class="kicker">Desafio 3 de 4 · Linguagens</div><div class="lv-switch" role="group" aria-label="Nível"><button type="button" data-lv="0">Fácil</button><button type="button" data-lv="1">Médio</button><button type="button" data-lv="2">Difícil</button></div></div>
+    <div class="fr-lv" data-lv="0">
+      <div class="fr-top">
+        <h2 class="title s">“Mas” ou “mais”?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com exemplos do dia a dia, a diferença entre “mas” e “mais”. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-mas-mais.jpg" alt="De um lado, uma estudante em dúvida com o balão “mas”; do outro, o balão “mais” com maçãs sendo somadas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> “Estudei, mas não entendi” (oposição) · “Quero mais tempo” (quantidade).</p>
+        </figure>
+        <div class="frase" data-poll="fr-ling" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">“Mas” indica <span class="gap" data-opts="quantidade|oposição|tempo" data-ok="1"></span>, e “mais” indica <span class="gap" data-opts="oposição|tempo|quantidade" data-ok="2"></span>.</p>
+        </div>
       </div>
     </div>
-    <aside class="notes">Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê. Pergunte a alguém que acertou: “que exemplo a IA deu que te ajudou?”.</aside>
+    <div class="fr-lv" data-lv="1">
+      <div class="fr-top">
+        <h2 class="title s">“Por que”, “porque”, “por quê” ou “porquê”?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com exemplos, quando usar “por que”, “porque”, “por quê” e “porquê”. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-mas-mais.jpg" alt="De um lado, uma estudante em dúvida com o balão “mas”; do outro, o balão “mais” com maçãs sendo somadas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> No fim da frase, o “que” fica tônico e ganha acento: “Você faltou por quê?”. Na resposta, junto e sem acento: “Porque choveu.”</p>
+        </figure>
+        <div class="frase" data-poll="fr-ling-2" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Em “Você faltou ___?” usamos <span class="gap" data-opts="porque|por quê|porquê" data-ok="1"></span>, porque a palavra fica <span class="gap" data-opts="no fim da pergunta|no começo da resposta" data-ok="0"></span>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fr-lv" data-lv="2">
+      <div class="fr-top">
+        <h2 class="title s">Duas vírgulas mudam quem passou?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique a diferença de sentido entre “Os alunos, que estudaram, passaram” e “Os alunos que estudaram passaram”. Fale de oração adjetiva explicativa e restritiva. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-mas-mais.jpg" alt="De um lado, uma estudante em dúvida com o balão “mas”; do outro, o balão “mais” com maçãs sendo somadas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Sem vírgulas, a oração restringe: só passaram os que estudaram (outros não). Com vírgulas, ela só explica algo sobre todos. Duas vírgulas mudam quem passou.</p>
+        </figure>
+        <div class="frase" data-poll="fr-ling-3" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Em “Os alunos<u>,</u> que estudaram<u>,</u> passaram”, a oração é <span class="gap" data-opts="restritiva|explicativa|adverbial" data-ok="1"></span>: diz que <span class="gap" data-opts="só alguns alunos|todos os alunos" data-ok="1"></span> estudaram e passaram.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Comece no Fácil. Se a turma achar fácil, troque o nível no botão do canto (Médio ou Difícil): a pergunta muda na tela de todos, e cada nível tem a sua própria contagem. Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê.</aside>
   </section>
 
-  <section class="slide" data-title="Desafio 4 · Ciências Humanas" data-steps="2" style="gap:28px">
-    <div class="kicker rise">Desafio 4 de 4 · Ciências Humanas</div>
-    <div class="fr-top">
-      <h2 class="title s rise">Por que pagamos imposto até numa bala do mercado?</h2>
-      <div class="prompt fr-prompt rise"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que pagamos imposto quando compramos uma bala no mercado e para onde vai esse dinheiro. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
-    </div>
-    <div class="fr-grid grow">
-      <figure class="fr-fig rise">
-        <img src="assets/img/desafio-imposto.jpg" alt="Saco de maçãs de R$ 10,00 ao lado de um papel escrito “imposto” e pilhas de moedas">
-        <p class="fr-why" data-step="1"><b>Por quê?</b> Parte do preço de quase tudo o que compramos é imposto; o governo usa esse dinheiro em escolas, saúde, transporte…</p>
-      </figure>
-      <div class="frase rise" data-poll="fr-hum" data-show="1">
-        <p class="fr-q">Monte a sua frase</p>
-        <p class="fr-text">O imposto já vem <span class="gap" data-opts="cobrado só no fim do ano|embutido no preço" data-ok="1"></span> e serve para <span class="gap" data-opts="pagar serviços públicos|aumentar o lucro da loja" data-ok="0"></span>.</p>
+  <section class="slide" data-title="Desafio 4 · Ciências Humanas" data-steps="2" data-nivel="hum" style="gap:28px">
+    <div class="fr-head rise"><div class="kicker">Desafio 4 de 4 · Ciências Humanas</div><div class="lv-switch" role="group" aria-label="Nível"><button type="button" data-lv="0">Fácil</button><button type="button" data-lv="1">Médio</button><button type="button" data-lv="2">Difícil</button></div></div>
+    <div class="fr-lv" data-lv="0">
+      <div class="fr-top">
+        <h2 class="title s">Por que pagamos imposto até numa bala do mercado?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que pagamos imposto quando compramos uma bala no mercado e para onde vai esse dinheiro. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-imposto.jpg" alt="Saco de maçãs de R$ 10,00 ao lado de um papel escrito “imposto” e pilhas de moedas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Parte do preço de quase tudo o que compramos é imposto; o governo usa esse dinheiro em escolas, saúde, transporte…</p>
+        </figure>
+        <div class="frase" data-poll="fr-hum" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">O imposto já vem <span class="gap" data-opts="cobrado só no fim do ano|embutido no preço" data-ok="1"></span> e serve para <span class="gap" data-opts="pagar serviços públicos|aumentar o lucro da loja" data-ok="0"></span>.</p>
+        </div>
       </div>
     </div>
-    <aside class="notes">Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê. Pergunte a alguém que acertou: “que exemplo a IA deu que te ajudou?”.</aside>
+    <div class="fr-lv" data-lv="1">
+      <div class="fr-top">
+        <h2 class="title s">Por que é dia no Brasil enquanto é noite no Japão?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique, com um exemplo do dia a dia, por que pode ser dia no Brasil e noite no Japão ao mesmo tempo. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-imposto.jpg" alt="Saco de maçãs de R$ 10,00 ao lado de um papel escrito “imposto” e pilhas de moedas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> É a rotação: em cerca de 24 horas a Terra dá uma volta em si mesma. O lado virado para o Sol tem dia; o outro, noite.</p>
+        </figure>
+        <div class="frase" data-poll="fr-hum-2" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">A Terra <span class="gap" data-opts="gira em torno do Sol|gira em torno de si mesma|está parada" data-ok="1"></span> e o Sol ilumina <span class="gap" data-opts="o planeta todo|metade do planeta" data-ok="1"></span> de cada vez.</p>
+        </div>
+      </div>
+    </div>
+    <div class="fr-lv" data-lv="2">
+      <div class="fr-top">
+        <h2 class="title s">Por que imprimir mais dinheiro não deixa todo mundo rico?</h2>
+        <div class="prompt fr-prompt"><div class="p-head"><b>Peça o conceito à IA</b><button type="button" class="copy">Copiar</button></div><q>Explique por que um país não fica rico só imprimindo mais dinheiro. Use a ideia de inflação. Não me dê a resposta em uma frase pronta: quero entender o conceito.</q></div>
+      </div>
+      <div class="fr-grid grow">
+        <figure class="fr-fig">
+          <img src="assets/img/desafio-imposto.jpg" alt="Saco de maçãs de R$ 10,00 ao lado de um papel escrito “imposto” e pilhas de moedas">
+          <p class="fr-why" data-step="1"><b>Por quê?</b> Dinheiro é troca por coisas. Mais dinheiro para as mesmas coisas = todos disputam os mesmos produtos, e os preços sobem: é a inflação.</p>
+        </figure>
+        <div class="frase" data-poll="fr-hum-3" data-show="1">
+          <p class="fr-q">Monte a sua frase</p>
+          <p class="fr-text">Se o dinheiro cresce mais que os <span class="gap" data-opts="bancos|produtos e serviços" data-ok="1"></span>, os preços <span class="gap" data-opts="caem|sobem" data-ok="1"></span> e cada real compra <span class="gap" data-opts="mais|menos" data-ok="1"></span>.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Comece no Fácil. Se a turma achar fácil, troque o nível no botão do canto (Médio ou Difícil): a pergunta muda na tela de todos, e cada nível tem a sua própria contagem. Deixe a turma perguntar à IA e montar a frase no próprio aparelho (sem cronômetro: avance quando a maioria tiver enviado). No próximo clique aparecem a frase certa, a porcentagem de quem acertou e o porquê.</aside>
   </section>
 
   <section class="slide" data-title="5 estratégias de estudo" data-steps="5" style="display:grid;grid-template-columns:520px minmax(0,1fr);grid-template-rows:auto 1fr;gap:40px 80px">
@@ -619,9 +755,9 @@
     b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
   });
 </script>
-<script src="assets/data/casos.js?v=14"></script>
-<script src="assets/js/simulador.js?v=14"></script>
-<script src="assets/js/deck.js?v=14"></script>
-<script src="assets/js/ao-vivo.js?v=14"></script>
+<script src="assets/data/casos.js?v=15"></script>
+<script src="assets/js/simulador.js?v=15"></script>
+<script src="assets/js/deck.js?v=15"></script>
+<script src="assets/js/ao-vivo.js?v=15"></script>
 </body>
 </html>

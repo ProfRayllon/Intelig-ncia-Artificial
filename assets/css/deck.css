@@ -548,3 +548,27 @@ html.portrait .fr-fig { display: flex; flex-direction: column; }
 html.portrait .fr-fig img { height: auto; aspect-ratio: 624 / 408; }
 html.portrait .slide[data-s="1"] .fr-fig img { display: none; }
 html.portrait .slide[data-s="1"] .fr-fig .fr-why { margin-top: 0; }
+
+/* Desafios: seletor de nível (Fácil · Médio · Difícil), sincronizado pelo apresentador */
+.fr-head { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.lv-switch { display: flex; border: 3px solid var(--azul); }
+.lv-switch button { font: inherit; font-size: 22px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 10px 24px; background: var(--branco); color: var(--azul); border: 0; cursor: pointer; }
+.lv-switch button + button { border-left: 3px solid var(--azul); }
+.lv-switch button[aria-pressed="true"] { background: var(--azul); color: var(--branco); }
+.lv-switch button[data-lv="2"][aria-pressed="true"] { background: var(--vermelho); }
+html.locked .lv-switch button { cursor: default; }
+.fr-lv { display: none; flex-direction: column; gap: 28px; flex: 1; min-height: 0; }
+.slide[data-lv="0"] .fr-lv[data-lv="0"], .slide[data-lv="1"] .fr-lv[data-lv="1"], .slide[data-lv="2"] .fr-lv[data-lv="2"] { display: flex; }
+.fr-lv .fr-top .title { font-size: 72px; }
+html.portrait .fr-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+html.portrait .lv-switch button { font-size: 18px; padding: 8px 16px; }
+html.portrait .fr-lv { gap: 18px; flex: none; }
+html.portrait .fr-lv .fr-top .title { font-size: 44px; }
+.fr-lv .fr-top .title { font-size: 60px; }
+.fr-lv .frase { gap: 14px; padding: 24px 32px; }
+.fr-lv .fr-text { font-size: 30px; line-height: 1.6; }
+.fr-lv .fr-bank { gap: 10px; }
+.fr-lv .fr-row button { font-size: 23px; padding: 8px 18px; }
+.fr-text u { text-decoration: none; color: var(--vermelho); font-weight: 800; }
+html.portrait .fr-lv .fr-top .title { font-size: 40px; }
+html.portrait .fr-lv .fr-text { font-size: 26px; }
