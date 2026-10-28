@@ -184,7 +184,7 @@
 
     // hb = batimento: só confirma o estado, não comanda outros apresentadores.
     // dt = quando esta apresentação foi aberta: só uma troca mais recente puxa os outros.
-    const snapshot = () => ({ d: D.NAME, i: D.index, s: D.step, v: tally() });
+    const snapshot = () => ({ d: D.NAME, i: D.index, s: D.step, v: tally(), x: D.extra });
     const publish = (hb) => net && net.send(T_STATE, { ...snapshot(), t: Date.now(), dt: BOOT, from: me, hb: hb ? 1 : 0 }, true);
     let synced = false;            // já mudamos algo aqui ou adotamos o estado de outro aparelho
     const broadcast = () => {
@@ -233,7 +233,7 @@
         lastRemote = m.t;
         synced = true;
         applying = true;
-        try { D.go(m.i, m.s); } finally { applying = false; }
+        try { D.go(m.i, m.s); D.setExtra(m.x, true); } finally { applying = false; }
         last = JSON.stringify(snapshot());
       }
     }, (c, up) => {
@@ -311,7 +311,7 @@
       if (fresh) lastSeen = Date.now();
       const changed = m.t !== lastT;
       lastT = m.t;
-      if (changed) { D.go(m.i, m.s); D.setCounts(m.v); }
+      if (changed) { D.go(m.i, m.s); D.setCounts(m.v); D.setExtra(m.x, true); }
       check();
     }, (c, up) => {
       if (up) {

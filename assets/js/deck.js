@@ -281,11 +281,46 @@
     el.querySelectorAll('.fill[data-w]').forEach((f) => { f.style.transition = 'none'; f.style.width = '0'; void f.offsetWidth; f.style.transition = ''; });
   };
 
+  // ── Pop-ups: [data-pop] abre o .pop-body do card numa camada do slide.
+  // O estado (pop-up aberto e cards já vistos) vai junto na sincronização.
+  let extra = { pop: null, seen: [] };
+  slides.forEach((el) => {
+    if (!el.querySelector('[data-pop]')) return;
+    const layer = document.createElement('div');
+    layer.className = 'pop-layer';
+    layer.innerHTML = '<div class="pop-box" role="dialog" aria-modal="true"><button type="button" class="pop-close" data-pop-close aria-label="Fechar">×</button><div class="pop-content"></div></div>';
+    el.appendChild(layer);
+  });
+  const renderExtra = () => {
+    deck.querySelectorAll('[data-pop]').forEach((c) => c.classList.toggle('seen', extra.seen.includes(c.dataset.pop)));
+    deck.querySelectorAll('.pop-layer').forEach((layer) => {
+      const card = extra.pop && layer.parentElement.querySelector(`[data-pop="${extra.pop}"]`);
+      layer.classList.toggle('on', !!card);
+      layer.dataset.kind = card ? (card.dataset.kind || '') : '';
+      if (card) layer.querySelector('.pop-content').innerHTML = card.querySelector('.pop-body').innerHTML;
+    });
+  };
+  const setExtra = (x, quiet) => {
+    extra = { pop: x && x.pop || null, seen: (x && x.seen) || [] };
+    renderExtra();
+    if (!quiet) listeners.forEach((fn) => fn({ i: cur, s: step }));
+  };
+  deck.addEventListener('click', (e) => {
+    if (locked) return;
+    const card = e.target.closest('[data-pop]');
+    if (card) {
+      const id = card.dataset.pop;
+      return setExtra({ pop: id, seen: extra.seen.includes(id) ? extra.seen : [...extra.seen, id] });
+    }
+    if (e.target.closest('[data-pop-close]') || e.target.classList.contains('pop-layer')) setExtra({ ...extra, pop: null });
+  });
+
   const go = (i, s = 0) => {
     i = clamp(i | 0, 0, slides.length - 1);
     s = clamp(s | 0, 0, stepsOf(slides[i]) - 1);
     if (i === cur && s === step) return;
     const changed = i !== cur;
+    if (changed && extra.pop) { extra = { ...extra, pop: null }; renderExtra(); }
     if (changed) {
       if (cur >= 0) resetSlide(slides[cur]);
       slides.forEach((el, n) => {
@@ -402,6 +437,7 @@
     if (t.closest && t.closest('input, textarea, select, [contenteditable="true"]')) return;
     const k = e.key;
     if (k === 'Escape' && menu.classList.contains('on')) return openMenu(false);
+    if (k === 'Escape' && extra.pop && !locked) return setExtra({ ...extra, pop: null });
     if (k === 'f' || k === 'F') return toggleFull();
     if (MODE !== 'publico' && (k === 'n' || k === 'N')) return toggleNotes();
     if (MODE !== 'publico' && (k === 'm' || k === 'M')) return openMenu(!menu.classList.contains('on'));
@@ -439,6 +475,8 @@
     pollIds: () => Object.keys(polls),
     pollSize: (id) => (polls[id] ? polls[id].btns.length : 0),
     setCounts(c) { counts = c || {}; renderPolls(); },
+    get extra() { return extra; },
+    setExtra,
   };
   window.Deck = api;
 
