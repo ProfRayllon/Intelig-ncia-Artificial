@@ -28,24 +28,12 @@
   h1, h2 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; line-height: 1.04; margin: 0; }
   .hero h1 { font-size: clamp(46px, 8vw, 104px); max-width: 980px; }
   .hero h1 em { font-style: normal; color: var(--claro); }
-  .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
 
-  /* "armadilhas": uma caixa com dentes que se fecha de tempos em tempos */
-  .trap { position: relative; display: inline-block; padding: 0 .12em; margin: .14em 0; background: #fff; color: var(--vermelho); animation: morde 4.5s 1s infinite; }
-  .trap::before, .trap::after { content: ''; position: absolute; left: 0; right: 0; height: .16em; background-size: .3em 100%; background-repeat: repeat-x; animation: dentes 4.5s 1s infinite; }
-  .trap::before { bottom: calc(100% - 1px); background-image: conic-gradient(from 135deg at 50% 0, #fff 90deg, transparent 0); transform-origin: bottom; }
-  .trap::after { top: calc(100% - 1px); background-image: conic-gradient(from -45deg at 50% 100%, #fff 90deg, transparent 0); transform-origin: top; }
-  @keyframes morde { 0%, 84%, 100% { transform: none; } 88% { transform: scale(1.04) rotate(-1.2deg); } 92% { transform: scale(.98) rotate(1deg); } 96% { transform: scale(1.01); } }
-  @keyframes dentes { 0%, 82%, 100% { transform: scaleY(1); } 88% { transform: scaleY(1.9); } 94% { transform: scaleY(.6); } }
-  @media (prefers-reduced-motion: reduce) { .trap, .trap::before, .trap::after { animation: none; } }
-
-  /* QR code do hub: card no topo e versão ampliada em pop-up */
-  .qr-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 14px 12px; background: #fff; border: 0; color: var(--marinho); font: inherit; cursor: zoom-in; transition: transform .2s; }
-  .qr-card:hover { transform: scale(1.03); }
-  .qr-card .qr-img { width: 170px; height: 170px; }
+  /* QR code do hub: botão discreto que abre o pop-up ampliado */
+  .btn-qr { display: inline-flex; align-items: center; gap: 8px; align-self: center; padding: 10px 14px; background: none; border: 0; color: #fff; font: 700 15px/1 var(--texto); opacity: .8; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+  .btn-qr:hover { opacity: 1; }
+  .btn-qr svg { width: 22px; height: 22px; }
   .qr-img svg { display: block; width: 100%; height: 100%; }
-  .qr-card .qr-link { font-size: 12px; font-weight: 800; max-width: 190px; overflow-wrap: anywhere; text-align: center; }
-  .qr-card .qr-dica { font-size: 11px; color: var(--cinza); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
   .qr-pop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: rgba(8, 23, 46, .82); }
   .qr-pop[hidden] { display: none; }
   .qr-box { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 36px 28px; background: #fff; max-width: 94vw; }
@@ -53,7 +41,6 @@
   .qr-box .qr-link { margin: 0; font: 400 clamp(22px, 3.4vw, 44px)/1.1 var(--titulo); color: var(--azul); text-align: center; overflow-wrap: anywhere; }
   .qr-box .qr-dica { margin: 0; font-size: 15px; color: var(--cinza); text-align: center; }
   .qr-fechar { position: absolute; top: 6px; right: 10px; border: 0; background: none; font-size: 40px; line-height: 1; color: var(--marinho); cursor: pointer; }
-  @media (max-width: 760px) { .hero-top { grid-template-columns: minmax(0, 1fr); gap: 24px; } .qr-card { justify-self: start; flex-direction: row; gap: 14px; } .qr-card .qr-img { width: 96px; height: 96px; } .qr-card .qr-link { text-align: left; } .qr-card .qr-dica { display: none; } }
   .hero p.sub { margin: 0; font-size: clamp(18px, 2.2vw, 24px); max-width: 720px; color: #fff; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch; }
   .join { display: flex; gap: 0; }
@@ -134,6 +121,57 @@
   .refs { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--tinta); }
   footer { background: var(--marinho); color: var(--claro); padding: 40px 0; font-size: 15px; }
   footer b { color: #fff; }
+
+  /* Casos do Brasil: carrossel estilo shorts (mesmo efeito do slide) */
+  .reel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .reel-stage { position: relative; height: 560px; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%); }
+  .reel-item { position: absolute; top: 50%; left: 50%; height: 94%; aspect-ratio: 9 / 16; cursor: pointer;
+    transform: translate(calc(-50% + var(--d) * 72%), -50%) scale(calc(1 - var(--a) * .17));
+    filter: blur(calc(var(--a) * 2px)); opacity: calc(1 - var(--a) * .3); z-index: calc(10 - var(--a));
+    transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .7s, opacity .7s; }
+  .reel-item::after { content: ''; position: absolute; inset: 0; border-radius: 26px; background: #fff; opacity: calc(min(var(--a), 1) * .45); pointer-events: none; transition: opacity .7s; }
+  .phone { position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 16px 16px 20px;
+    border-radius: 26px; border: 6px solid var(--marinho); color: #fff; box-shadow: 0 20px 40px rgba(8,23,46,.25);
+    background: linear-gradient(160deg, var(--azul) 0%, var(--azul-esc) 55%, var(--marinho) 100%) center / cover no-repeat; }
+  .phone::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,23,46,.6) 0%, rgba(8,23,46,0) 28%, rgba(8,23,46,0) 42%, rgba(8,23,46,.92) 100%); pointer-events: none; }
+  .phone > * { position: relative; z-index: 1; }
+  .ph-bars { display: flex; gap: 4px; }
+  .ph-bars i { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.35); }
+  .ph-bars i.on { background: #fff; }
+  .ph-tema { align-self: flex-start; margin-top: 10px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 4px 9px; background: rgba(8,23,46,.55); border-radius: 999px; }
+  .ph-foot { margin-top: auto; display: flex; flex-direction: column; gap: 8px; }
+  .ph-when { font-size: 12px; font-weight: 700; color: var(--claro); }
+  .ph-title { font-family: var(--titulo); font-weight: 400; font-size: 28px; line-height: 1.05; text-transform: uppercase; }
+  .ph-tag { align-self: flex-start; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 4px 8px; background: var(--vermelho); border-radius: 4px; }
+  .reel-side { display: flex; flex-direction: column; gap: 24px; }
+  .reel-card { display: flex; flex-direction: column; gap: 16px; animation: entra .5s cubic-bezier(.2,.8,.2,1); }
+  .reel-card[hidden] { display: none; }
+  @keyframes entra { from { opacity: 0; transform: translateX(30px); } }
+  .reel-card .lead { margin: 0; font-size: 19px; line-height: 1.55; color: var(--tinta); }
+  .reel-card .licao { margin: 0; padding: 12px 16px; background: #fff; font-weight: 700; color: var(--azul-esc); }
+  .reel-card .fonte { font-size: 14px; color: var(--cinza); }
+  .reel-nav { display: flex; align-items: center; gap: 16px; }
+  .reel-btn { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--azul); background: #fff; color: var(--azul); font-size: 30px; line-height: 1; cursor: pointer; }
+  .reel-btn:hover { background: var(--azul); color: #fff; }
+  .reel-count { font-weight: 800; color: var(--cinza); min-width: 60px; text-align: center; }
+  @media (max-width: 760px) { .reel { grid-template-columns: minmax(0, 1fr); gap: 20px; } .reel-stage { height: 440px; } }
+  @media (prefers-reduced-motion: reduce) { .reel-item, .reel-card { transition: none; animation: none; } }
+
+  /* Casos do mundo: tópicos que expandem */
+  .topicos { display: flex; flex-direction: column; gap: 10px; }
+  .topico { background: #fff; border-left: 6px solid var(--azul); }
+  .topico summary { display: flex; flex-direction: column; gap: 4px; padding: 16px 52px 16px 20px; cursor: pointer; list-style: none; position: relative; }
+  .topico summary::-webkit-details-marker { display: none; }
+  .topico summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 400; color: var(--azul); }
+  .topico[open] summary::after { content: '−'; }
+  .topico summary b { font-size: 18px; }
+  .topico .when { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--cinza); }
+  .topico .corpo { display: flex; flex-direction: column; gap: 10px; padding: 0 20px 18px; }
+  .topico .corpo p { margin: 0; color: var(--tinta); }
+  .topico .licao { padding: 10px 12px; background: var(--gelo); font-weight: 700; color: var(--azul-esc); }
+  .topico .fonte { font-size: 14px; color: var(--cinza); }
 </style>
 </head>
 <body>
@@ -156,14 +194,7 @@
     <div class="ghost" aria-hidden="true">IA</div>
     <div class="wrap">
       <div class="kicker">Oficina · Investigue · Questione · Verifique · Aprenda</div>
-      <div class="hero-top">
-        <h1>Potencialidades e <span class="trap">armadilhas</span> <em>da IA</em> no estudo</h1>
-        <button type="button" class="qr-card" id="qr-abrir" aria-label="Ampliar o QR code e o link desta página">
-          <span class="qr-img" id="qr-mini"></span>
-          <span class="qr-link" data-hub-url></span>
-          <span class="qr-dica">Toque para ampliar</span>
-        </button>
-      </div>
+      <h1>Potencialidades e armadilhas <em>da IA</em> no estudo</h1>
       <p class="sub">Entenda como a IA gera respostas, descubra quando ela ajuda e quando atrapalha — e prepare-se para levar essa missão a outras turmas.</p>
       <div class="actions">
         <a class="btn white" href="apresentacao.html">▶ Assistir à palestra ao vivo</a>
@@ -171,6 +202,7 @@
           <input name="c" maxlength="8" autocomplete="off" autocapitalize="characters" placeholder="Código" aria-label="Código da sala" required>
           <button class="btn outline-white">Entrar na sala</button>
         </form>
+        <button type="button" class="btn-qr" id="qr-abrir" aria-label="Mostrar o QR code e o link desta página"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM5 5v3h3V5zm11 0v3h3V5zM5 16v3h3v-3zm9-2h3v3h-3zm3 3h3v3h-3zm-3 3h3v1h-3zm6-6h1v3h-1z" fill="currentColor" fill-rule="evenodd"/></svg>QR code</button>
       </div>
     </div>
   </section>
@@ -284,9 +316,19 @@
       <h2>Casos <em>reais</em> de erros de IA</h2>
       <p class="intro">Casos documentados, com fonte. Links conferidos em <span id="verif"></span>. Os exemplos inventados para as atividades são sempre rotulados como simulação.</p>
       <h3 class="sub-casos">No Brasil</h3>
-      <div class="grid" id="casos-br"></div>
+      <div class="reel" id="casos-br">
+        <div class="reel-stage" aria-hidden="true"></div>
+        <div class="reel-side">
+          <div class="reel-infos" aria-live="polite"></div>
+          <div class="reel-nav">
+            <button type="button" class="reel-btn" data-dir="-1" aria-label="Caso anterior">‹</button>
+            <span class="reel-count"></span>
+            <button type="button" class="reel-btn" data-dir="1" aria-label="Próximo caso">›</button>
+          </div>
+        </div>
+      </div>
       <h3 class="sub-casos">No mundo</h3>
-      <div class="grid" id="casos-mundo"></div>
+      <div class="topicos" id="casos-mundo"></div>
     </div>
   </section>
 
@@ -329,7 +371,6 @@
     qr.addData(HUB);
     qr.make();
     const svg = qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
-    document.getElementById('qr-mini').innerHTML = svg;
     document.getElementById('qr-grande').innerHTML = svg;
   }
   const pop = document.getElementById('qr-pop');
@@ -340,9 +381,44 @@
 
 
   document.getElementById('verif').textContent = window.CASOS_VERIFICADO;
-  const listar = (pais) => window.CASOS.filter((c) => c.pais === pais).map((c) => window.casoHTML(c)).join('');
-  document.getElementById('casos-br').innerHTML = listar('br');
-  document.getElementById('casos-mundo').innerHTML = listar('mundo');
+  // Casos do Brasil: carrossel estilo shorts (o atual no centro, vizinhos atrás)
+  const BR = window.CASOS.filter((c) => c.pais === 'br');
+  const reel = document.getElementById('casos-br');
+  const stage = reel.querySelector('.reel-stage');
+  stage.innerHTML = BR.map((c, k) => `<div class="reel-item" data-k="${k}">${window.reelPhoneHTML(c, k, BR.length)}</div>`).join('');
+  reel.querySelector('.reel-infos').innerHTML = BR.map((c, k) => window.reelInfoHTML(c, k, BR.length)).join('');
+  let atual = 0;
+  const mostrar = (k) => {
+    atual = (k + BR.length) % BR.length;
+    stage.querySelectorAll('.reel-item').forEach((it, i) => {
+      it.style.setProperty('--d', i - atual);
+      it.style.setProperty('--a', Math.min(Math.abs(i - atual), 3));
+    });
+    reel.querySelectorAll('.reel-card').forEach((c, i) => { c.hidden = i !== atual; });
+    reel.querySelector('.reel-count').textContent = `${atual + 1} de ${BR.length}`;
+  };
+  reel.querySelectorAll('.reel-btn').forEach((b) => b.addEventListener('click', () => mostrar(atual + +b.dataset.dir)));
+  stage.addEventListener('click', (e) => { const it = e.target.closest('.reel-item'); if (it) mostrar(+it.dataset.k); });
+  let toque = null;
+  stage.addEventListener('touchstart', (e) => { toque = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', (e) => {
+    if (toque == null) return;
+    const dx = e.changedTouches[0].clientX - toque;
+    if (Math.abs(dx) > 40) mostrar(atual + (dx < 0 ? 1 : -1));
+    toque = null;
+  });
+  mostrar(0);
+
+  // Casos do mundo: tópicos que expandem ao clicar
+  document.getElementById('casos-mundo').innerHTML = window.CASOS.filter((c) => c.pais === 'mundo').map((c) => `
+    <details class="topico">
+      <summary><span class="when">${c.quando}</span><b>${c.titulo}</b></summary>
+      <div class="corpo">
+        <p>${c.resumo}</p>
+        <p class="licao">${c.licao}</p>
+        <a class="fonte" href="${c.url}" target="_blank" rel="noopener">Fonte: ${c.fonte} ↗</a>
+      </div>
+    </details>`).join('');
 
   // Mapa: tom de azul proporcional ao valor (um só tom, do claro ao escuro)
   const regs = [...document.querySelectorAll('.mapa .reg')];

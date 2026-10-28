@@ -81,38 +81,77 @@
     <aside class="notes"><b>1.</b> Todos votam. <b>2.</b> Avance: mostre as “probabilidades” e diga que são <u>inventadas para ilustrar</u>. <b>3.</b> Avance: com mais contexto, a previsão muda.<br><b>Pergunte:</b> “E se muita gente na internet escrevesse uma informação errada? O que a IA aprenderia?”</aside>
   </section>
 
-  <section class="slide" data-title="Resposta suspeita" data-steps="2">
-    <div class="kicker rise">Investigação · leia com atenção</div>
-    <div class="cols grow" style="--n:2;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:70px">
+  <section class="slide" data-title="Resposta suspeita · Biologia" data-steps="2">
+    <div class="kicker rise">Investigação · Exemplo 1 · Biologia</div>
+    <div class="cols mid grow" style="--n:2;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:70px">
       <div class="chat rise">
         <div class="bubble me"><span class="who">Estudante</span>Explique como funciona a fotossíntese.</div>
         <div class="bubble ai"><span class="who">IA</span><span data-type>A fotossíntese é o processo pelo qual as plantas produzem o próprio alimento usando a energia da luz. A clorofila, presente nas folhas, capta a luz do Sol. A planta absorve oxigênio (O₂) do ar e água do solo e, com isso, produz glicose, liberando gás carbônico (CO₂) para a atmosfera. Por isso, a fotossíntese é essencial para a vida na Terra.</span></div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:26px">
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <img class="banner rise" src="../assets/img/fotossintese.jpg" alt="Ilustração de uma planta recebendo luz do Sol, com o interior de uma folha e moléculas de gases">
         <div class="poll rise" data-poll="t1-foto" data-show="1">
           <p class="q">Qual é o seu veredito?</p>
-          <button>✓ Confio</button><button>? Preciso verificar</button><button>✗ Está incorreta</button>
-        </div>
-        <div class="field rise">
-          <label for="j1">Por quê? Como você checaria?</label>
-          <textarea id="j1" rows="3" data-save="just"></textarea>
+          <button>✓ Confio</button>
+          <button>? Preciso verificar</button>
+          <button>✗ Está incorreta</button>
         </div>
       </div>
     </div>
-    <aside class="notes"><b>Importante:</b> ainda NÃO diga que é uma simulação.<br><b>Diga:</b> “Leiam com calma, votem e escrevam como vocês checariam.” Dê 2 min e avance.<br><b>Pergunte:</b> “Quem votou ‘incorreta’ achou o erro onde?”</aside>
+    <aside class="notes"><b>Importante:</b> ainda NÃO diga que é uma simulação.<br><b>Diga:</b> “Leiam com calma e votem.” Avance para mostrar a votação.<br><b>Pergunte:</b> “Quem votou ‘incorreta’ achou o erro onde? Como vocês checariam?”</aside>
   </section>
 
-  <section class="slide" data-title="Revelação" data-steps="2">
+  <section class="slide" data-title="Revelação · Biologia" data-steps="3">
     <div class="row rise" style="gap:24px">
       <span class="verdict no">✗ Incorreta</span>
       <span class="label-sim">Simulação · resposta criada para esta atividade</span>
     </div>
-    <div class="cols" style="--n:2;gap:60px" data-step="0">
-      <div class="card line" style="border-color:var(--vermelho)"><span class="tag" style="background:var(--vermelho)">O texto dizia</span><p style="font-size:30px">Absorve <mark class="bad">oxigênio (O₂)</mark> e libera <mark class="bad">gás carbônico (CO₂)</mark>.</p></div>
-      <div class="card line" style="border-color:var(--verde)"><span class="tag" style="background:var(--verde)">O correto</span><p style="font-size:30px">Absorve <mark class="good">gás carbônico (CO₂)</mark> e água, e libera <mark class="good">oxigênio (O₂)</mark>.</p></div>
+    <div class="cols" style="--n:2;gap:60px" data-step="1">
+      <div class="card line" style="border-color:var(--vermelho)"><span class="tag" style="background:var(--vermelho)">O texto dizia</span><p style="font-size:30px">A planta absorve <mark class="bad">oxigênio (O₂)</mark> e libera <mark class="bad">gás carbônico (CO₂)</mark>.</p></div>
+      <div class="card line" style="border-color:var(--verde)"><span class="tag" style="background:var(--verde)">O correto</span><p style="font-size:30px">A planta absorve <mark class="good">gás carbônico (CO₂)</mark> e água, e libera <mark class="good">oxigênio (O₂)</mark>.</p></div>
     </div>
-    <div class="card" data-step="1"><h3>Por que convence?</h3><p>As plantas também respiram — e na respiração absorvem O₂ e liberam CO₂. O texto trocou dois processos reais, e o resto estava certo. Confira sempre no livro de Biologia ou com seu professor.</p></div>
-    <aside class="notes"><b>Diga com clareza:</b> “Essa resposta foi escrita de propósito para a atividade. Não veio de uma IA de verdade.”<br><b>Lição:</b> um erro grave pode estar escondido num texto quase todo certo.</aside>
+    <div class="eq" data-step="1">6 CO₂ + 6 H₂O  —luz→  C₆H₁₂O₆ + 6 O₂</div>
+    <div class="cols" style="--n:2;gap:60px" data-step="2">
+      <div><h3 style="margin:0 0 12px;font-size:32px">Como verificar</h3><ul class="list"><li>Livro didático de Biologia</li><li>Professor(a) da área</li><li>Sites educacionais de instituições confiáveis</li></ul></div>
+      <div class="card"><h3>Por que a troca convence?</h3><p>As plantas também respiram — e na respiração absorvem O₂ e liberam CO₂. O texto misturou dois processos reais, e o resto da resposta estava certo.</p></div>
+    </div>
+    <aside class="notes"><b>Diga com clareza:</b> “Essa resposta foi escrita de propósito para a atividade. Não veio de uma IA de verdade.” Mostre a troca, a equação e onde conferir.<br><b>Lição:</b> um erro grave pode estar escondido num texto quase todo certo.</aside>
+  </section>
+
+  <section class="slide" data-title="Resposta suspeita · Geografia" data-steps="2">
+    <div class="kicker rise">Investigação · Exemplo 2 · Geografia</div>
+    <div class="cols mid grow" style="--n:2;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:70px">
+      <div class="chat rise">
+        <div class="bubble me"><span class="who">Estudante</span>Quais são as principais formas de relevo?</div>
+        <div class="bubble ai"><span class="who">IA</span><span data-type>As principais formas de relevo são planaltos, planícies, depressões e montanhas. Os planaltos são superfícies planas e baixas, onde predomina o acúmulo de sedimentos trazidos pelos rios. As planícies são terrenos mais elevados, onde predomina o desgaste causado pela erosão. As depressões são áreas mais baixas que o terreno ao redor, e as montanhas são grandes elevações formadas, em geral, pelo movimento das placas tectônicas.</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <img class="banner rise" src="../assets/img/relevo.jpg" alt="Ilustração de paisagem com montanhas, planaltos, rio e um mapa de curvas de nível">
+        <div class="poll rise" data-poll="t1-relevo" data-show="1">
+          <p class="q">Qual é o seu veredito?</p>
+          <button>✓ Confio</button>
+          <button>? Preciso verificar</button>
+          <button>✗ Está incorreta</button>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Segundo exemplo, agora de Geografia. Mesma dinâmica: leitura, voto e só depois a revelação.<br><b>Pergunte:</b> “Depois do primeiro exemplo, vocês leram de um jeito diferente?”</aside>
+  </section>
+
+  <section class="slide" data-title="Revelação · Geografia" data-steps="3">
+    <div class="row rise" style="gap:24px">
+      <span class="verdict no">✗ Incorreta</span>
+      <span class="label-sim">Simulação · resposta criada para esta atividade</span>
+    </div>
+    <div class="cols" style="--n:2;gap:60px" data-step="1">
+      <div class="card line" style="border-color:var(--vermelho)"><span class="tag" style="background:var(--vermelho)">O texto dizia</span><p style="font-size:30px">Planalto: <mark class="bad">baixo, acumula sedimentos</mark>.<br>Planície: <mark class="bad">elevada, sofre erosão</mark>.</p></div>
+      <div class="card line" style="border-color:var(--verde)"><span class="tag" style="background:var(--verde)">O correto</span><p style="font-size:30px">Planalto: <mark class="good">elevado, predomina a erosão</mark>.<br>Planície: <mark class="good">plana e baixa, acumula sedimentos</mark>.</p></div>
+    </div>
+    <div class="cols" style="--n:2;gap:60px" data-step="2">
+      <div><h3 style="margin:0 0 12px;font-size:32px">Como verificar</h3><ul class="list"><li>Livro didático de Geografia (formas de relevo)</li><li>Professor(a) da área</li><li>Sites educacionais de instituições confiáveis</li></ul></div>
+      <div class="card"><h3>Por que a troca convence?</h3><p>Depressões e montanhas estavam certas, e os nomes “planalto” e “planície” se parecem. Só as definições dos dois foram trocadas entre si.</p></div>
+    </div>
+    <aside class="notes"><b>Diga:</b> “Esta também foi escrita de propósito para a atividade.”<br><b>Pergunte:</b> “O que os dois exemplos têm em comum?” Nos dois, quase tudo estava certo e o erro estava no ponto principal.</aside>
   </section>
 
   <section class="slide" data-title="3 perguntas" data-steps="3">
