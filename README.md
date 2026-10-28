@@ -7,7 +7,7 @@ Hub da oficina: palestra ao vivo, três trilhas para estudantes multiplicadores,
 | Página | Para quê |
 |---|---|
 | `index.html` | Hub: entrada da turma, trilhas, ferramentas, casos reais |
-| `apresentacao.html` | Palestra principal (34 slides) |
+| `apresentacao.html` | Palestra principal (31 slides) |
 | `trilhas/verificar.html` | Trilha 1 · Fluente não é verdadeiro |
 | `trilhas/tutor.html` | Trilha 2 · Tutor, não atalho |
 | `trilhas/dados.html` | Trilha 3 · Meus dados, minha autoria |
