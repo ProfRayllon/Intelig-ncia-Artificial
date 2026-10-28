@@ -50,7 +50,10 @@
     const ids = box.dataset.casos ? box.dataset.casos.split(',') : null;
     const first = parseInt(box.dataset.firstStep, 10);
     const list = (window.CASOS || []).filter((c) => !ids || ids.includes(c.id));
-    box.innerHTML = list.map((c, k) => window.casoHTML(c, isNaN(first) ? '' : ` data-step="${first + k}"`)).join('');
+    const step = (k) => (isNaN(first) ? '' : ` data-step="${first + k}"`);
+    box.innerHTML = list.map((c, k) => (box.hasAttribute('data-shorts')
+      ? window.shortHTML(c, k, list.length, step(k) + ' data-only')
+      : window.casoHTML(c, step(k)))).join('');
   });
 
   // ── Escala do palco ──────────────────────────────────────────────────

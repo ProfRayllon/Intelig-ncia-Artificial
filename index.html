@@ -6,7 +6,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Hub</title>
 <meta name="description" content="Potencialidades e armadilhas da Inteligência Artificial no processo de estudo: palestra ao vivo, trilhas para multiplicadores e materiais desplugados.">
-<link rel="stylesheet" href="assets/css/base.css?v=7">
+<link rel="stylesheet" href="assets/css/base.css?v=8">
 <style>
   body { font-size: 17px; line-height: 1.55; }
   .wrap { width: min(1180px, 100% - 32px); margin: 0 auto; }
@@ -69,6 +69,28 @@
   .caso .licao { padding: 10px 12px; background: var(--gelo); font-weight: 700; color: var(--azul-esc); margin-top: auto; }
   .caso .fonte { font-size: 14px; color: var(--cinza); }
 
+  .dados { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+  .fig { margin: 0; padding: 26px; background: var(--gelo); display: flex; flex-direction: column; gap: 18px; }
+  .fig figcaption { display: flex; flex-direction: column; gap: 2px; }
+  .fig figcaption b { font-size: 20px; }
+  .fig figcaption span, .nota, .fonte-dados { font-size: 14px; color: var(--cinza); }
+  .nota { margin: 0; }
+  .fonte-dados { margin: 18px 0 0; }
+  .mapa { display: grid; gap: 4px; grid-template-columns: repeat(4, 1fr); grid-template-rows: 70px 70px 80px 80px;
+    grid-template-areas: "n n ne ne" "n n ne ne" "co co se se" ". s s ."; }
+  .reg { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; border-radius: 4px; color: var(--marinho); text-align: center; padding: 6px; cursor: default; transition: transform .2s; }
+  .reg:hover { transform: scale(1.03); }
+  .reg b { font-size: 14px; font-weight: 700; }
+  .reg span { font-family: var(--titulo); font-size: 30px; line-height: 1; }
+  .reg.escuro { color: #fff; }
+  .escala { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--cinza); }
+  .escala i { flex: 1; height: 10px; border-radius: 4px; background: linear-gradient(90deg, color-mix(in oklab, var(--azul) 22%, white), var(--azul)); }
+  .idades { display: flex; flex-direction: column; gap: 12px; }
+  .idade { display: grid; grid-template-columns: 120px 1fr 44px; gap: 12px; align-items: center; font-size: 15px; }
+  .idade b { text-align: right; }
+  .trilho { height: 18px; background: #fff; border-radius: 4px; overflow: hidden; }
+  .trilho i { display: block; height: 100%; background: var(--azul); border-radius: 0 4px 4px 0; }
+  .sub-casos { margin: 30px 0 14px; font-size: 22px; }
   .refs { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--tinta); }
   footer { background: var(--marinho); color: var(--claro); padding: 40px 0; font-size: 15px; }
   footer b { color: #fff; }
@@ -83,6 +105,7 @@
       <a href="#trilhas">Trilhas</a>
       <a href="#ferramentas">Ferramentas</a>
       <a href="#ao-vivo">Como funciona</a>
+      <a href="#brasil">IA no Brasil</a>
       <a href="#casos">Casos reais</a>
     </nav>
   </div>
@@ -174,12 +197,43 @@
     </div>
   </section>
 
+  <section class="block" id="brasil">
+    <div class="wrap">
+      <div class="kicker">Curiosidade · dados oficiais</div>
+      <h2>Quem usa <em>IA no Brasil?</em></h2>
+      <p class="intro"><b>32%</b> dos usuários de internet com 10 anos ou mais já usaram ferramentas de IA generativa — cerca de 50 milhões de pessoas. Mas o uso muda muito de região para região e de idade para idade.</p>
+      <div class="dados">
+        <figure class="fig">
+          <figcaption><b>Por região</b><span>% dos usuários de internet que já usaram IA generativa</span></figcaption>
+          <div class="mapa" role="img" aria-label="Uso de IA generativa por região: Sul 39%, Norte 36%, Sudeste 33%, Centro-Oeste 33%, Nordeste 25%.">
+            <div class="reg" data-v="36" style="grid-area:n"><b>Norte</b><span>36%</span></div>
+            <div class="reg" data-v="25" style="grid-area:ne"><b>Nordeste</b><span>25%</span></div>
+            <div class="reg" data-v="33" style="grid-area:co"><b>Centro-Oeste</b><span>33%</span></div>
+            <div class="reg" data-v="33" style="grid-area:se"><b>Sudeste</b><span>33%</span></div>
+            <div class="reg" data-v="39" style="grid-area:s"><b>Sul</b><span>39%</span></div>
+          </div>
+          <div class="escala" aria-hidden="true"><span>menos uso</span><i></i><span>mais uso</span></div>
+          <p class="nota">Mapa esquemático: cada bloco é uma região, na posição aproximada do mapa do Brasil.</p>
+        </figure>
+        <figure class="fig">
+          <figcaption><b>Por idade</b><span>% dos usuários de internet que já usaram IA generativa</span></figcaption>
+          <div class="idades" id="idades"></div>
+          <p class="nota">Os jovens de 16 a 24 anos são os que mais usam: mais da metade.</p>
+        </figure>
+      </div>
+      <p class="fonte-dados">Fonte: <a href="https://cetic.br/pt/tics/domicilios/2025/individuos/M1/" target="_blank" rel="noopener">Cetic.br/NIC.br, pesquisa TIC Domicílios 2025, indicador M1</a> (divulgada em 09/12/2025).</p>
+    </div>
+  </section>
+
   <section class="block ice" id="casos">
     <div class="wrap">
       <div class="kicker">Repertório</div>
       <h2>Casos <em>reais</em> de erros de IA</h2>
       <p class="intro">Casos documentados, com fonte. Links conferidos em <span id="verif"></span>. Os exemplos inventados para as atividades são sempre rotulados como simulação.</p>
-      <div class="grid" id="lista-casos"></div>
+      <h3 class="sub-casos">No Brasil</h3>
+      <div class="grid" id="casos-br"></div>
+      <h3 class="sub-casos">No mundo</h3>
+      <div class="grid" id="casos-mundo"></div>
     </div>
   </section>
 
@@ -202,10 +256,29 @@
   </div>
 </footer>
 
-<script src="assets/data/casos.js?v=7"></script>
+<script src="assets/data/casos.js?v=8"></script>
 <script>
   document.getElementById('verif').textContent = window.CASOS_VERIFICADO;
-  document.getElementById('lista-casos').innerHTML = window.CASOS.map((c) => window.casoHTML(c)).join('');
+  const listar = (pais) => window.CASOS.filter((c) => c.pais === pais).map((c) => window.casoHTML(c)).join('');
+  document.getElementById('casos-br').innerHTML = listar('br');
+  document.getElementById('casos-mundo').innerHTML = listar('mundo');
+
+  // Mapa: tom de azul proporcional ao valor (um só tom, do claro ao escuro)
+  const regs = [...document.querySelectorAll('.reg')];
+  const vals = regs.map((r) => +r.dataset.v);
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+  regs.forEach((r) => {
+    const t = (+r.dataset.v - lo) / (hi - lo || 1);
+    const pct = Math.round(22 + t * 78);
+    r.style.background = `color-mix(in oklab, var(--azul) ${pct}%, white)`;
+    r.classList.toggle('escuro', pct > 55);
+    r.title = `${r.querySelector('b').textContent}: ${r.dataset.v}% dos usuários de internet já usaram IA generativa`;
+  });
+
+  // Barras por idade (TIC Domicílios 2025, indicador M1)
+  const IDADES = [['10 a 15 anos', 40], ['16 a 24 anos', 55], ['25 a 34 anos', 44], ['35 a 44 anos', 30], ['45 a 59 anos', 18], ['60 anos ou mais', 6]];
+  document.getElementById('idades').innerHTML = IDADES.map(([f, v]) => `
+    <div class="idade" title="${f}: ${v}%"><span>${f}</span><div class="trilho"><i style="width:${v}%"></i></div><b>${v}%</b></div>`).join('');
   document.getElementById('join').addEventListener('submit', (e) => {
     e.preventDefault();
     const c = e.target.c.value.toUpperCase().replace(/[^A-Z0-9]/g, '');

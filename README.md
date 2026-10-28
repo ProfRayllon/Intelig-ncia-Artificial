@@ -31,7 +31,7 @@ A sincronização usa servidores MQTT públicos (vários ao mesmo tempo, incluin
 
 - **Slides:** cada `<section class="slide">` é um slide. `data-steps="3"` define quantos cliques ele tem; elementos com `data-step="n"` aparecem no clique `n` (`data-until="m"` some no clique `m`). As notas de quem apresenta ficam em `<aside class="notes">`.
 - **Enquete:** `<div class="poll" data-poll="id-unico" data-show="1"><button>Opção</button>…</div>` — `data-show` é o clique em que o resultado aparece. Use ids diferentes em cada apresentação.
-- **Casos reais:** `assets/data/casos.js`. Só entra caso com fonte verificável; atualize `CASOS_VERIFICADO` ao conferir os links.
+- **Casos reais:** `assets/data/casos.js` (`pais: "br"` ou `"mundo"`). Só entra caso com fonte verificável; atualize `CASOS_VERIFICADO` ao conferir os links. Para pôr foto no card estilo shorts da palestra, salve a imagem vertical em `assets/img/casos/` e preencha `foto` com o caminho.
 - **Conversas simuladas:** `assets/js/simulador.js`.
 - **Cores e fontes:** `assets/css/base.css`.
 
