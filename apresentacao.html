@@ -13,8 +13,8 @@
 
   <!-- ═════════════ ABERTURA ═════════════ -->
   <section class="slide blue center" data-title="Abertura">
-    <div class="kicker rise">Oficina · Missão IA</div>
-    <h1 class="title xl rise" style="max-width:1600px">Potencialidades e armadilhas <em>da IA</em></h1>
+    <div class="kicker rise">Oficina · IA com senso crítico</div>
+    <h1 class="title xl rise" style="max-width:1650px">Potencialidades e <span class="trap"><span class="trap-ghost" aria-hidden="true">armadilhas</span><span data-type="letras" data-type-delay="1300" data-keep-caret>armadilhas</span></span> <em>da IA</em></h1>
     <p class="lead rise">no processo de estudo</p>
     <div class="row rise" style="gap:14px">
       <span class="chip" style="color:#fff;border-color:rgba(255,255,255,.45)">Investigue</span>
@@ -28,7 +28,7 @@
 
   <section class="slide" data-title="Apresentador" style="display:grid;grid-template-columns:minmax(0,1fr) 640px;gap:80px;align-items:center">
     <div style="display:flex;flex-direction:column;gap:26px;min-width:0">
-      <div class="kicker rise">Quem conduz</div>
+      <div class="kicker rise">Palestrante</div>
       <h2 class="title s rise" style="font-size:80px">Rayllon Soares Pessoa</h2>
       <ul class="list rise">
         <li>Mestre em Tecnologia da Informação – IFPB</li>
@@ -47,18 +47,58 @@
     <aside class="notes">Apresentação breve (1 min). Conecte sua trajetória ao tema: uso de IA na educação, com olhar crítico.</aside>
   </section>
 
-  <section class="slide navy" data-title="Diagnóstico" data-steps="2">
-    <div class="kicker rise">Antes de começar · vote no seu celular</div>
-    <div class="cols mid grow" style="--n:2;gap:90px">
-      <h2 class="big-q rise" style="color:#fff">Uma resposta bem escrita por IA é <span style="color:var(--claro)">necessariamente correta?</span></h2>
-      <div class="poll rise" data-poll="diagnostico" data-show="1">
-        <button>Sim, se está bem escrita, está certa</button>
-        <button>Não, pode estar errada</button>
-        <button>Depende do assunto</button>
+  <section class="slide navy" data-title="Diagnóstico" data-steps="6" data-step-mode="solo">
+    <div class="kicker rise">Diagnóstico · verdadeiro ou falso? Vote no seu celular</div>
+    <div class="swap grow" style="align-items:center">
+      <div data-step="0" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">1 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">Uma resposta bem escrita pela IA é necessariamente correta.</h2>
+        <div class="poll vf" data-poll="d1" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
+      </div>
+      <div data-step="1" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">2 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">A IA pode inventar uma fonte ou referência que não existe.</h2>
+        <div class="poll vf" data-poll="d2" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
+      </div>
+      <div data-step="2" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">3 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">A IA pesquisa na internet toda vez que responde.</h2>
+        <div class="poll vf" data-poll="d3" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
+      </div>
+      <div data-step="3" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">4 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">Se eu fizer a mesma pergunta duas vezes, a IA sempre dá a mesma resposta.</h2>
+        <div class="poll vf" data-poll="d4" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
+      </div>
+      <div data-step="4" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">5 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">O jeito de escrever o pedido (o prompt) muda a qualidade da resposta.</h2>
+        <div class="poll vf" data-poll="d5" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
+      </div>
+      <div data-step="5" data-only style="display:flex;flex-direction:column;gap:40px">
+        <span class="qcount">6 / 6</span>
+        <h2 class="big-q" style="color:#fff;font-size:92px">Detectores de IA dizem com certeza se um texto foi escrito por IA.</h2>
+        <div class="poll vf" data-poll="d6" data-show="99"><button>✓ Verdadeiro</button><button>✗ Falso</button></div>
       </div>
     </div>
-    <p class="small" data-step="1">Guarde sua resposta: vamos voltar a ela no final.</p>
-    <aside class="notes">Diagnóstico inicial (doc. §12). Peça para votarem sem discutir. Avance para revelar o resultado. Não corrija agora — pergunte “por quê?” a uma pessoa de cada opção.</aside>
+    <aside class="notes">Diagnóstico rápido: 6 afirmações, uma por clique. Peça para votarem sem discutir e sem consultar. O resultado de cada uma fica escondido; o contador mostra quantos já votaram. Não comente as respostas agora: o próximo slide mostra o gráfico da turma.</aside>
+  </section>
+
+  <section class="slide" data-title="Raio-X da turma" data-steps="2" style="gap:30px">
+    <div class="row rise" style="justify-content:space-between">
+      <div class="kicker">Raio-X da turma</div>
+      <div class="quiz-legend"><span><i style="background:var(--azul)"></i>Verdadeiro</span><span><i style="background:var(--marinho)"></i>Falso</span><span data-step="1"><i style="background:var(--verde)"></i>Resposta certa</span></div>
+    </div>
+    <h2 class="title s rise">O que a turma pensa <em>sobre a IA</em></h2>
+    <div class="quiz rise">
+      <div class="qrow" data-poll="d1" data-answer="1"><span class="qn">1</span><span class="qt">Bem escrita é sempre correta</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Falso</span><span class="hit"></span></div></div>
+      <div class="qrow" data-poll="d2" data-answer="0"><span class="qn">2</span><span class="qt">Pode inventar fontes</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Verdadeiro</span><span class="hit"></span></div></div>
+      <div class="qrow" data-poll="d3" data-answer="1"><span class="qn">3</span><span class="qt">Pesquisa na internet sempre</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Falso</span><span class="hit"></span></div></div>
+      <div class="qrow" data-poll="d4" data-answer="1"><span class="qn">4</span><span class="qt">Sempre a mesma resposta</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Falso</span><span class="hit"></span></div></div>
+      <div class="qrow" data-poll="d5" data-answer="0"><span class="qn">5</span><span class="qt">O prompt muda a resposta</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Verdadeiro</span><span class="hit"></span></div></div>
+      <div class="qrow" data-poll="d6" data-answer="1"><span class="qn">6</span><span class="qt">Detectores dão certeza</span><div class="qbar"><span class="seg v"></span><span class="seg f"></span></div><div class="qres"><span class="gab">Gabarito: Falso</span><span class="hit"></span></div></div>
+    </div>
+    <aside class="notes">1º: mostre como a turma votou (sem gabarito). Pergunte onde houve mais divisão. 2º clique: revela o gabarito e o percentual de acerto. Comente as que tiveram mais erro:<br><b>1.</b> Falso. O modelo prevê o texto mais provável; ninguém confere os fatos por ele.<br><b>2.</b> Verdadeiro. Foi o que aconteceu no caso Mata v. Avianca, com processos judiciais inventados.<br><b>3.</b> Falso. Muitas respostas vêm só do que o modelo aprendeu no treinamento; algumas ferramentas também fazem buscas, mas não todas e nem sempre.<br><b>4.</b> Falso. A geração tem uma parte de sorteio entre palavras prováveis, por isso as respostas variam.<br><b>5.</b> Verdadeiro. Contexto, objetivo e formato pedidos mudam muito o resultado.<br><b>6.</b> Falso. Detectores erram nos dois sentidos, inclusive acusando textos escritos por pessoas. Não servem como prova.<br>Diga que a oficina vai voltar a cada um desses pontos.</aside>
   </section>
 
   <section class="slide" data-title="Mapa da oficina">

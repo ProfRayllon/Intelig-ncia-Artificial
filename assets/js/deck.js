@@ -106,7 +106,22 @@
     });
     P.total.textContent = total === 1 ? '1 voto' : total + ' votos';
   };
-  const renderPolls = () => Object.keys(polls).forEach(renderPoll);
+  // Gráfico de diagnóstico: cada .qrow mostra os votos de uma enquete
+  // Verdadeiro/Falso; data-answer é o índice da opção correta (0 = V, 1 = F).
+  const renderQuiz = () => deck.querySelectorAll('.qrow[data-poll]').forEach((r) => {
+    const c = counts[r.dataset.poll] || [];
+    const v = c[0] || 0, f = c[1] || 0, t = v + f;
+    const pv = t ? Math.round(v / t * 100) : 0;
+    const pf = t ? 100 - pv : 0;
+    const segV = r.querySelector('.seg.v'), segF = r.querySelector('.seg.f');
+    segV.style.width = pv + '%';
+    segF.style.width = pf + '%';
+    segV.textContent = pv >= 12 ? 'V ' + pv + '%' : '';
+    segF.textContent = pf >= 12 ? 'F ' + pf + '%' : '';
+    const ok = r.dataset.answer === '0' ? pv : pf;
+    r.querySelector('.hit').textContent = t ? ok + '% acertou' : 'sem votos';
+  });
+  const renderPolls = () => { Object.keys(polls).forEach(renderPoll); renderQuiz(); };
 
   const vote = (id, k) => {
     mine[id] = k;
@@ -180,22 +195,31 @@
   };
 
   // Digita palavra por palavra, como um chat de IA; ao fim restaura o HTML.
+  // data-type="letras" digita letra por letra; data-type-delay atrasa o início;
+  // data-keep-caret mantém o cursor piscando no fim.
   const typeText = (el) => {
     if (el.dataset.typed) return;
     el.dataset.typed = '1';
     if (!originals.has(el)) originals.set(el, el.innerHTML);
-    if (reduced) return;
-    const words = el.textContent.trim().split(/(\s+)/);
+    if (reduced) { el.classList.add('done'); return; }
+    const letters = el.dataset.type === 'letras';
+    const parts = letters ? [...el.textContent.trim()] : el.textContent.trim().split(/(\s+)/);
+    const chunk = letters ? 1 : 2;  // palavra + espaço seguinte
     el.textContent = '';
     el.classList.add('caret');
     let n = 0;
     const tick = () => {
-      if (n >= words.length) { el.innerHTML = originals.get(el); el.classList.remove('caret'); return; }
-      el.textContent += words[n++] + (words[n] || '');
-      n++;
-      later(tick, 45 + Math.random() * 70);
+      if (n >= parts.length) {
+        el.innerHTML = originals.get(el);
+        if (!el.hasAttribute('data-keep-caret')) el.classList.remove('caret');
+        el.classList.add('done');
+        return;
+      }
+      el.textContent += parts.slice(n, n + chunk).join('');
+      n += chunk;
+      later(tick, letters ? 80 + Math.random() * 90 : 45 + Math.random() * 70);
     };
-    later(tick, 500);
+    later(tick, parseInt(el.dataset.typeDelay || '500', 10));
   };
 
   const resetSlide = (el) => {
@@ -205,7 +229,7 @@
     el.querySelectorAll('[data-typed]').forEach((t) => {
       delete t.dataset.typed;
       t.innerHTML = originals.get(t);
-      t.classList.remove('caret');
+      t.classList.remove('caret', 'done');
     });
     el.querySelectorAll('[data-scramble]').forEach((t) => { if (originals.has(t)) t.textContent = originals.get(t); });
   };
