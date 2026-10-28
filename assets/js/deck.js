@@ -51,9 +51,12 @@
     const first = parseInt(box.dataset.firstStep, 10);
     const list = (window.CASOS || []).filter((c) => !ids || ids.includes(c.id));
     const step = (k) => (isNaN(first) ? '' : ` data-step="${first + k}"`);
-    box.innerHTML = list.map((c, k) => (box.hasAttribute('data-shorts')
-      ? window.shortHTML(c, k, list.length, step(k) + ' data-only')
-      : window.casoHTML(c, step(k)))).join('');
+    if (box.hasAttribute('data-shorts')) {
+      // Carrossel: celulares lado a lado (data-reel) + informações do caso atual
+      const n = list.length;
+      box.innerHTML = `<div class="reel-stage" data-reel>${list.map((c, k) => `<div class="reel-item">${window.reelPhoneHTML(c, k, n, ROOT)}</div>`).join('')}</div>
+        <div class="reel-info swap">${list.map((c, k) => window.reelInfoHTML(c, k, n, step(k) + ' data-only')).join('')}</div>`;
+    } else box.innerHTML = list.map((c, k) => window.casoHTML(c, step(k))).join('');
   });
 
   // ── Escala do palco ──────────────────────────────────────────────────
@@ -249,6 +252,12 @@
       x.classList.toggle('on', on);
       x.classList.toggle('past', on && s > a);
     });
+    // Carrossel: cada item sabe a que distância está do passo atual
+    el.querySelectorAll('[data-reel]').forEach((r) => [...r.children].forEach((c, k) => {
+      c.style.setProperty('--d', k - s);
+      c.style.setProperty('--a', Math.min(Math.abs(k - s), 3));
+      c.classList.toggle('cur', k === s);
+    }));
     // Barras com largura (data-w) crescem quando ficam visíveis
     requestAnimationFrame(() => requestAnimationFrame(() => {
       el.querySelectorAll('.fill[data-w]').forEach((f) => {

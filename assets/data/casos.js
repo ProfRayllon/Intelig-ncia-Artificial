@@ -14,7 +14,7 @@ window.CASOS_VERIFICADO = '27/10/2026';
 window.CASOS = [
   // ── Brasil ──────────────────────────────────────────────────────────
   {
-    id: 'tse', pais: 'br', tema: 'Justiça Eleitoral', foto: '',
+    id: 'tse', pais: 'br', tema: 'Justiça Eleitoral', foto: 'assets/img/casos/tse.jpg',
     quando: 'Brasília · abril de 2023',
     titulo: 'A petição que virou “fábula”',
     resumo: 'Um advogado pediu para entrar em um processo no TSE com uma petição escrita com o ChatGPT. O corregedor-geral da Justiça Eleitoral negou o pedido, chamou o texto de “fábula” e aplicou multa de R$ 2.604 por litigância de má-fé.',
@@ -23,7 +23,7 @@ window.CASOS = [
     url: 'https://www.migalhas.com.br/quentes/385080/advogado-usa-chatgpt-em-peticao-e-e-multado-pelo-tse-fabula',
   },
   {
-    id: 'trf1', pais: 'br', tema: 'Justiça Federal', foto: '',
+    id: 'trf1', pais: 'br', tema: 'Justiça Federal', foto: 'assets/img/casos/trf1.jpg',
     quando: 'Brasil · novembro de 2023',
     titulo: 'Sentença com jurisprudência inventada',
     resumo: 'A decisão de um juiz federal da 1ª Região citou um precedente do STJ que não existia, criado pelo ChatGPT. O erro foi descoberto pelo advogado da parte que perdeu o processo, e o CNJ abriu investigação.',
@@ -32,7 +32,7 @@ window.CASOS = [
     url: 'https://www.conjur.com.br/2023-nov-16/chatgpt-inventando-precedente-e-a-terceirizacao-da-justica/',
   },
   {
-    id: 'poa', pais: 'br', tema: 'Câmara Municipal', foto: '',
+    id: 'poa', pais: 'br', tema: 'Câmara Municipal', foto: 'assets/img/casos/poa.jpg',
     quando: 'Porto Alegre (RS) · novembro de 2023',
     titulo: 'A lei que o ChatGPT escreveu',
     resumo: 'Um vereador apresentou um projeto de lei redigido pelo ChatGPT sem contar a ninguém. A Câmara aprovou por unanimidade e o prefeito sancionou. Só depois ele revelou a autoria — e o presidente da Câmara chamou o caso de “precedente perigoso”.',
@@ -41,7 +41,7 @@ window.CASOS = [
     url: 'https://canaltech.com.br/inteligencia-artificial/lei-escrita-pelo-chatgpt-e-aprovada-em-porto-alegre-271605/',
   },
   {
-    id: 'drauzio', pais: 'br', tema: 'Golpes digitais', foto: '',
+    id: 'drauzio', pais: 'br', tema: 'Golpes digitais', foto: 'assets/img/casos/drauzio.jpg',
     quando: 'Brasil · fevereiro de 2026',
     titulo: 'Médico famoso “vendendo” remédio falso',
     resumo: 'Vídeos falsos feitos com IA imitavam o rosto e a voz do médico Drauzio Varella e de outros famosos para vender produtos de saúde sem aprovação. A Meta processou os anunciantes responsáveis.',
@@ -50,7 +50,7 @@ window.CASOS = [
     url: 'https://tecnoblog.net/noticias/meta-processa-golpistas-por-uso-de-videos-falsos-de-celebridades/',
   },
   {
-    id: 'tst', pais: 'br', tema: 'Justiça do Trabalho', foto: '',
+    id: 'tst', pais: 'br', tema: 'Justiça do Trabalho', foto: 'assets/img/casos/tst.jpg',
     quando: 'Brasília · março de 2026',
     titulo: 'Decisões falsas no TST',
     resumo: 'Uma empresa e seu advogado citaram decisões que nunca existiram, provavelmente geradas por IA. O Tribunal Superior do Trabalho concluiu que foi criação de conteúdo fictício para enganar a corte e multou os dois.',
@@ -98,23 +98,24 @@ window.casoHTML = (c, attrs = '') => `
     <a class="fonte" href="${c.url}" target="_blank" rel="noopener">Fonte: ${c.fonte} ↗</a>
   </article>`;
 
-// Card estilo shorts: celular vertical à esquerda, informações à direita.
+// Carrossel estilo shorts: um celular vertical por caso (reelPhoneHTML) e,
+// ao lado, as informações do caso atual (reelInfoHTML).
 // k = posição do caso na sequência, n = total (para as barrinhas de progresso).
-window.shortHTML = (c, k, n, attrs = '') => `
-  <article class="short"${attrs}>
-    <div class="phone"${c.foto ? ` style="background-image:url('${c.foto}')"` : ''}>
-      <div class="ph-bars">${Array.from({ length: n }, (_, i) => `<i class="${i <= k ? 'on' : ''}"></i>`).join('')}</div>
-      <span class="ph-tema">${c.tema}</span>
-      <div class="ph-foot">
-        <span class="ph-when">${c.quando}</span>
-        <b class="ph-title">${c.titulo}</b>
-        <span class="ph-tag">Caso real · ${c.pais === 'br' ? 'Brasil' : 'Mundo'}</span>
-      </div>
+window.reelPhoneHTML = (c, k, n, root = '') => `
+  <div class="phone"${c.foto ? ` style="background-image:url('${root}${c.foto}')"` : ''}>
+    <div class="ph-bars">${Array.from({ length: n }, (_, i) => `<i class="${i <= k ? 'on' : ''}"></i>`).join('')}</div>
+    <span class="ph-tema">${c.tema}</span>
+    <div class="ph-foot">
+      <span class="ph-when">${c.quando}</span>
+      <b class="ph-title">${c.titulo}</b>
+      <span class="ph-tag">Caso real · ${c.pais === 'br' ? 'Brasil' : 'Mundo'}</span>
     </div>
-    <div class="info">
-      <span class="kicker">Caso real ${k + 1} de ${n} · ${c.tema}</span>
-      <p class="lead">${c.resumo}</p>
-      <p class="licao">${c.licao}</p>
-      <a class="fonte" href="${c.url}" target="_blank" rel="noopener">Fonte: ${c.fonte} ↗</a>
-    </div>
-  </article>`;
+  </div>`;
+
+window.reelInfoHTML = (c, k, n, attrs = '') => `
+  <div class="reel-card"${attrs}>
+    <span class="kicker">Caso real ${k + 1} de ${n} · ${c.tema}</span>
+    <p class="lead">${c.resumo}</p>
+    <p class="licao">${c.licao}</p>
+    <a class="fonte" href="${c.url}" target="_blank" rel="noopener">Fonte: ${c.fonte} ↗</a>
+  </div>`;
