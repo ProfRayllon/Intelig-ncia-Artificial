@@ -514,3 +514,37 @@ html.portrait .frase { padding: 24px 26px; gap: 18px; }
 html.portrait .fr-text { font-size: 28px; }
 html.portrait .fr-row button { font-size: 22px; padding: 10px 16px; }
 html.portrait .fr-why { font-size: 23px; }
+
+/* Desafios v2: comando de ponta a ponta; imagem à esquerda, frase à direita */
+.fr-top { display: flex; flex-direction: column; gap: 22px; }
+.fr-prompt { padding: 22px 30px; gap: 10px; }
+.fr-prompt q { font-size: 25px; }
+.fr-grid { align-items: stretch; gap: 50px; }
+.fr-fig { margin: 0; position: relative; min-height: 0; overflow: hidden; border-radius: 14px; }
+.fr-fig img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.fr-fig .fr-why { position: absolute; left: 0; right: 0; bottom: 0; border-left: 0; border-top: 8px solid var(--verde); }
+html.portrait .fr-prompt q { font-size: 21px; }
+html.portrait .fr-fig img { height: auto; aspect-ratio: 624 / 408; }
+html.portrait .fr-fig .fr-why { position: static; }
+.fr-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+.frase { padding: 28px 34px; gap: 18px; }
+.fr-text { font-size: 32px; line-height: 1.65; }
+.fr-row button { font-size: 24px; padding: 10px 20px; }
+.fr-send { font-size: 24px; padding: 14px 28px; }
+.frase.results .fr-send { display: none; }
+.fr-res { font-size: 22px; gap: 8px; }
+.fr-res b { font-size: 30px; }
+.fr-res em { font-style: normal; font-weight: 800; font-size: 24px; }
+.fr-res em.hit { color: var(--verde); }
+.fr-res em.miss { color: var(--vermelho); }
+.fr-fig .fr-why { font-size: 25px; padding: 18px 24px; }
+html.portrait .fr-fig { overflow: visible; border-radius: 0; }
+html.portrait .fr-fig img { border-radius: 14px; }
+html.portrait .fr-fig .fr-why { margin-top: 14px; font-size: 22px; }
+html.portrait .fr-text { font-size: 27px; }
+html.portrait .fr-row button { font-size: 21px; }
+html.portrait .fr-grid { flex: none; grid-template-columns: minmax(0, 1fr); }
+html.portrait .fr-fig { display: flex; flex-direction: column; }
+html.portrait .fr-fig img { height: auto; aspect-ratio: 624 / 408; }
+html.portrait .slide[data-s="1"] .fr-fig img { display: none; }
+html.portrait .slide[data-s="1"] .fr-fig .fr-why { margin-top: 0; }

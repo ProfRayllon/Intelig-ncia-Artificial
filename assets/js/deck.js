@@ -153,11 +153,12 @@
       b.disabled = sent;
     });
     F.send.disabled = sent || F.sel.includes(-1);
-    F.send.textContent = sent ? (mine[id] === 0 && results ? '✓ Você acertou' : mine[id] === 1 && results ? '✗ Compare com a frase certa' : '✓ Frase enviada') : 'Enviar minha frase';
+    F.send.textContent = sent ? '✓ Frase enviada' : 'Enviar minha frase';
     P.el.classList.toggle('sent', sent);
     P.el.classList.toggle('results', results);
     const pct = total ? Math.round((c[0] || 0) / total * 100) : 0;
-    F.res.innerHTML = `<div class="fr-bar"><i style="width:${results ? pct : 0}%"></i></div><span><b>${results ? pct + '%' : '…'}</b> montou a frase certa · ${total === 1 ? '1 resposta' : total + ' respostas'}</span>`;
+    const eu = mine[id] === 0 ? '<em class="hit">✓ Você acertou</em>' : mine[id] === 1 ? '<em class="miss">✗ Compare com a frase certa</em>' : '';
+    F.res.innerHTML = `<div class="fr-bar"><i style="width:${results ? pct : 0}%"></i></div><span><b>${results ? pct + '%' : '…'}</b> montou a frase certa · ${total === 1 ? '1 resposta' : total + ' respostas'}</span>${eu}`;
   };
 
   const renderPoll = (id) => {
