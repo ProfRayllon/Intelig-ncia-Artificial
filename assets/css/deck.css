@@ -415,3 +415,34 @@ html.portrait .reel-item { height: 96%; }
 html.portrait .ph-title { font-size: 38px; }
 html.portrait .reel-card .lead { font-size: 26px; }
 html.portrait .reel-card .licao { font-size: 24px; }
+
+/* Os dois lados: um par potencialidade × armadilha por clique */
+.duelo { display: flex; flex-direction: column; gap: 40px; height: 100%; }
+.duelo-cols { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 28px; align-items: stretch; }
+.lado { display: flex; flex-direction: column; gap: 22px; padding: 46px 48px; border-top: 12px solid; }
+.lado.pro { background: var(--verde-claro); border-color: var(--verde); }
+.lado.con { background: var(--vermelho-claro); border-color: var(--vermelho); }
+.lado-tag { font-size: 22px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.lado.pro .lado-tag { color: var(--verde); }
+.lado.con .lado-tag { color: var(--vermelho); }
+.lado-tit { margin: 0; font-family: var(--titulo); font-weight: 400; text-transform: uppercase; font-size: 76px; line-height: 1.04; color: var(--marinho); }
+.lado-txt { margin: 0; font-size: 32px; line-height: 1.4; color: var(--tinta); }
+.lado-ex { margin-top: auto; display: flex; flex-direction: column; gap: 8px; padding: 24px 28px; background: var(--branco); font-size: 28px; line-height: 1.45; font-weight: 600; color: var(--marinho); }
+.lado-ex b { font-size: 18px; letter-spacing: .14em; text-transform: uppercase; color: var(--cinza); }
+.vs { align-self: center; font-family: var(--titulo); font-size: 90px; color: var(--claro); }
+html.portrait .duelo-cols { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+html.portrait .vs { display: none; }
+html.portrait .lado { padding: 26px 28px; gap: 14px; }
+html.portrait .lado-tit { font-size: 46px; }
+html.portrait .lado-txt { font-size: 25px; }
+html.portrait .lado-ex { font-size: 23px; }
+.lado { justify-content: center; }
+.lado-tit { font-size: 88px; }
+.lado-txt { font-size: 36px; }
+.lado-ex { margin-top: 18px; font-size: 30px; }
+.vs { font-size: 64px; text-transform: uppercase; color: var(--cinza); }
+html.portrait .duelo-cols { flex: none; }
+html.portrait .lado { justify-content: flex-start; }
+html.portrait .lado-tit { font-size: 46px; }
+html.portrait .lado-txt { font-size: 25px; }
+html.portrait .lado-ex { margin-top: 6px; font-size: 23px; }
