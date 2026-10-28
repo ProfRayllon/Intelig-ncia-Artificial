@@ -97,8 +97,72 @@
     polls[id] = { el: p, btns, total, show: parseInt(p.dataset.show || '0', 10), slide: slides.indexOf(p.closest('.slide')) };
   });
 
+  // Monte a frase: cada .gap tem opções (data-opts) e a certa (data-ok).
+  // Ao enviar, conta como voto numa enquete de 2 opções: 0 = acertou, 1 = errou.
+  let picks = {};
+  try { picks = JSON.parse(sessionStorage.getItem(KEY + 'frases') || '{}'); } catch (e) {}
+  deck.querySelectorAll('.frase[data-poll]').forEach((f) => {
+    const id = f.dataset.poll;
+    const gaps = [...f.querySelectorAll('.gap')].map((g, n) => {
+      const opts = g.dataset.opts.split('|');
+      g.innerHTML = `<i>${n + 1}</i><b>${' '.repeat(8)}</b>`;
+      return { el: g, opts, ok: parseInt(g.dataset.ok, 10) };
+    });
+    const sel = picks[id] || gaps.map(() => -1);
+    const bank = document.createElement('div');
+    bank.className = 'fr-bank';
+    bank.innerHTML = gaps.map((g, n) => `<div class="fr-row"><i>${n + 1}</i>${g.opts.map((o, k) =>
+      `<button type="button" data-g="${n}" data-k="${k}">${o}</button>`).join('')}</div>`).join('');
+    const send = document.createElement('button');
+    send.type = 'button';
+    send.className = 'fr-send';
+    const res = document.createElement('div');
+    res.className = 'fr-res';
+    f.append(bank, send, res);
+    bank.addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-g]');
+      if (!b || mine[id] != null) return;
+      sel[+b.dataset.g] = +b.dataset.k;
+      renderPoll(id);
+    });
+    send.addEventListener('click', () => {
+      if (mine[id] != null || sel.includes(-1)) return;
+      picks[id] = sel;
+      try { sessionStorage.setItem(KEY + 'frases', JSON.stringify(picks)); } catch (e) {}
+      vote(id, gaps.every((g, n) => sel[n] === g.ok) ? 0 : 1);
+    });
+    polls[id] = { el: f, btns: [], size: 2, frase: { gaps, sel, bank, send, res }, show: parseInt(f.dataset.show || '0', 10), slide: slides.indexOf(f.closest('.slide')) };
+  });
+
+  const renderFrase = (id) => {
+    const P = polls[id], F = P.frase;
+    const c = counts[id] || [];
+    const total = (c[0] || 0) + (c[1] || 0);
+    const results = P.slide === cur && step >= P.show;
+    const sent = mine[id] != null;
+    F.gaps.forEach((g, n) => {
+      const k = results ? g.ok : F.sel[n];
+      g.el.querySelector('b').textContent = k >= 0 ? g.opts[k] : ' '.repeat(8);
+      g.el.classList.toggle('filled', k >= 0);
+      g.el.classList.toggle('ok', results);
+    });
+    F.bank.querySelectorAll('button').forEach((b) => {
+      const g = F.gaps[+b.dataset.g], k = +b.dataset.k;
+      b.classList.toggle('mine', F.sel[+b.dataset.g] === k);
+      b.classList.toggle('right', results && g.ok === k);
+      b.disabled = sent;
+    });
+    F.send.disabled = sent || F.sel.includes(-1);
+    F.send.textContent = sent ? (mine[id] === 0 && results ? '✓ Você acertou' : mine[id] === 1 && results ? '✗ Compare com a frase certa' : '✓ Frase enviada') : 'Enviar minha frase';
+    P.el.classList.toggle('sent', sent);
+    P.el.classList.toggle('results', results);
+    const pct = total ? Math.round((c[0] || 0) / total * 100) : 0;
+    F.res.innerHTML = `<div class="fr-bar"><i style="width:${results ? pct : 0}%"></i></div><span><b>${results ? pct + '%' : '…'}</b> montou a frase certa · ${total === 1 ? '1 resposta' : total + ' respostas'}</span>`;
+  };
+
   const renderPoll = (id) => {
     const P = polls[id];
+    if (P.frase) return renderFrase(id);
     const c = counts[id] || [];
     const total = c.reduce((a, b) => a + (b || 0), 0);
     const results = P.slide === cur && step >= P.show;
@@ -133,7 +197,7 @@
     mine[id] = k;
     try { sessionStorage.setItem(KEY + 'votos', JSON.stringify(mine)); } catch (e) {}
     if (api.onVote) api.onVote(id, k);
-    else { counts[id] = polls[id].btns.map((_, n) => (n === k ? 1 : 0)); }
+    else { counts[id] = Array.from({ length: api.pollSize(id) }, (_, n) => (n === k ? 1 : 0)); }
     renderPoll(id);
   };
 
@@ -473,7 +537,7 @@
     onChange(fn) { listeners.push(fn); },
     onVote: null,
     pollIds: () => Object.keys(polls),
-    pollSize: (id) => (polls[id] ? polls[id].btns.length : 0),
+    pollSize: (id) => (polls[id] ? polls[id].size || polls[id].btns.length : 0),
     setCounts(c) { counts = c || {}; renderPolls(); },
     get extra() { return extra; },
     setExtra,
