@@ -28,6 +28,32 @@
   h1, h2 { font-family: var(--titulo); font-weight: 400; text-transform: uppercase; line-height: 1.04; margin: 0; }
   .hero h1 { font-size: clamp(46px, 8vw, 104px); max-width: 980px; }
   .hero h1 em { font-style: normal; color: var(--claro); }
+  .hero-top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 40px; align-items: center; }
+
+  /* "armadilhas": uma caixa com dentes que se fecha de tempos em tempos */
+  .trap { position: relative; display: inline-block; padding: 0 .12em; margin: .14em 0; background: #fff; color: var(--vermelho); animation: morde 4.5s 1s infinite; }
+  .trap::before, .trap::after { content: ''; position: absolute; left: 0; right: 0; height: .16em; background-size: .3em 100%; background-repeat: repeat-x; animation: dentes 4.5s 1s infinite; }
+  .trap::before { bottom: calc(100% - 1px); background-image: conic-gradient(from 135deg at 50% 0, #fff 90deg, transparent 0); transform-origin: bottom; }
+  .trap::after { top: calc(100% - 1px); background-image: conic-gradient(from -45deg at 50% 100%, #fff 90deg, transparent 0); transform-origin: top; }
+  @keyframes morde { 0%, 84%, 100% { transform: none; } 88% { transform: scale(1.04) rotate(-1.2deg); } 92% { transform: scale(.98) rotate(1deg); } 96% { transform: scale(1.01); } }
+  @keyframes dentes { 0%, 82%, 100% { transform: scaleY(1); } 88% { transform: scaleY(1.9); } 94% { transform: scaleY(.6); } }
+  @media (prefers-reduced-motion: reduce) { .trap, .trap::before, .trap::after { animation: none; } }
+
+  /* QR code do hub: card no topo e versão ampliada em pop-up */
+  .qr-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 14px 12px; background: #fff; border: 0; color: var(--marinho); font: inherit; cursor: zoom-in; transition: transform .2s; }
+  .qr-card:hover { transform: scale(1.03); }
+  .qr-card .qr-img { width: 170px; height: 170px; }
+  .qr-img svg { display: block; width: 100%; height: 100%; }
+  .qr-card .qr-link { font-size: 12px; font-weight: 800; max-width: 190px; overflow-wrap: anywhere; text-align: center; }
+  .qr-card .qr-dica { font-size: 11px; color: var(--cinza); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+  .qr-pop { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: rgba(8, 23, 46, .82); }
+  .qr-pop[hidden] { display: none; }
+  .qr-box { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 36px 36px 28px; background: #fff; max-width: 94vw; }
+  .qr-box .qr-img { width: min(70vh, 80vw, 560px); aspect-ratio: 1; }
+  .qr-box .qr-link { margin: 0; font: 400 clamp(22px, 3.4vw, 44px)/1.1 var(--titulo); color: var(--azul); text-align: center; overflow-wrap: anywhere; }
+  .qr-box .qr-dica { margin: 0; font-size: 15px; color: var(--cinza); text-align: center; }
+  .qr-fechar { position: absolute; top: 6px; right: 10px; border: 0; background: none; font-size: 40px; line-height: 1; color: var(--marinho); cursor: pointer; }
+  @media (max-width: 760px) { .hero-top { grid-template-columns: minmax(0, 1fr); gap: 24px; } .qr-card { justify-self: start; flex-direction: row; gap: 14px; } .qr-card .qr-img { width: 96px; height: 96px; } .qr-card .qr-link { text-align: left; } .qr-card .qr-dica { display: none; } }
   .hero p.sub { margin: 0; font-size: clamp(18px, 2.2vw, 24px); max-width: 720px; color: #fff; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: stretch; }
   .join { display: flex; gap: 0; }
@@ -130,7 +156,14 @@
     <div class="ghost" aria-hidden="true">IA</div>
     <div class="wrap">
       <div class="kicker">Oficina · Investigue · Questione · Verifique · Aprenda</div>
-      <h1>Potencialidades e armadilhas <em>da IA</em> no estudo</h1>
+      <div class="hero-top">
+        <h1>Potencialidades e <span class="trap">armadilhas</span> <em>da IA</em> no estudo</h1>
+        <button type="button" class="qr-card" id="qr-abrir" aria-label="Ampliar o QR code e o link desta página">
+          <span class="qr-img" id="qr-mini"></span>
+          <span class="qr-link" data-hub-url></span>
+          <span class="qr-dica">Toque para ampliar</span>
+        </button>
+      </div>
       <p class="sub">Entenda como a IA gera respostas, descubra quando ela ajuda e quando atrapalha — e prepare-se para levar essa missão a outras turmas.</p>
       <div class="actions">
         <a class="btn white" href="apresentacao.html">▶ Assistir à palestra ao vivo</a>
@@ -276,8 +309,36 @@
   </div>
 </footer>
 
+<div class="qr-pop" id="qr-pop" role="dialog" aria-modal="true" aria-label="QR code e link desta página" hidden>
+  <div class="qr-box">
+    <button type="button" class="qr-fechar" data-fechar aria-label="Fechar">×</button>
+    <div class="qr-img" id="qr-grande"></div>
+    <p class="qr-link" data-hub-url></p>
+    <p class="qr-dica">Aponte a câmera do celular ou digite o endereço no navegador.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script src="assets/data/casos.js?v=16"></script>
 <script>
+  // QR code e link desta página (sem o #, para servir em qualquer lugar)
+  const HUB = location.origin + location.pathname.replace(/index\.html$/, '');
+  document.querySelectorAll('[data-hub-url]').forEach((el) => { el.textContent = HUB.replace(/^https?:\/\//, '').replace(/\/$/, ''); });
+  if (window.qrcode) {
+    const qr = qrcode(0, 'M');
+    qr.addData(HUB);
+    qr.make();
+    const svg = qr.createSvgTag({ cellSize: 6, margin: 2, scalable: true });
+    document.getElementById('qr-mini').innerHTML = svg;
+    document.getElementById('qr-grande').innerHTML = svg;
+  }
+  const pop = document.getElementById('qr-pop');
+  const fechar = () => { pop.hidden = true; };
+  document.getElementById('qr-abrir').addEventListener('click', () => { pop.hidden = false; });
+  pop.addEventListener('click', (e) => { if (e.target === pop || e.target.closest('[data-fechar]')) fechar(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fechar(); });
+
+
   document.getElementById('verif').textContent = window.CASOS_VERIFICADO;
   const listar = (pais) => window.CASOS.filter((c) => c.pais === pais).map((c) => window.casoHTML(c)).join('');
   document.getElementById('casos-br').innerHTML = listar('br');
