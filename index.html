@@ -90,6 +90,19 @@
   .idade { display: grid; grid-template-columns: 120px 1fr 44px; gap: 12px; align-items: center; font-size: 15px; }
   .idade b { text-align: right; }
   .trilho { height: 18px; background: #fff; border-radius: 4px; overflow: hidden; }
+  .total-ia { display: flex; align-items: center; gap: 28px; margin-top: auto; padding-top: 22px; border-top: 1px solid var(--claro); }
+  .rosca { width: 150px; height: 150px; flex: none; transform: rotate(-90deg); }
+  .rosca circle { fill: none; stroke-width: 24; }
+  .rosca .sim, .leg i.sim { stroke: var(--azul); background: var(--azul); }
+  .rosca .nao, .leg i.nao { stroke: var(--claro); background: var(--claro); }
+  .rosca .num { transform: rotate(90deg); transform-origin: 80px 80px; text-anchor: middle; font: 34px var(--titulo); fill: var(--marinho); }
+  .leg { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+  .leg > b { font-size: 17px; }
+  .leg span { display: grid; grid-template-columns: 14px 1fr; column-gap: 10px; align-items: center; }
+  .leg i { width: 14px; height: 14px; border-radius: 3px; }
+  .leg em { font-style: normal; }
+  @media (max-width: 480px) { .total-ia { gap: 16px; } .rosca { width: 104px; height: 104px; } }
+  .leg small { grid-column: 2; font-size: 13px; color: var(--cinza); }
   .trilho i { display: block; height: 100%; background: var(--azul); border-radius: 0 4px 4px 0; }
   .sub-casos { margin: 30px 0 14px; font-size: 22px; }
   .refs { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--tinta); }
@@ -214,6 +227,18 @@
           <figcaption><b>Por idade</b><span>% dos usuários de internet que já usaram IA generativa</span></figcaption>
           <div class="idades" id="idades"></div>
           <p class="nota">Os jovens de 16 a 24 anos são os que mais usam: mais da metade.</p>
+          <div class="total-ia">
+            <svg class="rosca" viewBox="0 0 160 160" role="img" aria-label="No total, 32% dos usuários de internet já usaram IA generativa e 68% ainda não usaram.">
+              <circle cx="80" cy="80" r="60" class="nao" stroke-dasharray="252 377" stroke-dashoffset="-122.6"><title>Ainda não usaram: 68%</title></circle>
+              <circle cx="80" cy="80" r="60" class="sim" stroke-dasharray="118.6 377" stroke-dashoffset="-2"><title>Já usaram: 32%</title></circle>
+              <text x="80" y="92" class="num">32%</text>
+            </svg>
+            <div class="leg">
+              <b>No total</b>
+              <span><i class="sim"></i><em>Já usaram IA generativa · <b>32%</b></em><small>cerca de 50 milhões de pessoas</small></span>
+              <span><i class="nao"></i><em>Ainda não usaram · <b>68%</b></em></span>
+            </div>
+          </div>
         </figure>
       </div>
       <p class="fonte-dados">Fonte: <a href="https://cetic.br/pt/tics/domicilios/2025/individuos/M1/" target="_blank" rel="noopener">Cetic.br/NIC.br, pesquisa TIC Domicílios 2025, indicador M1</a> (divulgada em 09/12/2025).</p>
