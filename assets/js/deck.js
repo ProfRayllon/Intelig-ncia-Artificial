@@ -116,8 +116,8 @@
     const segV = r.querySelector('.seg.v'), segF = r.querySelector('.seg.f');
     segV.style.width = pv + '%';
     segF.style.width = pf + '%';
-    segV.textContent = pv >= 12 ? 'V ' + pv + '%' : '';
-    segF.textContent = pf >= 12 ? 'F ' + pf + '%' : '';
+    segV.textContent = pv >= 12 ? '✓ ' + pv + '%' : '';
+    segF.textContent = pf >= 12 ? '✗ ' + pf + '%' : '';
     const ok = r.dataset.answer === '0' ? pv : pf;
     r.querySelector('.hit').textContent = t ? ok + '% acertou' : 'sem votos';
   });
