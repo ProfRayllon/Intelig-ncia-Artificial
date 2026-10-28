@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Palestra</title>
-<link rel="stylesheet" href="assets/css/base.css?v=11">
-<link rel="stylesheet" href="assets/css/deck.css?v=11">
+<link rel="stylesheet" href="assets/css/base.css?v=12">
+<link rel="stylesheet" href="assets/css/deck.css?v=12">
 </head>
 <body>
 <main class="deck" data-deck="apresentacao.html" data-root="">
@@ -365,10 +365,20 @@
     <aside class="notes">08h40–09h05 · 25 min.</aside>
   </section>
 
-  <section class="slide" data-title="Experimento A/B" data-steps="2">
+  <section class="slide" data-title="Experimento A/B" data-steps="3" style="gap:30px">
     <div class="kicker rise">Experimento em duplas · 8 min</div>
-    <div class="card rise" style="background:var(--marinho);color:#fff"><span class="tag" style="background:var(--amarelo);color:var(--marinho)">O problema</span><p style="color:#fff;font-size:34px;font-weight:700">Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</p></div>
-    <div class="cols stretch" style="--n:2" data-step="1">
+    <div class="card rise" style="background:var(--marinho);color:#fff;padding:26px 36px"><span class="tag" style="background:var(--amarelo);color:var(--marinho)">O problema</span><p style="color:#fff;font-size:32px;font-weight:700;margin:0">Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</p></div>
+    <div class="swap grow">
+    <div class="ab-intro" data-step="0" data-until="2">
+      <img class="ab-img" src="assets/img/tenis.jpg" alt="Tênis com etiqueta de R$ 200,00, etiquetas de 20% de desconto e 10% sobre o novo preço, e uma calculadora com um ponto de interrogação">
+      <div class="poll" data-poll="desconto" data-show="1">
+        <p class="q">O desconto total foi de 30%?</p>
+        <button>Sim, foi de 30%</button>
+        <button>Não</button>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px" data-step="2">
+    <div class="cols stretch" style="--n:2">
       <div class="prompt" style="background:var(--gelo);color:var(--marinho)">
         <div class="p-head"><b style="color:var(--azul)">Duplas A · resposta pronta</b><button type="button" class="copy">Copiar</button></div>
         <q>Resolva esta questão e me dê a resposta: Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</q>
@@ -378,8 +388,10 @@
         <q>Atue como tutor: faça perguntas, dê pistas graduais e não entregue a resposta antes de eu tentar. Questão: Uma loja dá 20% de desconto em um tênis de R$ 200 e, no caixa, mais 10% sobre o novo preço. O desconto total foi de 30%?</q>
       </div>
     </div>
-    <p class="small" data-step="1">Sem acesso a uma IA? Use o simulador do próximo slide. Não cole dados pessoais na conversa.</p>
-    <aside class="notes">Divida: duplas ímpares = A, pares = B. Cada dupla copia o comando do seu grupo (o botão copiar funciona no celular e no computador). Não antecipe qual estratégia “funciona melhor” — o objetivo é comparar.</aside>
+    <p class="small">Hoje vamos testar os dois comandos no simulador do próximo slide. Em casa, nunca cole dados pessoais na conversa.</p>
+    </div>
+    </div>
+    <aside class="notes">Primeiro, a votação rápida: “o desconto total foi de 30%?”. Avance para mostrar a porcentagem da turma, mas não revele a resposta (foi de 28%): ela aparece no simulador. Avance de novo para os dois comandos. Divida: duplas ímpares = A, pares = B. Cada dupla copia o comando do seu grupo (o botão copiar funciona no celular e no computador). Não antecipe qual estratégia “funciona melhor” — o objetivo é comparar.</aside>
   </section>
 
   <section class="slide" data-title="Simulador A/B">
@@ -549,9 +561,9 @@
     b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
   });
 </script>
-<script src="assets/data/casos.js?v=11"></script>
-<script src="assets/js/simulador.js?v=11"></script>
-<script src="assets/js/deck.js?v=11"></script>
-<script src="assets/js/ao-vivo.js?v=11"></script>
+<script src="assets/data/casos.js?v=12"></script>
+<script src="assets/js/simulador.js?v=12"></script>
+<script src="assets/js/deck.js?v=12"></script>
+<script src="assets/js/ao-vivo.js?v=12"></script>
 </body>
 </html>

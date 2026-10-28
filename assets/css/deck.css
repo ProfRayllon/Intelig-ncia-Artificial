@@ -468,3 +468,9 @@ html.portrait .pop-box { padding: 40px 32px; }
 html.portrait .pop-tit { font-size: 52px; }
 html.portrait .pop-txt { font-size: 27px; }
 html.portrait .pop-ex { font-size: 24px; }
+
+/* Experimento A/B: imagem do problema + votação rápida no canto */
+.ab-intro { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 50px; align-items: center; min-height: 0; }
+.ab-img { width: 100%; height: 100%; max-height: 560px; object-fit: cover; border-radius: 14px; min-height: 0; }
+html.portrait .ab-intro { grid-template-columns: minmax(0, 1fr); gap: 26px; align-content: start; }
+html.portrait .ab-img { height: auto; aspect-ratio: 1740 / 904; }
