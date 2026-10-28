@@ -572,3 +572,11 @@ html.portrait .fr-lv .fr-top .title { font-size: 44px; }
 .fr-text u { text-decoration: none; color: var(--vermelho); font-weight: 800; }
 html.portrait .fr-lv .fr-top .title { font-size: 40px; }
 html.portrait .fr-lv .fr-text { font-size: 26px; }
+
+/* Fotos em pé: inteiras no centro, com a própria foto desfocada ao fundo */
+.fr-fig.tall { background: var(--marinho); }
+.fr-fig.tall .fr-bg { position: absolute; inset: -40px; background: center / cover; filter: blur(28px) brightness(.8); }
+.fr-fig.tall img { position: relative; object-fit: contain; }
+html.portrait .fr-fig.tall { overflow: hidden; border-radius: 14px; }
+html.portrait .fr-fig.tall img { aspect-ratio: auto; height: 300px; border-radius: 0; }
+html.portrait .fr-fig.tall .fr-why { position: relative; margin-top: 0; }
