@@ -18,6 +18,7 @@ Hub da oficina: palestra ao vivo, três trilhas para estudantes multiplicadores,
 
 - **Palestra (você):** `apresentacao.html?apresentador` — usa a sala fixa `PALESTRA`. Esse link não aparece no hub de propósito.
 - **Público da palestra:** `apresentacao.html` (ou o botão "Assistir à palestra ao vivo" no hub).
+- **Multiplicadores apresentando a palestra:** o card "Apresentar a palestra" (Ferramentas) abre `apresentacao.html?apresentador&nova`, que cria uma sala própria com código, sem mexer na sala `PALESTRA`.
 - **Trilhas:** o botão "Apresentar" do hub abre `?apresentador` e cria um código de sala (ex.: `K7Q2`). A turma entra pelo QR code ou digitando o código no hub.
 - **Controle remoto:** abra no celular o mesmo link do apresentador (aparece ao clicar no selo AO VIVO). Os dois aparelhos ficam sincronizados e o celular mostra as notas.
 - **Trocar de apresentação:** pelo sumário (tecla `M`) o apresentador abre uma trilha na mesma sala e o público vai junto.

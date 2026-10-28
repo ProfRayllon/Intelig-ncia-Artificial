@@ -42,9 +42,11 @@
 
   // ── Sala ─────────────────────────────────────────────────────────────
   let sala = (params.get('sala') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 12);
-  if (!sala && D.NAME === 'apresentacao.html') sala = 'PALESTRA';
+  // ?nova: a palestra apresentada por outra pessoa ganha uma sala própria
+  if (!sala && D.NAME === 'apresentacao.html' && !params.has('nova')) sala = 'PALESTRA';
   if (!sala && IS_PRESENTER) {
     sala = newCode();
+    params.delete('nova');
     params.set('sala', sala);
     history.replaceState(null, '', '?' + params.toString().replace(/=(?=&|$)/g, '') + location.hash);
   }
