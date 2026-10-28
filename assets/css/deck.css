@@ -333,14 +333,14 @@ html.portrait .cols { align-items: start; align-content: start; }
 .qrow .seg { display: grid; place-items: center; font-size: 20px; font-weight: 800; color: var(--branco); white-space: nowrap; overflow: hidden; transition: width .9s cubic-bezier(.2,.8,.2,1), background .4s, opacity .4s; }
 .qrow .seg.v { background: var(--azul); }
 .qrow .seg.f { background: var(--marinho); }
-.qrow .qres { display: flex; flex-direction: column; gap: 4px; opacity: 0; transition: opacity .4s; }
+.qrow .qres { display: flex; flex-direction: column; gap: 4px; }
 .qrow .gab { font-size: 18px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--verde); }
 .qrow .hit { font-size: 24px; font-weight: 800; }
 .quiz-legend { display: flex; gap: 26px; font-size: 20px; font-weight: 700; color: var(--cinza); }
 .quiz-legend i { display: inline-block; width: 18px; height: 18px; margin-right: 8px; vertical-align: -2px; }
-.slide[data-s="1"] .qrow .qres { opacity: 1; }
-.slide[data-s="1"] .qrow[data-answer="0"] .seg.v, .slide[data-s="1"] .qrow[data-answer="1"] .seg.f { background: var(--verde); }
-.slide[data-s="1"] .qrow[data-answer="0"] .seg.f, .slide[data-s="1"] .qrow[data-answer="1"] .seg.v { opacity: .3; }
+.qrow .qres { opacity: 1; }
+.qrow[data-answer="0"] .seg.v, .qrow[data-answer="1"] .seg.f { background: var(--verde); }
+.qrow[data-answer="0"] .seg.f, .qrow[data-answer="1"] .seg.v { background: var(--claro); color: var(--azul-esc); }
 html.portrait .qrow { grid-template-columns: 44px minmax(0, 1fr); gap: 10px 14px; }
 html.portrait .qrow .qbar, html.portrait .qrow .qres { grid-column: 2; }
 html.portrait .poll.vf button { font-size: 34px; }
@@ -361,10 +361,10 @@ html.portrait .poll.vf button { font-size: 34px; }
 .qrow.qhead { padding: 0 0 6px; font-size: 17px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--cinza); }
 .qrow .qans { display: inline-flex; align-items: center; justify-content: center; height: 50px; font-size: 24px; font-weight: 800; color: var(--suave); background: var(--gelo); border: 2px dashed var(--claro); transition: background .4s, color .4s; }
 .qrow .qans::before { content: '?'; }
-.slide[data-s="1"] .qrow .qans { border: 0; color: var(--branco); }
-.slide[data-s="1"] .qrow[data-answer="0"] .qans { background: var(--verde); }
-.slide[data-s="1"] .qrow[data-answer="1"] .qans { background: var(--vermelho); }
-.slide[data-s="1"] .qrow[data-answer="0"] .qans::before { content: '✓ Verdadeiro'; }
-.slide[data-s="1"] .qrow[data-answer="1"] .qans::before { content: '✗ Falso'; }
+.qrow .qans { border: 0; color: var(--branco); }
+.qrow[data-answer="0"] .qans { background: var(--verde); }
+.qrow[data-answer="1"] .qans { background: var(--vermelho); }
+.qrow[data-answer="0"] .qans::before { content: '✓ Verdadeiro'; }
+.qrow[data-answer="1"] .qans::before { content: '✗ Falso'; }
 html.portrait .qrow.qhead { display: none; }
 html.portrait .qrow .qans { grid-column: 2; justify-self: start; padding: 0 18px; height: 42px; }
