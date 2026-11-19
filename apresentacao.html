@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Palestra</title>
-<link rel="stylesheet" href="assets/css/base.css?v=18">
-<link rel="stylesheet" href="assets/css/deck.css?v=18">
+<link rel="stylesheet" href="assets/css/base.css?v=19">
+<link rel="stylesheet" href="assets/css/deck.css?v=19">
 </head>
 <body>
 <main class="deck" data-deck="apresentacao.html" data-root="">
@@ -111,46 +111,131 @@
   <section class="slide" data-title="Mapa da oficina">
     <div class="kicker rise">O nosso percurso</div>
     <h2 class="title rise">Hoje você vai <em>investigar a IA</em></h2>
-    <div class="cols stretch grow" style="--n:4;gap:28px">
-      <div class="card rise"><span class="num">01</span><h3>Compreender</h3><p>Como a IA gera texto — e por que ela pode errar com segurança.</p></div>
-      <div class="card rise"><span class="num">02</span><h3>Investigar</h3><p>Uma resposta suspeita e casos reais de erros de IA.</p></div>
-      <div class="card rise"><span class="num">03</span><h3>Experimentar</h3><p>Resposta pronta ou tutor? Teste e compare em duplas.</p></div>
-      <div class="card solid rise"><span class="num">04</span><h3>Criar</h3><p>Você cria um desafio de IA para outra turma.</p></div>
+    <div class="cols stretch grow mapa" style="--n:5;gap:22px">
+      <div class="card rise"><span class="num">01</span><h3>Conhecer</h3><p>O que é IA, de onde ela veio e que tipos existem.</p></div>
+      <div class="card rise"><span class="num">02</span><h3>Compreender</h3><p>Como a IA escreve e por que pode errar com segurança.</p></div>
+      <div class="card rise"><span class="num">03</span><h3>Investigar</h3><p>Uma resposta suspeita e casos reais de erros de IA.</p></div>
+      <div class="card rise"><span class="num">04</span><h3>Experimentar</h3><p>Resposta pronta ou tutor? Teste e compare.</p></div>
+      <div class="card solid rise"><span class="num">05</span><h3>Criar</h3><p>Você cria um desafio de IA para outra turma.</p></div>
     </div>
     <aside class="notes">Objetivo geral: usar IA de forma crítica, ética e autônoma. Reforce: não é “IA é boa ou ruim?”, e sim “quando e como a IA ajuda a aprender?”.</aside>
   </section>
 
-  <!-- ═════════════ 01 COMPREENDER ═════════════ -->
-  <section class="slide blue divider" data-title="01 · Compreender">
+  <!-- ═════════════ 01 CONHECER ═════════════ -->
+  <section class="slide blue divider" data-title="01 · Conhecer">
     <div class="ghost">01</div>
     <div class="inner">
       <div class="kicker rise">Parte 01</div>
+      <h2 class="title" data-scramble>Conhecer</h2>
+      <div class="rule rise"></div>
+      <p class="sub rise">O que é IA, afinal?</p>
+    </div>
+    <aside class="notes">08h10–08h20 · 10 min. Pontapé conceitual: o que é IA, de onde veio, que tipos existem, como aprende e as palavras que vão aparecer hoje.</aside>
+  </section>
+
+  <section class="slide" data-title="O que é IA" data-steps="2">
+    <div class="kicker rise">Ponto de partida</div>
+    <h2 class="title rise">O que é <em>inteligência artificial</em>?</h2>
+    <p class="lead rise" style="font-size:44px;max-width:1600px">É um programa de computador que <mark class="good">aprende padrões a partir de exemplos</mark> para fazer tarefas que antes só pessoas faziam: reconhecer, prever, recomendar e criar.</p>
+    <div class="push" data-step="1" style="display:flex;flex-direction:column;gap:22px">
+      <p class="kicker" style="margin:0">Você provavelmente já usou IA hoje quando…</p>
+      <div class="cols stretch" style="--n:4;gap:24px">
+        <div class="card"><h3>Desbloqueou o celular</h3><p>com o seu rosto.</p></div>
+        <div class="card"><h3>Viu o próximo vídeo</h3><p>que o aplicativo escolheu para você.</p></div>
+        <div class="card"><h3>O teclado completou</h3><p>a palavra que você ia digitar.</p></div>
+        <div class="card"><h3>O mapa previu</h3><p>quanto tempo vai levar no trânsito.</p></div>
+      </div>
+    </div>
+    <aside class="notes">Leia a definição devagar e destaque “aprende padrões a partir de exemplos”: é a ideia que volta o tempo todo. Avance e pergunte: “quem já fez alguma dessas coisas hoje?”. A IA não é só o chatbot: ela já está escondida em muita coisa do dia a dia.</aside>
+  </section>
+
+  <section class="slide" data-title="Linha do tempo da IA" data-steps="6">
+    <div class="kicker rise">Linha do tempo</div>
+    <h2 class="title s rise">A IA não nasceu ontem: <em>tem mais de 70 anos</em></h2>
+    <ol class="tline grow">
+      <li data-step="0"><b>1950</b><p>Alan Turing pergunta: <i>“máquinas podem pensar?”</i> e propõe um teste para descobrir.</p></li>
+      <li data-step="1"><b>1956</b><p>Num encontro de cientistas nos EUA, nasce o nome <i>“inteligência artificial”</i>.</p></li>
+      <li data-step="2"><b>1997</b><p>O computador Deep Blue vence o campeão mundial de xadrez, Garry Kasparov.</p></li>
+      <li data-step="3"><b>2012</b><p>Redes neurais “profundas” aprendem a reconhecer imagens muito melhor do que antes.</p></li>
+      <li data-step="4"><b>2017</b><p>Surge o <i>Transformer</i>, a técnica por trás dos chatbots de hoje.</p></li>
+      <li data-step="5" class="now"><b>2022</b><p>O ChatGPT chega ao público e a <b>IA generativa</b> vira assunto de todo mundo.</p></li>
+    </ol>
+    <p class="lead" data-step="5" style="font-size:32px">A IA é antiga. O que é novo é a IA que <b>gera</b> textos, imagens e áudios, e que qualquer pessoa usa pelo celular.</p>
+    <aside class="notes">Avance um marco por vez, sem se alongar: a ideia é mostrar que a IA tem história. Turing (1950), o nome “inteligência artificial” no encontro de Dartmouth (1956), Deep Blue × Kasparov (1997), aprendizado profundo em imagens (2012), Transformer (2017) e ChatGPT (2022). Fecho: o que mudou foi a IA generativa ficar na mão de todos.</aside>
+  </section>
+
+  <section class="slide" data-title="Tipos de IA" data-steps="2">
+    <div class="kicker rise">Tipos de IA</div>
+    <h2 class="title s rise">Que tipos de IA <em>existem</em>?</h2>
+    <p class="lead rise" style="font-size:32px">Um jeito simples de separar: pelo que cada uma <b>faz</b>.</p>
+    <div class="cols stretch grow" style="--n:3;gap:28px">
+      <div class="card rise"><span class="num">01</span><h3>Reconhece</h3><p>Identifica o que há numa imagem, num som ou num texto.</p><p class="push" style="font-size:23px;color:var(--cinza)">Ex.: rosto no celular, filtro de spam, leitura de placas.</p></div>
+      <div class="card rise"><span class="num">02</span><h3>Prevê e recomenda</h3><p>Estima o que vem depois ou do que você vai gostar.</p><p class="push" style="font-size:23px;color:var(--cinza)">Ex.: feed de vídeos, tempo no trânsito, alerta de fraude no cartão.</p></div>
+      <div class="card solid rise"><span class="num">03</span><h3>Gera · IA generativa</h3><p>Cria conteúdo novo: textos, imagens, áudios e códigos.</p><p class="push" style="font-size:23px">Ex.: chatbots e geradores de imagem. <b>É dela que vamos falar hoje.</b></p></div>
+    </div>
+    <p class="lead" data-step="1" style="font-size:30px;background:var(--gelo);padding:22px 30px;max-width:none"><b>E a IA dos filmes, que faz tudo?</b> Toda IA de hoje é <b>específica</b>: boa em algumas tarefas. Uma IA <b>geral</b>, que aprende qualquer coisa como uma pessoa, <b>ainda não existe</b>.</p>
+    <aside class="notes">Mostre os três tipos com os exemplos. Destaque o terceiro: o chatbot é uma IA generativa. Avance e desfaça o mito: nenhuma IA atual “pensa” como gente ou sabe de tudo; cada uma é boa em tarefas específicas.</aside>
+  </section>
+
+  <section class="slide" data-title="Como uma IA aprende" data-steps="4">
+    <div class="kicker rise">Por trás da IA</div>
+    <h2 class="title s rise">Como uma IA <em>aprende</em>?</h2>
+    <p class="lead rise" style="font-size:32px">Parecido com estudar fazendo muitos exercícios com o gabarito ao lado.</p>
+    <div class="flow">
+      <div class="node" data-step="0"><span class="n">1</span><b>Exemplos</b><span>Recebe muitos exemplos. Ex.: milhares de fotos marcadas como “gato” ou “cachorro”.</span></div>
+      <div class="node" data-step="1"><span class="n">2</span><b>Treino</b><span>Tenta adivinhar, confere no gabarito se errou e se ajusta. Repete milhões de vezes.</span></div>
+      <div class="node" data-step="2" style="background:var(--azul);color:#fff"><span class="n" style="color:var(--claro)">3</span><b>Uso</b><span style="color:var(--claro)">Diante de uma foto nova, que nunca viu, usa os padrões que aprendeu.</span></div>
+    </div>
+    <p class="lead push" data-step="3" style="font-size:32px">Ela não “entende” como nós: ela <b>acha padrões</b>. Se os exemplos tiverem erros ou preconceitos, <b style="color:var(--vermelho)">ela aprende isso também</b>.</p>
+    <aside class="notes">Use a comparação com estudar com gabarito. Passo 1: exemplos (dados). Passo 2: treino, errar e ajustar. Passo 3: usar em casos novos. Último passo: a IA reproduz o que estava nos exemplos, inclusive os erros. Esse é o gancho para a próxima parte.</aside>
+  </section>
+
+  <section class="slide" data-title="Palavras-chave da IA">
+    <div class="kicker rise">Glossário rápido</div>
+    <h2 class="title s rise">Palavras que vão <em>aparecer hoje</em></h2>
+    <div class="cols stretch gloss grow" style="--n:4">
+      <div class="card rise"><h3>Algoritmo</h3><p>O passo a passo que o computador segue.</p></div>
+      <div class="card rise"><h3>Dados</h3><p>Os exemplos que a IA usa para aprender.</p></div>
+      <div class="card rise"><h3>Aprendizado de máquina</h3><p>O programa aprende com exemplos, em vez de receber todas as regras prontas.</p></div>
+      <div class="card rise"><h3>Rede neural</h3><p>Uma estrutura de cálculo, inspirada de longe no cérebro, que encontra padrões.</p></div>
+      <div class="card rise"><h3>Modelo</h3><p>O resultado do treino: a IA pronta para ser usada.</p></div>
+      <div class="card rise"><h3>Prompt</h3><p>O pedido ou a pergunta que você escreve para a IA.</p></div>
+      <div class="card rise"><h3>Token</h3><p>Um pedacinho de texto: é assim que a IA lê e escreve.</p></div>
+      <div class="card solid rise"><h3>Alucinação</h3><p>Quando a IA inventa algo falso com cara de verdade.</p></div>
+    </div>
+    <aside class="notes">Não precisa ler todas: comente as que mais vão aparecer (prompt, token, modelo e alucinação). Gancho: “agora vamos ver como um chatbot escreve, token por token, e por que ele pode alucinar”.</aside>
+  </section>
+
+  <!-- ═════════════ 02 COMPREENDER ═════════════ -->
+  <section class="slide blue divider" data-title="02 · Compreender">
+    <div class="ghost">02</div>
+    <div class="inner">
+      <div class="kicker rise">Parte 02</div>
       <h2 class="title" data-scramble>Compreender</h2>
       <div class="rule rise"></div>
       <p class="sub rise">Como a IA escreve?</p>
     </div>
-    <aside class="notes">08h10–08h25 · 15 min.</aside>
+    <aside class="notes">08h20–08h32 · 12 min.</aside>
   </section>
 
   <section class="slide center" data-title="Pergunta-problema" data-steps="2">
     <div class="kicker rise">Pergunta-problema</div>
     <h2 class="big-q rise" style="max-width:1600px">Se a IA escreve com segurança, <span style="color:var(--azul)">por que pode errar?</span></h2>
-    <p class="lead" data-step="1" style="font-size:44px;font-weight:700">Porque ela <mark class="good">prevê continuações prováveis</mark> para o texto. Prever bem não é o mesmo que conferir fatos.</p>
+    <p class="lead" data-step="1" style="font-size:44px;font-weight:700">Porque ela <mark class="good">adivinha a próxima palavra mais provável</mark>. Adivinhar bem não é o mesmo que conferir se é verdade.</p>
     <aside class="notes">Deixe a pergunta no ar ~30 s. Ouça 2 ou 3 hipóteses. Avance para a ideia-chave e diga: “vamos ver como isso funciona por dentro”.</aside>
   </section>
 
-  <section class="slide" data-title="Como a IA gera texto" data-steps="5">
-    <div class="kicker rise">Anatomia da resposta · esquema didático</div>
-    <h2 class="title s rise">Do pedido à resposta, <em>pedaço por pedaço</em></h2>
+  <section class="slide" data-title="Como a IA escreve" data-steps="5">
+    <div class="kicker rise">Por dentro do chatbot · esquema simplificado</div>
+    <h2 class="title s rise">Como a IA escreve: <em>pedaço por pedaço</em></h2>
     <div class="flow">
-      <div class="node" data-step="0"><span class="n">1</span><b>Pedido</b><span>Você escreve uma pergunta ou instrução.</span></div>
-      <div class="node" data-step="1"><span class="n">2</span><b>Tokens</b><span>O texto é dividido em pedaços.</span><div class="tokens"><i>A</i><i>␣foto</i><i>ss</i><i>íntese</i></div><span style="font-size:18px">divisão ilustrativa</span></div>
-      <div class="node" data-step="2"><span class="n">3</span><b>Contexto</b><span>Pedido + conversa até aqui + instruções do sistema.</span></div>
-      <div class="node" data-step="3"><span class="n">4</span><b>Modelo</b><span>Calcula quais pedaços são prováveis, a partir de padrões aprendidos em muitos textos.</span></div>
-      <div class="node" data-step="4" style="background:var(--azul);color:#fff"><span class="n" style="color:var(--claro)">5</span><b>Geração</b><span style="color:var(--claro)">Escolhe um pedaço, acrescenta ao texto e repete — até formar a resposta.</span></div>
+      <div class="node" data-step="0"><span class="n">1</span><b>Você pede</b><span>Você escreve a pergunta: o <strong style="color:var(--marinho)">prompt</strong>.</span></div>
+      <div class="node" data-step="1"><span class="n">2</span><b>Pedacinhos</b><span>A IA quebra o texto em pedacinhos: os <strong style="color:var(--marinho)">tokens</strong>.</span><div class="tokens"><i>A</i><i>␣foto</i><i>ss</i><i>íntese</i></div></div>
+      <div class="node" data-step="2"><span class="n">3</span><b>Adivinha</b><span>Olha tudo o que já foi escrito e calcula qual pedaço tem <strong style="color:var(--marinho)">mais chance</strong> de vir depois.</span></div>
+      <div class="node" data-step="3" style="background:var(--azul);color:#fff"><span class="n" style="color:var(--claro)">4</span><b>Repete</b><span style="color:var(--claro)">Escreve esse pedaço e adivinha o próximo, até terminar a resposta.</span></div>
     </div>
-    <p class="small push" data-step="4">Algumas IAs também consultam ferramentas externas, como buscas. Mesmo assim, <b>fluência não é selo de verdade</b>.</p>
-    <aside class="notes">Avance nó por nó. Evite dizer que a IA “copia” ou “busca palavras”: ela gera texto novo a partir de padrões. Ponto central: em nenhum passo há uma etapa obrigatória de “conferir se é verdade”.</aside>
+    <p class="lead push" data-step="4" style="font-size:34px">É como o <b>corretor do teclado do celular</b>, só que treinado com uma quantidade gigante de textos. Em nenhum passo ela <mark class="good">confere se é verdade</mark>.</p>
+    <aside class="notes">Avance um passo por vez. A comparação que fica: é o corretor do celular, só que gigante. Evite dizer que a IA “copia” ou “busca”: ela gera texto novo a partir de padrões. Algumas IAs também fazem buscas na internet, mas mesmo assim escrever bem não garante estar certo.</aside>
   </section>
 
   <section class="slide" data-title="Laboratório de previsão" data-steps="3">
@@ -182,7 +267,7 @@
             <div class="bar"><span>azul</span><div class="track"><i class="fill" data-w="2"></i></div><span class="v">2%</span></div>
           </div>
         </div>
-        <p class="lead" data-step="2" style="font-size:32px"><b>Mesmo modelo, outro contexto:</b> a palavra mais provável muda. A IA escolhe o que é <b>provável</b> — não o que é <b>verdadeiro</b>.</p>
+        <p class="lead" data-step="2" style="font-size:32px"><b>Mudou o começo da frase, mudou a aposta.</b> A IA escolhe o que é <b>provável</b>, não o que é <b>verdadeiro</b>.</p>
       </div>
     </div>
     <aside class="notes">1) Todos votam na palavra. 2) Avance: mostre as “probabilidades” — deixe claro que são valores inventados para ilustrar. 3) Avance: mude o contexto e compare. Pergunte: “e se o texto de treino tivesse um erro repetido muitas vezes?”.</aside>
@@ -192,23 +277,23 @@
     <div class="kicker rise">A ideia-chave</div>
     <h2 class="title l rise">Escrever bem <em>≠</em> estar certo</h2>
     <div class="cols stretch" style="--n:3">
-      <div class="card rise"><h3>Inventa com confiança</h3><p>Pode criar nomes, datas e fontes que parecem reais, mas não existem.</p></div>
-      <div class="card rise"><h3>Erra no detalhe</h3><p>Um texto quase todo certo pode trocar justamente o ponto mais importante.</p></div>
-      <div class="card rise"><h3>Mistura tudo</h3><p>Piada, opinião e fato podem aparecer com o mesmo tom de autoridade.</p></div>
+      <div class="card rise"><h3>Inventa com confiança</h3><p>Pode criar nomes, datas e fontes que parecem reais, mas não existem. É a <b>alucinação</b>.</p></div>
+      <div class="card rise"><h3>Erra no detalhe</h3><p>O texto pode estar quase todo certo e errar justo a parte mais importante.</p></div>
+      <div class="card rise"><h3>Mistura tudo</h3><p>Piada, opinião e fato saem com o mesmo tom de quem tem certeza.</p></div>
     </div>
     <aside class="notes">Fechamento da parte 1. Pergunte: “qual desses três é mais difícil de perceber?”. Gancho: “vamos testar isso agora”.</aside>
   </section>
 
-  <!-- ═════════════ 02 INVESTIGAR ═════════════ -->
-  <section class="slide blue divider" data-title="02 · Investigar">
-    <div class="ghost">02</div>
+  <!-- ═════════════ 03 INVESTIGAR ═════════════ -->
+  <section class="slide blue divider" data-title="03 · Investigar">
+    <div class="ghost">03</div>
     <div class="inner">
-      <div class="kicker rise">Parte 02</div>
+      <div class="kicker rise">Parte 03</div>
       <h2 class="title" data-scramble>Investigar</h2>
       <div class="rule rise"></div>
       <p class="sub rise">Você confiaria nesta resposta?</p>
     </div>
-    <aside class="notes">08h25–08h40 · 15 min.</aside>
+    <aside class="notes">08h32–08h45 · 13 min.</aside>
   </section>
 
   <section class="slide" data-title="Resposta suspeita · Biologia" data-steps="2">
@@ -354,15 +439,15 @@
   </section>
 
   <!-- ═════════════ 03 EXPERIMENTAR ═════════════ -->
-  <section class="slide blue divider" data-title="03 · Experimentar">
-    <div class="ghost">03</div>
+  <section class="slide blue divider" data-title="04 · Experimentar">
+    <div class="ghost">04</div>
     <div class="inner">
-      <div class="kicker rise">Parte 03</div>
+      <div class="kicker rise">Parte 04</div>
       <h2 class="title" data-scramble>Experimentar</h2>
       <div class="rule rise"></div>
       <p class="sub rise">Resposta pronta ou tutor?</p>
     </div>
-    <aside class="notes">08h40–09h05 · 25 min.</aside>
+    <aside class="notes">08h45–09h08 · 23 min.</aside>
   </section>
 
   <section class="slide" data-title="Experimento A/B" data-steps="3" style="gap:30px">
@@ -647,15 +732,15 @@
   </section>
 
   <!-- ═════════════ 04 CRIAR ═════════════ -->
-  <section class="slide blue divider" data-title="04 · Criar">
-    <div class="ghost">04</div>
+  <section class="slide blue divider" data-title="05 · Criar">
+    <div class="ghost">05</div>
     <div class="inner">
-      <div class="kicker rise">Parte 04</div>
+      <div class="kicker rise">Parte 05</div>
       <h2 class="title" data-scramble>Criar</h2>
       <div class="rule rise"></div>
       <p class="sub rise">Agora quem cria a armadilha é você</p>
     </div>
-    <aside class="notes">09h05–09h22 · 17 min.</aside>
+    <aside class="notes">09h08–09h22 · 14 min.</aside>
   </section>
 
   <section class="slide" data-title="Crie um desafio" data-steps="2">
@@ -726,9 +811,9 @@
     b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
   });
 </script>
-<script src="assets/data/casos.js?v=18"></script>
-<script src="assets/js/simulador.js?v=18"></script>
-<script src="assets/js/deck.js?v=18"></script>
-<script src="assets/js/ao-vivo.js?v=18"></script>
+<script src="assets/data/casos.js?v=19"></script>
+<script src="assets/js/simulador.js?v=19"></script>
+<script src="assets/js/deck.js?v=19"></script>
+<script src="assets/js/ao-vivo.js?v=19"></script>
 </body>
 </html>

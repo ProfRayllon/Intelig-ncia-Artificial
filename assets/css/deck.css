@@ -591,3 +591,21 @@ html.portrait .fr-lv:not(.revealed) .fr-why { display: none; }
 .fr-reveal { align-self: flex-start; font: inherit; font-size: 22px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 24px; background: var(--verde); color: var(--branco); border: 0; cursor: pointer; }
 .frase.results .fr-reveal { background: var(--branco); color: var(--marinho); border: 3px solid var(--claro); }
 .fr-reveal[hidden] { display: none; }
+
+/* Conhecer: linha do tempo, glossário e mapa com 5 partes */
+.tline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; align-content: center; }
+.tline li { display: flex; flex-direction: column; gap: 18px; }
+.tline li > b { font-family: var(--titulo); font-size: 64px; line-height: 1; color: var(--azul); }
+.tline li p { margin: 0; font-size: 25px; line-height: 1.4; color: var(--tinta); padding-top: 18px; border-top: 6px solid var(--azul); }
+.tline li.now > b { color: var(--vermelho); }
+.tline li.now p { border-top-color: var(--vermelho); }
+.gloss { gap: 22px; align-content: stretch; }
+.gloss .card { padding: 26px 30px; gap: 10px; }
+.gloss .card h3 { font-size: 32px; }
+.gloss .card p { font-size: 24px; }
+.mapa .card { padding: 32px 30px; }
+.mapa .card h3 { font-size: 32px; }
+.mapa .card p { font-size: 25px; }
+html.portrait .tline { grid-template-columns: minmax(0, 1fr); gap: 26px; flex: none; }
+html.portrait .tline li > b { font-size: 48px; }
+html.portrait .tline li p { font-size: 23px; padding-top: 12px; }
