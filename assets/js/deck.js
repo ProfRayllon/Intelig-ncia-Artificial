@@ -99,6 +99,8 @@
 
   // Monte a frase: cada .gap tem opções (data-opts) e a certa (data-ok).
   // Ao enviar, conta como voto numa enquete de 2 opções: 0 = acertou, 1 = errou.
+  // Dentro de um slide com níveis (.fr-lv), o resultado de cada nível só aparece
+  // quando quem apresenta toca em "Mostrar resultado" (fica em extra.rev).
   let picks = {};
   try { picks = JSON.parse(sessionStorage.getItem(KEY + 'frases') || '{}'); } catch (e) {}
   deck.querySelectorAll('.frase[data-poll]').forEach((f) => {
@@ -118,7 +120,12 @@
     send.className = 'fr-send';
     const res = document.createElement('div');
     res.className = 'fr-res';
+    const reveal = document.createElement('button');
+    reveal.type = 'button';
+    reveal.className = 'fr-reveal';
     f.append(bank, send, res);
+    if (MODE !== 'publico') f.append(reveal);
+    reveal.addEventListener('click', () => { if (!locked) toggleReveal(id); });
     bank.addEventListener('click', (e) => {
       const b = e.target.closest('button[data-g]');
       if (!b || mine[id] != null) return;
@@ -131,14 +138,14 @@
       try { sessionStorage.setItem(KEY + 'frases', JSON.stringify(picks)); } catch (e) {}
       vote(id, gaps.every((g, n) => sel[n] === g.ok) ? 0 : 1);
     });
-    polls[id] = { el: f, btns: [], size: 2, frase: { gaps, sel, bank, send, res }, show: parseInt(f.dataset.show || '0', 10), slide: slides.indexOf(f.closest('.slide')) };
+    polls[id] = { el: f, btns: [], size: 2, frase: { gaps, sel, bank, send, res, reveal }, lv: !!f.closest('.fr-lv'), show: parseInt(f.dataset.show || '0', 10), slide: slides.indexOf(f.closest('.slide')) };
   });
 
   const renderFrase = (id) => {
     const P = polls[id], F = P.frase;
     const c = counts[id] || [];
     const total = (c[0] || 0) + (c[1] || 0);
-    const results = P.slide === cur && step >= P.show;
+    const results = P.slide === cur && (P.lv ? extra.rev.includes(id) : step >= P.show);
     const sent = mine[id] != null;
     F.gaps.forEach((g, n) => {
       const k = results ? g.ok : F.sel[n];
@@ -157,8 +164,15 @@
     P.el.classList.toggle('sent', sent);
     P.el.classList.toggle('results', results);
     const pct = total ? Math.round((c[0] || 0) / total * 100) : 0;
-    const eu = mine[id] === 0 ? '<em class="hit">✓ Você acertou</em>' : mine[id] === 1 ? '<em class="miss">✗ Compare com a frase certa</em>' : '';
-    F.res.innerHTML = `<div class="fr-bar"><i style="width:${results ? pct : 0}%"></i></div><span><b>${results ? pct + '%' : '…'}</b> montou a frase certa · ${total === 1 ? '1 resposta' : total + ' respostas'}</span>${eu}`;
+    const n = total === 1 ? '1 resposta' : total + ' respostas';
+    if (results) {
+      const eu = mine[id] === 0 ? '<em class="hit">✓ Você acertou</em>' : mine[id] === 1 ? '<em class="miss">✗ Compare com a frase certa</em>' : '';
+      F.res.innerHTML = `<div class="fr-bar"><i style="width:${pct}%"></i></div><span><b>${pct}%</b> montou a frase certa · ${n}</span>${eu}`;
+    } else {
+      F.res.innerHTML = `<span class="fr-count"><b>${total}</b> ${total === 1 ? 'resposta enviada' : 'respostas enviadas'}${sent ? ' · aguarde o resultado' : ''}</span>`;
+    }
+    F.reveal.textContent = results ? 'Ocultar resultado' : 'Mostrar resultado';
+    F.reveal.hidden = !P.lv;
   };
 
   const renderPoll = (id) => {
@@ -349,7 +363,7 @@
   // ── Pop-ups: [data-pop] abre o .pop-body do card numa camada do slide.
   // O estado (pop-up aberto e cards já vistos) vai junto na sincronização.
   // Também guarda o nível escolhido em cada slide com [data-nivel].
-  let extra = { pop: null, seen: [], lvl: {} };
+  let extra = { pop: null, seen: [], lvl: {}, rev: [] };
   slides.forEach((el) => {
     if (!el.querySelector('[data-pop]')) return;
     const layer = document.createElement('div');
@@ -370,9 +384,14 @@
       el.dataset.lv = n;
       el.querySelectorAll('.lv-switch button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lv === n ? 'true' : 'false'));
     });
+    deck.querySelectorAll('.fr-lv').forEach((lv) => {
+      const f = lv.querySelector('.frase[data-poll]');
+      lv.classList.toggle('revealed', !!f && extra.rev.includes(f.dataset.poll));
+    });
+    renderPolls();
   };
   const setExtra = (x, quiet) => {
-    extra = { pop: x && x.pop || null, seen: (x && x.seen) || [], lvl: (x && x.lvl) || {} };
+    extra = { pop: x && x.pop || null, seen: (x && x.seen) || [], lvl: (x && x.lvl) || {}, rev: (x && x.rev) || [] };
     renderExtra();
     if (!quiet) listeners.forEach((fn) => fn({ i: cur, s: step }));
   };
@@ -386,11 +405,23 @@
     const card = e.target.closest('[data-pop]');
     if (card) {
       const id = card.dataset.pop;
-      return setExtra({ pop: id, seen: extra.seen.includes(id) ? extra.seen : [...extra.seen, id] });
+      return setExtra({ ...extra, pop: id, seen: extra.seen.includes(id) ? extra.seen : [...extra.seen, id] });
     }
     if (e.target.closest('[data-pop-close]') || e.target.classList.contains('pop-layer')) setExtra({ ...extra, pop: null });
   });
   renderExtra();
+
+  // Desafio com níveis: enquete do nível que está na tela.
+  const levelPoll = () => {
+    const el = slides[cur];
+    if (!el || el.dataset.nivel == null) return null;
+    const f = el.querySelector(`.fr-lv[data-lv="${extra.lvl[el.dataset.nivel] || 0}"] .frase[data-poll]`);
+    return f ? f.dataset.poll : null;
+  };
+  const toggleReveal = (id, on = !extra.rev.includes(id)) => {
+    if (on === extra.rev.includes(id)) return;
+    setExtra({ ...extra, rev: on ? [...extra.rev, id] : extra.rev.filter((r) => r !== id) });
+  };
 
   const go = (i, s = 0) => {
     i = clamp(i | 0, 0, slides.length - 1);
@@ -418,11 +449,15 @@
 
   const next = () => {
     if (locked) return;
+    const lp = levelPoll();
+    if (lp && !extra.rev.includes(lp)) return toggleReveal(lp, true);
     if (step < stepsOf(slides[cur]) - 1) go(cur, step + 1);
     else if (cur < slides.length - 1) go(cur + 1, 0);
   };
   const prev = () => {
     if (locked) return;
+    const lp = levelPoll();
+    if (lp && extra.rev.includes(lp)) return toggleReveal(lp, false);
     if (step > 0) go(cur, step - 1);
     else if (cur > 0) go(cur - 1, stepsOf(slides[cur - 1]) - 1);
   };

@@ -546,8 +546,8 @@ html.portrait .fr-row button { font-size: 21px; }
 html.portrait .fr-grid { flex: none; grid-template-columns: minmax(0, 1fr); }
 html.portrait .fr-fig { display: flex; flex-direction: column; }
 html.portrait .fr-fig img { height: auto; aspect-ratio: 624 / 408; }
-html.portrait .slide[data-s="1"] .fr-fig img { display: none; }
-html.portrait .slide[data-s="1"] .fr-fig .fr-why { margin-top: 0; }
+html.portrait .fr-lv.revealed .fr-fig img { display: none; }
+html.portrait .fr-lv.revealed .fr-fig .fr-why { margin-top: 0; }
 
 /* Desafios: seletor de nível (Fácil · Médio · Difícil), sincronizado pelo apresentador */
 .fr-head { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
@@ -580,3 +580,14 @@ html.portrait .fr-lv .fr-text { font-size: 26px; }
 html.portrait .fr-fig.tall { overflow: hidden; border-radius: 14px; }
 html.portrait .fr-fig.tall img { aspect-ratio: auto; height: 300px; border-radius: 0; }
 html.portrait .fr-fig.tall .fr-why { position: relative; margin-top: 0; }
+
+/* Desafio com níveis: contagem ao vivo; resultado revelado por nível */
+.fr-lv .fr-res { display: flex; }
+.fr-count { font-size: 22px; color: var(--tinta); }
+.fr-count b { font-size: 30px; color: var(--azul); }
+.fr-lv .fr-why { transition: opacity .45s ease, transform .5s cubic-bezier(.16,1,.3,1); }
+.fr-lv:not(.revealed) .fr-why { opacity: 0; transform: translateY(24px); pointer-events: none; }
+html.portrait .fr-lv:not(.revealed) .fr-why { display: none; }
+.fr-reveal { align-self: flex-start; font: inherit; font-size: 22px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 12px 24px; background: var(--verde); color: var(--branco); border: 0; cursor: pointer; }
+.frase.results .fr-reveal { background: var(--branco); color: var(--marinho); border: 3px solid var(--claro); }
+.fr-reveal[hidden] { display: none; }
