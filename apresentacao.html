@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Palestra</title>
-<link rel="stylesheet" href="assets/css/base.css?v=20">
-<link rel="stylesheet" href="assets/css/deck.css?v=20">
+<link rel="stylesheet" href="assets/css/base.css?v=21">
+<link rel="stylesheet" href="assets/css/deck.css?v=21">
 </head>
 <body>
 <main class="deck" data-deck="apresentacao.html" data-root="">
@@ -239,38 +239,33 @@
   </section>
 
   <section class="slide" data-title="Laboratório de previsão" data-steps="3">
-    <div class="kicker rise">Laboratório de previsão</div>
-    <div class="cols grow" style="--n:2;gap:90px">
+    <div class="kicker rise">Laboratório de previsão · pense como a IA</div>
+    <div class="cols grow lab" style="--n:2;gap:90px">
       <div style="display:flex;flex-direction:column;gap:34px">
-        <div class="swap">
-          <p class="big-q" data-step="0" data-until="2">O céu está <span style="color:var(--azul)">___</span></p>
-          <p class="big-q" data-step="2">Às 23h, sem lua, o céu está <span style="color:var(--azul)">___</span></p>
-        </div>
-        <div class="poll" data-poll="ceu" data-show="1">
-          <p class="q">Qual palavra você acha que vem depois?</p>
-          <button>azul</button><button>nublado</button><button>escuro</button><button>estrelado</button>
+        <p class="big-q rise" style="font-size:96px">A capital da Austrália é <span style="color:var(--azul)">___</span></p>
+        <div class="poll rise" data-poll="capital" data-show="1">
+          <p class="q">Qual palavra você colocaria na lacuna?</p>
+          <button>Sydney</button><button>Canberra</button><button>Melbourne</button>
         </div>
       </div>
-      <div style="display:flex;flex-direction:column;gap:30px">
-        <span class="label-sim" data-step="1">Valores ilustrativos · não medidos em um modelo real</span>
-        <div class="swap">
-          <div class="bars" data-step="1" data-until="2">
-            <div class="bar top"><span>azul</span><div class="track"><i class="fill" data-w="41"></i></div><span class="v">41%</span></div>
-            <div class="bar"><span>nublado</span><div class="track"><i class="fill" data-w="22"></i></div><span class="v">22%</span></div>
-            <div class="bar"><span>escuro</span><div class="track"><i class="fill" data-w="15"></i></div><span class="v">15%</span></div>
-            <div class="bar"><span>estrelado</span><div class="track"><i class="fill" data-w="6"></i></div><span class="v">6%</span></div>
+      <div style="display:flex;flex-direction:column;gap:28px">
+        <div data-step="1" style="display:flex;flex-direction:column;gap:24px">
+          <p class="kicker" style="margin:0">O que a IA calcula</p>
+          <div class="bars">
+            <div class="bar top"><span>Sydney</span><div class="track"><i class="fill" data-w="52"></i></div><span class="v">52%</span></div>
+            <div class="bar"><span>Canberra</span><div class="track"><i class="fill" data-w="35"></i></div><span class="v">35%</span></div>
+            <div class="bar"><span>Melbourne</span><div class="track"><i class="fill" data-w="13"></i></div><span class="v">13%</span></div>
           </div>
-          <div class="bars" data-step="2">
-            <div class="bar top"><span>estrelado</span><div class="track"><i class="fill" data-w="38"></i></div><span class="v">38%</span></div>
-            <div class="bar"><span>escuro</span><div class="track"><i class="fill" data-w="34"></i></div><span class="v">34%</span></div>
-            <div class="bar"><span>nublado</span><div class="track"><i class="fill" data-w="12"></i></div><span class="v">12%</span></div>
-            <div class="bar"><span>azul</span><div class="track"><i class="fill" data-w="2"></i></div><span class="v">2%</span></div>
-          </div>
+          <p class="lead" style="font-size:30px"><b>Por quê?</b> Sydney é a cidade mais famosa do país e aparece <b>muito mais vezes</b> nos textos que a IA leu. Então ela aposta em Sydney.</p>
         </div>
-        <p class="lead" data-step="2" style="font-size:32px"><b>Mudou o começo da frase, mudou a aposta.</b> A IA escolhe o que é <b>provável</b>, não o que é <b>verdadeiro</b>.</p>
+        <div class="push" data-step="2" style="display:flex;flex-direction:column;gap:20px">
+          <div class="row" style="gap:18px"><span class="verdict no">✗ A IA errou</span><span class="verdict yes">✓ Canberra</span></div>
+          <p class="lead" style="font-size:32px">A capital é <b>Canberra</b>. A IA escolhe a palavra <b>mais provável</b>, não a <b>verdadeira</b>. Por isso ela pode errar com toda a segurança.</p>
+        </div>
       </div>
     </div>
-    <aside class="notes">1) Todos votam na palavra. 2) Avance: mostre as “probabilidades” — deixe claro que são valores inventados para ilustrar. 3) Avance: mude o contexto e compare. Pergunte: “e se o texto de treino tivesse um erro repetido muitas vezes?”.</aside>
+    <span class="label-sim" data-step="1">Valores ilustrativos: as IAs de hoje costumam acertar esta pergunta, mas o jeito de “apostar” é o mesmo</span>
+    <aside class="notes">1) Todos votam na lacuna, sem pesquisar. Muita gente chuta Sydney, e isso já é o ponto: a gente também responde pelo que ouve mais. 2) Avance: mostre a “aposta” da IA (números inventados para ilustrar) e explique que Sydney aparece mais nos textos. 3) Avance: a resposta certa é Canberra. Frase para fechar: “a IA não confere se é verdade; ela aposta no que é mais comum”. Se alguém disser que o chatbot acerta essa, concorde: os grandes acertam, mas o mecanismo é esse, e em assuntos menos conhecidos o erro aparece.</aside>
   </section>
 
   <section class="slide" data-title="Fluência não é verdade">
@@ -811,9 +806,9 @@
     b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
   });
 </script>
-<script src="assets/data/casos.js?v=20"></script>
-<script src="assets/js/simulador.js?v=20"></script>
-<script src="assets/js/deck.js?v=20"></script>
-<script src="assets/js/ao-vivo.js?v=20"></script>
+<script src="assets/data/casos.js?v=21"></script>
+<script src="assets/js/simulador.js?v=21"></script>
+<script src="assets/js/deck.js?v=21"></script>
+<script src="assets/js/ao-vivo.js?v=21"></script>
 </body>
 </html>
