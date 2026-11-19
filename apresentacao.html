@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B4FD6'/%3E%3Crect x='6' y='13' width='20' height='6' fill='white'/%3E%3C/svg%3E">
 <title>Missão IA · Palestra</title>
-<link rel="stylesheet" href="assets/css/base.css?v=23">
-<link rel="stylesheet" href="assets/css/deck.css?v=23">
+<link rel="stylesheet" href="assets/css/base.css?v=26">
+<link rel="stylesheet" href="assets/css/deck.css?v=26">
 </head>
 <body>
 <main class="deck" data-deck="apresentacao.html" data-root="">
@@ -370,59 +370,54 @@
   </section>
 
   <section class="slide lados" data-title="Os dois lados" data-nivel="lados" data-nivel-seq style="gap:22px">
-    <div class="fr-head rise"><div class="kicker">Os dois lados · relacione</div><div class="lv-switch sit" role="group" aria-label="Situação"><button type="button" data-lv="0">1</button><button type="button" data-lv="1">2</button><button type="button" data-lv="2">3</button><button type="button" data-lv="3">4</button><button type="button" data-lv="4">5</button></div></div>
-    <h2 class="title s rise">O mesmo recurso <em>ajuda ou atrapalha</em></h2>
+    <div class="fr-head rise"><div class="kicker">Os dois lados · classifique</div><div class="lv-switch sit" role="group" aria-label="Situação"><button type="button" data-lv="0">1</button><button type="button" data-lv="1">2</button><button type="button" data-lv="2">3</button><button type="button" data-lv="3">4</button><button type="button" data-lv="4">5</button></div></div>
+    <h2 class="title s rise">O mesmo pedido <em>ajuda e atrapalha</em></h2>
     <div class="fr-lv" data-lv="0">
-      <div class="frase lados-fr" data-poll="lados-1" data-show="1" data-acerto="acertou a dupla" data-enviar="Enviar minhas respostas">
+      <div class="frase lados-fr" data-poll="lados-c1" data-show="1" data-detalhe data-acerto="classificou tudo certo" data-enviar="Enviar minhas respostas">
         <p class="fr-q">Situação 1 de 5 · Lista de exercícios de frações</p>
-        <div class="lados-sc">
-          <div class="sc pro"><span class="who">✓ Ana usa a IA assim</span><q>“Estou travada na questão 3. Não me dê a resposta: me faça perguntas, passo a passo, até eu chegar lá.”</q><p class="fr-text">Potencialidade: <span class="gap" data-opts="Prática|Tutoria|Planejamento|Explicações|Devolutiva" data-ok="1"></span></p></div>
-          <div class="sc con"><span class="who">✗ Bruno usa a IA assim</span><q>“Resolve a lista de frações pra mim.” Ele copia tudo e, na prova, não sabe fazer.</q><p class="fr-text">Armadilha: <span class="gap" data-opts="Autoria|Privacidade|Resposta pronta|Gabarito errado|Invenções" data-ok="2"></span></p></div>
-        </div>
-        <p class="fr-why"><b>Mesmo recurso, dois lados.</b> Como <b>tutor</b>, a IA te leva até a resposta. Como <b>resposta pronta</b>, faz a tarefa no seu lugar, e você não aprende o caminho.</p>
+        <div class="prompt lados-pedido"><div class="p-head"><b>O mesmo pedido à IA</b></div><q>Resolva esta lista de frações e explique cada passo.</q></div>
+        <p class="lados-ins">Classifique cada efeito deste pedido:</p>
+        <div hidden><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Mostra o caminho, passo a passo, para você estudar."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Você pode copiar tudo e entregar sem ter entendido."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Pode errar uma conta no meio, com toda a segurança."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Você pode pedir de novo, de outro jeito, quantas vezes precisar."></span></div>
+        <p class="fr-why"><b>Mesmo pedido, dois lados.</b> O mesmo pedido pode virar uma <b>aula particular</b> ou uma <b>cola</b>. A diferença está no que você faz com a resposta, e em conferir as contas.</p>
       </div>
     </div>
     <div class="fr-lv" data-lv="1">
-      <div class="frase lados-fr" data-poll="lados-2" data-show="1" data-acerto="acertou a dupla" data-enviar="Enviar minhas respostas">
+      <div class="frase lados-fr" data-poll="lados-c2" data-show="1" data-detalhe data-acerto="classificou tudo certo" data-enviar="Enviar minhas respostas">
         <p class="fr-q">Situação 2 de 5 · Trabalho sobre inflação</p>
-        <div class="lados-sc">
-          <div class="sc pro"><span class="who">✓ Ana usa a IA assim</span><q>“Explique o que é inflação como se eu tivesse 12 anos.”</q><p class="fr-text">Potencialidade: <span class="gap" data-opts="Prática|Tutoria|Planejamento|Explicações|Devolutiva" data-ok="3"></span></p></div>
-          <div class="sc con"><span class="who">✗ Bruno usa a IA assim</span><q>Pede fontes para o trabalho e copia um livro e um autor que a IA citou, sem conferir. Eles não existem.</q><p class="fr-text">Armadilha: <span class="gap" data-opts="Autoria|Privacidade|Resposta pronta|Gabarito errado|Invenções" data-ok="4"></span></p></div>
-        </div>
-        <p class="fr-why"><b>Mesmo recurso, dois lados.</b> A IA <b>explica no seu nível</b>, mas também pode <b>inventar</b> livros, autores e datas com o mesmo tom seguro. Confira as fontes.</p>
+        <div class="prompt lados-pedido"><div class="p-head"><b>O mesmo pedido à IA</b></div><q>Me explique o que é inflação e me indique fontes para o trabalho.</q></div>
+        <p class="lados-ins">Classifique cada efeito deste pedido:</p>
+        <div hidden><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Pode citar um livro ou um autor que não existem."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Explica com exemplos do dia a dia, no seu nível."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Dá um ponto de partida para você pesquisar mais."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Pode simplificar tanto que deixa de fora o que importa."></span></div>
+        <p class="fr-why"><b>Mesmo pedido, dois lados.</b> A explicação ajuda a <b>começar</b>, mas fontes e detalhes precisam ser <b>conferidos</b> em um lugar confiável.</p>
       </div>
     </div>
     <div class="fr-lv" data-lv="2">
-      <div class="frase lados-fr" data-poll="lados-3" data-show="1" data-acerto="acertou a dupla" data-enviar="Enviar minhas respostas">
-        <p class="fr-q">Situação 3 de 5 · Redação para a escola</p>
-        <div class="lados-sc">
-          <div class="sc pro"><span class="who">✓ Ana usa a IA assim</span><q>“Leia minha redação e aponte 2 pontos fortes e 1 a melhorar. Não reescreva.”</q><p class="fr-text">Potencialidade: <span class="gap" data-opts="Prática|Tutoria|Planejamento|Explicações|Devolutiva" data-ok="4"></span></p></div>
-          <div class="sc con"><span class="who">✗ Bruno usa a IA assim</span><q>“Escreva uma redação sobre meio ambiente.” Ele entrega com o nome dele, sem mudar nada.</q><p class="fr-text">Armadilha: <span class="gap" data-opts="Autoria|Privacidade|Resposta pronta|Gabarito errado|Invenções" data-ok="0"></span></p></div>
-        </div>
-        <p class="fr-why"><b>Mesmo recurso, dois lados.</b> Na <b>devolutiva</b>, a IA aponta e quem corrige é você. Na armadilha da <b>autoria</b>, a IA escreve e você só assina: as ideias não são suas.</p>
+      <div class="frase lados-fr" data-poll="lados-c3" data-show="1" data-detalhe data-acerto="classificou tudo certo" data-enviar="Enviar minhas respostas">
+        <p class="fr-q">Situação 3 de 5 · Redação</p>
+        <div class="prompt lados-pedido"><div class="p-head"><b>O mesmo pedido à IA</b></div><q>Melhore a minha redação sobre meio ambiente.</q></div>
+        <p class="lados-ins">Classifique cada efeito deste pedido:</p>
+        <div hidden><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Aponta erros de concordância e de pontuação."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Pode trocar a sua opinião por frases genéricas."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Sugere jeitos de organizar melhor os argumentos."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Pode reescrever tanto que o texto deixa de ser seu."></span></div>
+        <p class="fr-why"><b>Mesmo pedido, dois lados.</b> Pedir para <b>apontar</b> o que melhorar ajuda. Deixar a IA <b>reescrever</b> tira de você a autoria e as ideias.</p>
       </div>
     </div>
     <div class="fr-lv" data-lv="3">
-      <div class="frase lados-fr" data-poll="lados-4" data-show="1" data-acerto="acertou a dupla" data-enviar="Enviar minhas respostas">
+      <div class="frase lados-fr" data-poll="lados-c4" data-show="1" data-detalhe data-acerto="classificou tudo certo" data-enviar="Enviar minhas respostas">
         <p class="fr-q">Situação 4 de 5 · Revisão para a prova</p>
-        <div class="lados-sc">
-          <div class="sc pro"><span class="who">✓ Ana usa a IA assim</span><q>“Crie 5 questões sobre o sistema solar e só me mostre a correção depois que eu responder.”</q><p class="fr-text">Potencialidade: <span class="gap" data-opts="Prática|Tutoria|Planejamento|Explicações|Devolutiva" data-ok="0"></span></p></div>
-          <div class="sc con"><span class="who">✗ Bruno usa a IA assim</span><q>Pede para a IA corrigir as respostas dele. Ela marca como certa uma resposta errada, e ele estuda com ela.</q><p class="fr-text">Armadilha: <span class="gap" data-opts="Autoria|Privacidade|Resposta pronta|Gabarito errado|Invenções" data-ok="3"></span></p></div>
-        </div>
-        <p class="fr-why"><b>Mesmo recurso, dois lados.</b> <b>Praticar</b> com questões sob medida ajuda a fixar. Mas, se o <b>gabarito estiver errado</b>, você treina o erro. Confira no livro.</p>
+        <div class="prompt lados-pedido"><div class="p-head"><b>O mesmo pedido à IA</b></div><q>Crie 10 questões sobre o sistema solar, com gabarito.</q></div>
+        <p class="lados-ins">Classifique cada efeito deste pedido:</p>
+        <div hidden><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="O gabarito pode trazer uma resposta errada."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Gera um treino sob medida em segundos."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Se você olhar o gabarito antes de responder, o treino não vale."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Mostra o que você ainda não sabe antes da prova."></span></div>
+        <p class="fr-why"><b>Mesmo pedido, dois lados.</b> Treinar com a IA funciona quando você <b>responde primeiro</b> e <b>confere o gabarito</b> no livro ou com o professor.</p>
       </div>
     </div>
     <div class="fr-lv" data-lv="4">
-      <div class="frase lados-fr" data-poll="lados-5" data-show="1" data-acerto="acertou a dupla" data-enviar="Enviar minhas respostas">
+      <div class="frase lados-fr" data-poll="lados-c5" data-show="1" data-detalhe data-acerto="classificou tudo certo" data-enviar="Enviar minhas respostas">
         <p class="fr-q">Situação 5 de 5 · Rotina de estudos</p>
-        <div class="lados-sc">
-          <div class="sc pro"><span class="who">✓ Ana usa a IA assim</span><q>“Monte um plano de estudo de 2 semanas para a prova de História, 1 hora por dia.”</q><p class="fr-text">Potencialidade: <span class="gap" data-opts="Prática|Tutoria|Planejamento|Explicações|Devolutiva" data-ok="2"></span></p></div>
-          <div class="sc con"><span class="who">✗ Bruno usa a IA assim</span><q>Para organizar a rotina, cola o boletim com nome completo, matrícula e endereço.</q><p class="fr-text">Armadilha: <span class="gap" data-opts="Autoria|Privacidade|Resposta pronta|Gabarito errado|Invenções" data-ok="1"></span></p></div>
-        </div>
-        <p class="fr-why"><b>Mesmo recurso, dois lados.</b> A IA ajuda a <b>planejar</b> o tempo, e para isso não precisa dos seus <b>dados pessoais</b>: nome, matrícula e endereço ficam de fora.</p>
+        <div class="prompt lados-pedido"><div class="p-head"><b>O mesmo pedido à IA</b></div><q>Monte meu plano de estudos para o bimestre. Vou colar meu boletim aqui.</q></div>
+        <p class="lados-ins">Classifique cada efeito deste pedido:</p>
+        <div hidden><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Divide os conteúdos em dias e horários."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="0" data-txt="Mostra onde focar, a partir das notas mais baixas."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="Você expõe nome, matrícula e notas sem precisar."></span><span class="gap" data-opts="✓ Potencialidade|✗ Armadilha" data-ok="1" data-txt="O plano pode não caber na sua rotina, se você não contar como ela é."></span></div>
+        <p class="fr-why"><b>Mesmo pedido, dois lados.</b> O plano ajuda a <b>organizar o tempo</b>, mas não precisa dos seus <b>dados pessoais</b>: basta dizer as matérias e as notas, sem nome nem matrícula.</p>
       </div>
     </div>
-    <aside class="notes">Cinco situações, uma de cada vez (botões 1 a 5 no canto). Em cada uma, a Ana usa a IA de um jeito que ajuda e o Bruno usa o mesmo recurso de um jeito que atrapalha. A turma escolhe a potencialidade da Ana e a armadilha do Bruno e envia; a contagem de respostas aparece ao vivo. Quando a maioria enviar, toque em “Mostrar resultado” (ou avance com o passador): aparece a dupla certa, a porcentagem de quem acertou e a frase que liga os dois lados. O próximo clique vai para a situação seguinte; depois da 5ª, segue para o próximo slide. Pergunte: “qual desses você já viu acontecer?”.</aside>
+    <aside class="notes">Cinco situações, uma de cada vez (botões 1 a 5 no canto). Em cada uma há um único pedido feito à IA, e quatro efeitos desse mesmo pedido. A turma classifica cada efeito como potencialidade ou armadilha e envia; a contagem de respostas aparece ao vivo. Quando a maioria enviar, toque em “Mostrar resultado” (ou avance com o passador): aparece a classificação certa, a porcentagem de acerto de cada afirmação e uma frase de fechamento. Comente a afirmação com menor acerto. O próximo clique vai para a situação seguinte; depois da 5ª, segue para o próximo slide. Ideia central: não é o recurso que é bom ou ruim, é o jeito de usar.</aside>
   </section>
 
   <!-- ═════════════ 03 EXPERIMENTAR ═════════════ -->
@@ -798,9 +793,9 @@
     b.textContent = location.protocol === 'file:' ? 'index.html' : location.host + location.pathname.replace(/[^/]*$/, '');
   });
 </script>
-<script src="assets/data/casos.js?v=23"></script>
-<script src="assets/js/simulador.js?v=23"></script>
-<script src="assets/js/deck.js?v=23"></script>
-<script src="assets/js/ao-vivo.js?v=23"></script>
+<script src="assets/data/casos.js?v=26"></script>
+<script src="assets/js/simulador.js?v=26"></script>
+<script src="assets/js/deck.js?v=26"></script>
+<script src="assets/js/ao-vivo.js?v=26"></script>
 </body>
 </html>

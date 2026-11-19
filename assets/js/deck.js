@@ -101,6 +101,9 @@
   // Ao enviar, conta como voto numa enquete de 2 opções: 0 = acertou, 1 = errou.
   // Dentro de um slide com níveis (.fr-lv), o resultado de cada nível só aparece
   // quando quem apresenta toca em "Mostrar resultado" (fica em extra.rev).
+  // Classificar (.gap com data-txt): cada lacuna vira uma linha com a afirmação.
+  // data-detalhe: o voto guarda quais itens a pessoa acertou (um bit por item),
+  // para mostrar a porcentagem de acerto de cada afirmação.
   let picks = {};
   try { picks = JSON.parse(sessionStorage.getItem(KEY + 'frases') || '{}'); } catch (e) {}
   deck.querySelectorAll('.frase[data-poll]').forEach((f) => {
@@ -113,8 +116,11 @@
     const sel = picks[id] || gaps.map(() => -1);
     const bank = document.createElement('div');
     bank.className = 'fr-bank';
-    bank.innerHTML = gaps.map((g, n) => `<div class="fr-row"><i>${n + 1}</i>${g.opts.map((o, k) =>
-      `<button type="button" data-g="${n}" data-k="${k}">${o}</button>`).join('')}</div>`).join('');
+    const detalhe = f.hasAttribute('data-detalhe');
+    const btns = (g, n) => g.opts.map((o, k) => `<button type="button" data-g="${n}" data-k="${k}">${o}</button>`).join('');
+    bank.innerHTML = gaps.map((g, n) => g.el.dataset.txt
+      ? `<div class="fr-row st"><i>${n + 1}</i><span class="fr-st">${g.el.dataset.txt}</span><span class="fr-opts">${btns(g, n)}</span><em class="fr-pct"></em></div>`
+      : `<div class="fr-row"><i>${n + 1}</i>${btns(g, n)}</div>`).join('');
     const send = document.createElement('button');
     send.type = 'button';
     send.className = 'fr-send';
@@ -136,15 +142,17 @@
       if (mine[id] != null || sel.includes(-1)) return;
       picks[id] = sel;
       try { sessionStorage.setItem(KEY + 'frases', JSON.stringify(picks)); } catch (e) {}
-      vote(id, gaps.every((g, n) => sel[n] === g.ok) ? 0 : 1);
+      vote(id, detalhe ? gaps.reduce((m, g, n) => m | (sel[n] === g.ok ? 1 << n : 0), 0)
+        : gaps.every((g, n) => sel[n] === g.ok) ? 0 : 1);
     });
-    polls[id] = { el: f, btns: [], size: 2, frase: { gaps, sel, bank, send, res, reveal }, lv: !!f.closest('.fr-lv'), show: parseInt(f.dataset.show || '0', 10), slide: slides.indexOf(f.closest('.slide')) };
+    polls[id] = { el: f, btns: [], size: detalhe ? 1 << gaps.length : 2, frase: { gaps, sel, bank, send, res, reveal, detalhe }, lv: !!f.closest('.fr-lv'), show: parseInt(f.dataset.show || '0', 10), slide: slides.indexOf(f.closest('.slide')) };
   });
 
   const renderFrase = (id) => {
     const P = polls[id], F = P.frase;
     const c = counts[id] || [];
-    const total = (c[0] || 0) + (c[1] || 0);
+    const total = c.reduce((a, b) => a + (b || 0), 0);
+    const full = F.detalhe ? (1 << F.gaps.length) - 1 : 0;   // voto de quem acertou tudo
     const results = P.slide === cur && (P.lv ? extra.rev.includes(id) : step >= P.show);
     const sent = mine[id] != null;
     F.gaps.forEach((g, n) => {
@@ -163,10 +171,23 @@
     F.send.textContent = sent ? '✓ Enviado' : (P.el.dataset.enviar || 'Enviar minha frase');
     P.el.classList.toggle('sent', sent);
     P.el.classList.toggle('results', results);
-    const pct = total ? Math.round((c[0] || 0) / total * 100) : 0;
+    const pct = total ? Math.round((c[full] || 0) / total * 100) : 0;
     const n = total === 1 ? '1 resposta' : total + ' respostas';
+    if (F.detalhe) {
+      // % de acerto de cada item: soma dos votos com o bit do item ligado
+      F.bank.querySelectorAll('.fr-pct').forEach((el, g) => {
+        const ok = c.reduce((a, v, m) => a + ((m >> g) & 1 ? v || 0 : 0), 0);
+        const v = total ? Math.round(ok / total * 100) : 0;
+        el.textContent = results && total ? v + '% acertou' : '';
+        el.classList.toggle('low', v < 50);
+      });
+    }
     if (results) {
-      const eu = mine[id] === 0 ? '<em class="hit">✓ Você acertou</em>' : mine[id] === 1 ? '<em class="miss">✗ Compare com a frase certa</em>' : '';
+      const hits = F.detalhe && mine[id] != null ? F.gaps.filter((g, k) => (mine[id] >> k) & 1).length : 0;
+      const eu = mine[id] == null ? ''
+        : mine[id] === full ? '<em class="hit">✓ Você acertou ' + (F.detalhe ? 'tudo' : '') + '</em>'
+        : F.detalhe ? `<em class="miss">✗ Você acertou ${hits} de ${F.gaps.length}: compare com a classificação certa</em>`
+        : '<em class="miss">✗ Compare com a frase certa</em>';
       F.res.innerHTML = `<div class="fr-bar"><i style="width:${pct}%"></i></div><span><b>${pct}%</b> ${P.el.dataset.acerto || 'montou a frase certa'} · ${n}</span>${eu}`;
     } else {
       F.res.innerHTML = `<span class="fr-count"><b>${total}</b> ${total === 1 ? 'resposta enviada' : 'respostas enviadas'}${sent ? ' · aguarde o resultado' : ''}</span>`;
