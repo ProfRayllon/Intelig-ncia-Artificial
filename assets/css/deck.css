@@ -609,3 +609,8 @@ html.portrait .fr-lv:not(.revealed) .fr-why { display: none; }
 html.portrait .tline { grid-template-columns: minmax(0, 1fr); gap: 26px; flex: none; }
 html.portrait .tline li > b { font-size: 48px; }
 html.portrait .tline li p { font-size: 23px; padding-top: 12px; }
+.tline li .tl-foto { width: 190px; height: 190px; border-radius: 50%; object-fit: cover; border: 6px solid var(--claro); align-self: flex-start; }
+.tline li.now .tl-foto { border-color: var(--vermelho); }
+html.portrait .tline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 4px 18px; align-items: center; }
+html.portrait .tline li .tl-foto { width: 110px; height: 110px; border-width: 4px; grid-row: span 2; }
+html.portrait .tline li p { padding-top: 8px; }
