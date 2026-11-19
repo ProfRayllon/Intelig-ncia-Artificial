@@ -615,3 +615,35 @@ html.portrait .tline li { display: grid; grid-template-columns: 110px minmax(0, 
 html.portrait .tline li .tl-foto { width: 110px; height: 110px; border-width: 4px; grid-row: span 2; }
 html.portrait .tline li p { padding-top: 8px; }
 html.portrait .cols.lab { flex: none; }
+
+/* Os dois lados: 5 situações para relacionar potencialidade e armadilha */
+.slide[data-lv="3"] .fr-lv[data-lv="3"], .slide[data-lv="4"] .fr-lv[data-lv="4"] { display: flex; }
+.lv-switch.sit button { padding: 10px 22px; }
+.lv-switch.sit button[data-lv="2"][aria-pressed="true"] { background: var(--azul); }
+.lados .frase { flex: 1; min-height: 0; padding: 24px 32px; gap: 14px; }
+.lados-sc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.lados .sc { background: var(--branco); border: 3px solid; padding: 18px 26px; display: flex; flex-direction: column; gap: 10px; }
+.lados .sc.pro { border-color: var(--verde); }
+.lados .sc.con { border-color: var(--vermelho); }
+.lados .sc .who { font-size: 20px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.lados .sc.pro .who { color: var(--verde); }
+.lados .sc.con .who { color: var(--vermelho); }
+.lados .sc q { font-size: 25px; line-height: 1.4; color: var(--marinho); quotes: none; }
+.lados .sc .fr-text { font-size: 27px; line-height: 1.5; margin-top: auto; }
+.lados .sc.pro .gap i { background: var(--verde); }
+.lados .sc.con .gap i { background: var(--vermelho); }
+.lados .fr-bank { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.lados .fr-row { gap: 8px; }
+.lados .fr-row button { font-size: 21px; padding: 7px 14px; }
+.lados .fr-row:nth-child(1) i { background: var(--verde); }
+.lados .fr-row:nth-child(2) i { background: var(--vermelho); }
+.lados .fr-why { font-size: 24px; padding: 14px 22px; }
+.lados .fr-send, .lados .fr-reveal { font-size: 21px; padding: 10px 22px; }
+.lados .fr-res { font-size: 20px; }
+html.portrait .lados-sc, html.portrait .lados .fr-bank { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+html.portrait .lados .frase { flex: none; padding: 20px 20px; }
+html.portrait .lados .sc q { font-size: 21px; }
+.lados .fr-lv:not(.revealed) .fr-why { display: none; }
+.lados .fr-row button { font-size: 20px; padding: 7px 12px; }
+.lados .fr-bank { align-items: start; }
+.lados .fr-row i { align-self: flex-start; margin-top: 6px; }

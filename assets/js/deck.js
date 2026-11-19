@@ -160,14 +160,14 @@
       b.disabled = sent;
     });
     F.send.disabled = sent || F.sel.includes(-1);
-    F.send.textContent = sent ? '✓ Frase enviada' : 'Enviar minha frase';
+    F.send.textContent = sent ? '✓ Enviado' : (P.el.dataset.enviar || 'Enviar minha frase');
     P.el.classList.toggle('sent', sent);
     P.el.classList.toggle('results', results);
     const pct = total ? Math.round((c[0] || 0) / total * 100) : 0;
     const n = total === 1 ? '1 resposta' : total + ' respostas';
     if (results) {
       const eu = mine[id] === 0 ? '<em class="hit">✓ Você acertou</em>' : mine[id] === 1 ? '<em class="miss">✗ Compare com a frase certa</em>' : '';
-      F.res.innerHTML = `<div class="fr-bar"><i style="width:${pct}%"></i></div><span><b>${pct}%</b> montou a frase certa · ${n}</span>${eu}`;
+      F.res.innerHTML = `<div class="fr-bar"><i style="width:${pct}%"></i></div><span><b>${pct}%</b> ${P.el.dataset.acerto || 'montou a frase certa'} · ${n}</span>${eu}`;
     } else {
       F.res.innerHTML = `<span class="fr-count"><b>${total}</b> ${total === 1 ? 'resposta enviada' : 'respostas enviadas'}${sent ? ' · aguarde o resultado' : ''}</span>`;
     }
@@ -418,6 +418,16 @@
     const f = el.querySelector(`.fr-lv[data-lv="${extra.lvl[el.dataset.nivel] || 0}"] .frase[data-poll]`);
     return f ? f.dataset.poll : null;
   };
+  // data-nivel-seq: os níveis são etapas em sequência (o passador anda entre eles).
+  const levelStep = (dir) => {
+    const el = slides[cur];
+    if (!el || el.dataset.nivelSeq == null) return false;
+    const key = el.dataset.nivel;
+    const to = (extra.lvl[key] || 0) + dir;
+    if (to < 0 || to >= el.querySelectorAll('.fr-lv').length) return false;
+    setExtra({ ...extra, lvl: { ...extra.lvl, [key]: to } });
+    return true;
+  };
   const toggleReveal = (id, on = !extra.rev.includes(id)) => {
     if (on === extra.rev.includes(id)) return;
     setExtra({ ...extra, rev: on ? [...extra.rev, id] : extra.rev.filter((r) => r !== id) });
@@ -451,6 +461,7 @@
     if (locked) return;
     const lp = levelPoll();
     if (lp && !extra.rev.includes(lp)) return toggleReveal(lp, true);
+    if (levelStep(1)) return;
     if (step < stepsOf(slides[cur]) - 1) go(cur, step + 1);
     else if (cur < slides.length - 1) go(cur + 1, 0);
   };
@@ -458,6 +469,7 @@
     if (locked) return;
     const lp = levelPoll();
     if (lp && extra.rev.includes(lp)) return toggleReveal(lp, false);
+    if (levelStep(-1)) return;
     if (step > 0) go(cur, step - 1);
     else if (cur > 0) go(cur - 1, stepsOf(slides[cur - 1]) - 1);
   };
